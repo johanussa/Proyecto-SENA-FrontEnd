@@ -1,0 +1,253 @@
+* {  
+    padding: 0; 
+    margin: 0; 
+}
+.body-register-user { width: 100%; }
+main.contenedor_main {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    background: url('../../../assets/Fondo.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* Contenedor de imagen y titulo */
+
+main.contenedor_main .fondo {
+    text-align: center;
+    position: relative;
+}
+section.fondo img.logoTitle {
+    width: 40%;
+    margin-top: 18%;
+}
+section.fondo div.logo_sanf {
+    width: 100%;
+    text-align: start;
+    min-width: 180px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 12px;
+    position: sticky;
+    top: calc(100vh - 38px);
+}
+section.fondo div.logo_sanf img { 
+    width: 45px; 
+    vertical-align: middle;
+    margin-right: 6px;
+}
+section.formulario header.head_title {
+    display: flex;
+    text-align: center;
+    font-size: 1.5rem;
+    height: 100px;
+    line-height: 30px;
+    color: #fff;
+}
+header.head_title h1 { margin: auto; }
+header.head_title img#logoMedia { 
+    display: none; 
+    width: 14%;
+    height: 14%;
+    margin: 10px;
+}
+
+/* Contenedor de Formulario */
+
+section.formulario { background-color: rgba(0, 0, 0, .6); }
+form#form-register-user {
+    height: 80%;
+    padding: 45px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    transition: padding .6s;
+    align-content: center;
+}
+form#form-register-user .form_label {
+    color: #fff;
+    display: inline-block;
+    font-size: 1.12rem;
+    padding: 5px 8px;
+    cursor: pointer;
+}
+form#form-register-user .form_label::after {
+    content: ' *';
+    color: red;
+}
+form#form-register-user .group_input { position: relative; }
+form#form-register-user .form_input {
+    width: 98%;
+    background-color: #fff;
+    border: 3px solid transparent;
+    border-radius: 5px;
+    height: 34px;
+    padding: 0 10px;
+    transition: border .5s ease;
+}
+form#form-register-user .form_input:focus {
+    outline: none;
+    border: 2px solid #0ea540;
+    box-shadow: 0px 0px 5px 2px #00000060;
+}
+form#form-register-user .input_error {
+    font-size: 16px;
+    margin: 15px 0 0 0;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0px 0px 3px rgb(255, 0, 0);
+    display: none;
+}
+div i.eyePass {
+    position: absolute;
+    top: 7px;
+    right: 24px;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 0;
+    transition: margin-right .5s;
+}
+div i.icon_validate {
+    position: absolute;
+    top: 7px;
+    right: 20px;
+    z-index: 10;
+    opacity: 0;
+}
+div i.eyePass:hover { transform: scale(1.3); }
+section#message_error {
+    height: 45px;
+    line-height: 45px;
+    background-color: #f66060;
+    border-radius: 5px;
+    font-size: 18px;
+    color: #fff;
+    display: none;
+    transition: box-shadow .5s ease;
+}
+section#message_error, section.group_btns {
+    grid-column: span 2;
+    text-align: center;
+}
+section.group_btns { margin-top: 30px; }
+section.group_btns .btn_send {
+    height: 40px;
+    width: 190px;
+    margin: 0 10px 15px;
+    border: 1px solid #000000;
+    border-radius: 25px;
+    font-weight: 700;
+    cursor: pointer;
+    background: linear-gradient(rgb(39, 190, 72), rgb(0, 0, 0));
+    color: #fff;
+    transition: box-shadow .3s ease;
+}
+section.group_btns .btn_send:hover {
+    box-shadow: 0px 0px 10px 5px #ffffff50;
+}
+section.group_btns p#form_message_ok {
+    font-size: 20px;
+    font-weight: 600;
+    color: #119200;
+    text-shadow: 0px 0px 5px #00000070;
+    display: none;
+}
+
+/* Estilos para las validaciones */
+
+form#form-register-user .form_correct .icon_validate {
+    color: #1ed12d;
+    opacity: 1;
+}
+form#form-register-user .form_correct .form_label::after { content: ''; }
+form#form-register-user .form_correct .eyePass,
+form#form-register-user .form_incorrect .eyePass { 
+    margin-right: 20px; 
+    opacity: 1;
+}
+form#form-register-user .form_incorrect .icon_validate {
+    color: #ff0000;
+    opacity: 1;
+}
+form#form-register-user .form_incorrect .form_label { 
+    color: #ff0000; 
+}
+form#form-register-user .form_incorrect .form_input { 
+    border: 2px solid #ff0000; 
+    color: #bb2929; 
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 1000px) {
+    form#form-register-user { padding: 20px; }
+    form#form-register-user .form_label { 
+        font-size: 1rem; 
+        padding: 4px 5px;
+    }
+    header.head_title h1 { padding: 10px; margin: 10px; }
+}
+@media screen and (max-width: 850px) {
+    form#form-register-user { 
+        grid-template-columns: 1fr; 
+        padding: 30px;
+        height: auto;
+    }
+    section#message_error, section.group_btns { grid-column: span 1; }
+    section#message_error { font-size: 15px; }
+    main.contenedor_main {
+        grid-template-columns: 1fr;
+        background-image: none;
+        background-color: #12701750;
+        height: auto;
+    }
+    form#form-register-user .form_input { height: 35px; }
+    div i.eyePass { 
+        top: 10px; 
+        right: 30px;
+    }
+    div i.icon_validate {
+        top: 10px;
+        right: 24px;
+    }
+    section.fondo { display: none; }
+    section.formulario header.head_title {
+        font-size: 1.1rem; 
+        padding: 5px;
+        height: auto;
+        background: url('../../../assets/Fondo.jpg');
+        background-size: cover;
+        background-position: center;
+        color: #fff;
+        text-shadow: 0px 0px 5px black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    header.head_title img#logoMedia { 
+        display: block;
+        align-self: center; 
+        padding: 0;
+        width: 60px;
+    }
+}
+@media screen and (max-width: 530px) {
+    form#form-register-user { padding: 20px; }
+    section#message_error { font-size: 14px; }
+}
+@media screen and (max-width: 470px) {
+    section#message_error { 
+        height: 60px;
+        font-size: 15px;
+        line-height: 20px;
+        padding: 8px;
+    }
+}
+@media screen and (max-width: 345px) {
+    form#form-register-user { padding: 10px; }
+    section.formulario header.head_title { font-size: 1rem; }
+    form#form-register-user .form_label { font-size: .9rem; }
+}

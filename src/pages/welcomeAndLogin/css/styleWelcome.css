@@ -1,0 +1,363 @@
+* { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+/* Pagina de Bienvenida */
+
+.welcomePage {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    background: url('../../../assets/Fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+.welcomeContent {
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 0px 10px rgb(0, 0, 0);
+    display: grid;
+    grid-template-rows: 1fr 7fr 7fr;
+    transition: all 2s ease-in-out;
+}
+.logoWelcome { 
+    width: 60px; 
+    vertical-align: middle; 
+    padding-right: 8px;
+}
+.divMain {
+    max-width: 850px;
+    font-size: 1.5rem;
+    text-align: center;
+    justify-self: center;
+}
+.divMain h1 { margin-bottom: 30px; }
+.btnWelcome {
+    align-self: center;
+    justify-self: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    width: 160px;
+    letter-spacing: .6px;
+    padding: 10px 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: #00000099;
+    color: #fff;
+    border: 2px solid #fff;
+    transition: all .4s ease-out;
+}
+.btnWelcome:hover {
+    box-shadow: 0px 0px 10px 2px #fff;
+    background-color: #00000050;
+}
+
+/* Modal */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #000000bd;
+    display: grid;
+    place-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .8s .6s;
+    --transform: translateY(-100vh);
+    --transition: transform .6s;
+}  
+.contain_modal {
+    width: 90%;
+    max-width: 650px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 5px #FFFFFF50;
+    text-align: center;
+    background-color: #fff;
+    transform: var(--transform);
+    transition: var(--transition);
+}
+#group_type_doc, #group_numDocRec {
+    width: 80%;
+    min-width: 260px;
+    margin: 0 auto;
+}
+.form_correct #numDocRec { border: 2px solid #00af4f; }
+.head_modal {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    border-bottom: 1px solid #00000050;
+}
+.body_modal .label_rec {
+    width: 315px;
+    padding: 5px;
+    font-weight: 700;
+}
+.body_modal > p { 
+    margin: 0;
+    font-size: 1.2rem; 
+    padding: 10px;
+    font-style: italic;
+}
+.modal_title { 
+    display: flex;
+    align-items: center;
+}
+.modal_title i { 
+    font-size: 35px;
+    margin: 15px; 
+}
+.head_modal button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 40px;
+    font-size: 25px;
+}
+.head_modal button:hover { color: rgb(134, 134, 134); }
+.footer_modal {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    border-top: 1px solid #00000050;
+}
+.footer_modal button { 
+    margin: 20px;
+    width: 180px; 
+}
+.footer_modal button:hover::after {
+    font-size: 14px;
+    content: ' ▶';
+}
+.modal_show {
+    opacity: 1;
+    pointer-events: unset;
+    transition: opacity 1s;
+    --transform: translateY(0);
+    --transition: transform .8s .6s; 
+}
+#form_error_rec { margin: 0 auto; }
+#form_error_rec p { padding: 4px; width: 60%; margin: 0 auto; }
+section.modal form#form_get_pass select,
+section.modal form#form_get_pass input {
+    border: 1px solid #00000050;
+    background-color: #fff;
+    color: #000;
+    height: 29px;
+    padding: 0 10px;
+    font-size: 14px;
+    width: 87%;
+    border-radius: 6px;
+    transition: box-shadow 0.3s ease;
+}
+section.modal form#form_get_pass input::placeholder {
+    color: black;
+}
+
+/* Contenedor Login */
+
+.loginContent {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    text-shadow: 0px 0px 10px rgb(0, 0, 0);
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+.logoSanf { 
+    width: 100px; 
+    vertical-align: middle;
+    margin-right: 20px;
+}
+.register {
+    width: 100%;
+    height: 100%;
+    font-size: 1.4rem;
+    padding: 80px;
+    display: grid;
+    align-items: center;
+    transition: background-color .8s;
+}
+.register .logo span {
+    font-weight: 700;
+    font-size: 1.6rem;
+}
+.divBtn { text-align: start; }
+.createCount button, .btn_submit{
+    width: 150px;
+    margin: 20px 0 30px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    background-color: #38ad42;
+    color: #fff;
+    text-shadow: 0px 0px 4px black;
+    transition: box-shadow .4s ease;
+}
+.createCount button:hover, .btn_submit:hover {
+    background-color: #00af4f;
+    box-shadow: 0px 0px 5px 2px #fff;
+}
+.socialMedia a {
+    text-decoration: none;
+    color: #fff;
+    margin: 6px;
+    transition: text-shadow .3s ease;
+}
+.socialMedia a:hover { text-shadow: 0px 0px 5px white; }
+
+/* Formulario */
+
+.loginForm {
+    width: 70%;
+    min-width: 380px;
+    text-align: center;
+    justify-self: center;
+}
+.logoLogin { 
+    width: 150px; 
+    margin-bottom: 20px;
+}
+#formulario {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 5px;
+    padding: 10px;
+}
+.form_input input, #sectionLogin select {
+    width: 87%;    
+    padding: 6px 10px;
+    border: none;
+    border-radius: 6px;
+    border-bottom: 2px solid #fff;
+    background-color: #00000060;
+    color: #fff;
+    font-size: 16px;
+    transition: box-shadow .3s ease;
+}
+.form_input input:focus, .form_input select:focus {
+    outline: none;
+    border: 1px solid #00ca5b;
+}
+.form_label_login {
+    text-align: start;
+    width: 212px;
+    display: block;
+    margin: 3px 0 3px 13%;
+    font-size: 18px;
+    cursor: pointer;
+}
+#sectionLogin ::placeholder { color: rgba(255, 255, 255, 0.8); }
+.iconsLogin {
+    font-size: 25px;
+    margin: 8px;
+    vertical-align: middle;
+    transition: color .6s ease;
+}
+.forget_pass {
+    margin: 8px;
+    font-size: 18px;
+    text-align: end;
+}
+.forget_pass button{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    letter-spacing: 1px;
+    transition: text-shadow .3s ease-out;
+}
+.forget_pass button:hover {
+    color: greenyellow;
+    text-shadow: 0px 0px 5px white;
+}
+.btn_submit { margin-top: 20px; }
+.form_input { position: relative; }
+.iconEye {
+    position: absolute;
+    top: 8px;
+    right: 22px;
+    cursor: pointer;
+}
+.iconEye:hover { text-shadow: 0px 0px 4px white; }
+
+/* Errores de formulario */
+
+.message_error {
+    color: rgb(255, 115, 115);
+    font-size: 14px;
+    text-align: center;
+    display: none;
+    margin: 12px 0 0 0;
+    border-radius: 5px;
+    transition: box-shadow .3s ease;
+}
+#form_error p { 
+    font-size: 18px; 
+    margin: 5px; 
+}
+.form_incorrect p { display: block; }
+.form_incorrect label, .form_incorrect i { 
+    color: rgb(255, 115, 115) !important; 
+}
+.form_incorrect input{ border: 2px solid red !important; }
+
+/* Media Queries */
+
+@media screen and (max-width: 1330px) {
+    .loginContent { grid-template-columns: 1fr 1fr; }
+    .loginForm {  
+        margin-top: 20px; }
+    .logoSanf { 
+        width: 60px; 
+        transition: width 1s; 
+    }    
+    .form_input input, .form_input select { width: 85%; }
+    .welcomePage { overflow: auto; }
+}
+@media screen and (max-width: 770px) {
+    .loginContent { grid-template-columns: 1fr; }
+    .loginForm { justify-self: center; }
+    .logoSanf { 
+        width: 100px; 
+        transition: width 1s; 
+    }
+    .register { padding: 40px; }
+    .form_input input, .form_input select { width: 85%; }
+    .head_modal button { margin-left: 30px; }
+    .footer_modal button { margin: 10px; }
+}
+@media screen and (max-width: 450px) {
+    .welcomeContent { 
+        padding: 12px;
+        grid-template-rows: 1fr 2fr 2fr; 
+    }
+    .logoSanf { width: 60px; }
+    .register { padding: 20px; }
+    .footer_modal button { margin: 8px; }
+    .head_modal button { margin-left: 20px; }
+    .label_rec { font-size: 20px; }
+    #group_type_doc, #group_numDocRec { width: 95%; }
+}
+@media screen and (max-width: 280px) {
+    .head_modal { grid-template-columns: 3fr 1fr; }
+    .contain_modal { justify-self: start; width: 280px; }
+}

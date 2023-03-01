@@ -1,0 +1,106 @@
+.contain_user {
+    background-color: rgb(243, 255, 240);
+    min-height: 100vh;
+    min-width: 390px;
+}
+
+/* Estilos Cabecera */
+
+header.head_user {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-items: center;
+}
+section.images { position: relative; }
+.images .logo_sena img { 
+    width: 160px; 
+    margin: 20px 0 0;
+}
+.title_search .title i {
+    font-size: 45px;
+    margin-right: 20px;
+}
+.title_search .title h1 { font-size: 1.8rem; }
+.head_user .search_box input {
+    text-align: center;
+    font-size: 17px;
+    width: 280px;
+    padding: 5px 10px;
+    margin: 20px 5px 0;
+    border-radius: 4px;
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: transparent;
+    transition: box-shadow .3s;
+}
+.head_user .search_box input:focus {
+    outline: none;
+}
+.head_user .search_box span { font-weight: 500; }
+header.head_user h4 { 
+    margin: 10px 0 5px;
+    font-size: 1.2rem;
+    text-align: center; 
+}
+header.head_user h4 i { 
+    font-size: 2rem; 
+    margin-right: 10px;
+}
+
+/* Estilos de la Tabla */
+
+.table_main { overflow: auto; }
+main.table_main table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 1800px;
+    min-width: 950px;
+    margin: 0 auto;
+}
+table tbody tr:nth-child(even) { background-color: rgb(177, 221, 176); }
+table tbody tr:nth-child(odd) { background-color: rgb(201, 233, 200); }
+table tbody tr:hover { background-color: rgb(224, 255, 223); }
+main.table_main table .table-success .header {
+    height: 40px;
+    background-color: rgb(134, 189, 132);
+}
+.table-success .header .posUser {
+    font-size: 19px;
+    font-weight: 900;
+}
+main.table_main {
+    text-align: center;
+    padding: 15px;
+}
+section.search_box {
+    justify-self: center;
+    text-align: center;
+    padding: 0 30px;
+}
+.contain_btns { padding: 0; }
+.contain_btns .btnAction {
+    border: none;
+    font-size: 25px;
+    margin: 3px 5px;
+    cursor: pointer;
+    background: transparent;
+}
+.table-success .filter { cursor: pointer; user-select: none; }
+.table-success .filter:hover { background-color: rgb(118, 163, 141); }
+.filter.active_filter { background-color: rgb(135, 199, 151); }
+p#data_not_found { 
+    opacity: 0; 
+    position: sticky;
+    left: 10px;
+}
+p#data_not_found.not_found{ opacity: 1; }
+button .iconAct { color: red; }
+button .iconCheck { color: rgb(13, 150, 20); }
+tr th i { margin-left: 6px; }
+
+/* Media Queries */
+
+@media screen and (max-width: 960px) {
+    main.table_main { padding: 5px; }
+}
