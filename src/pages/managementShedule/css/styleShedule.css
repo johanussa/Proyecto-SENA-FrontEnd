@@ -151,7 +151,8 @@ main.main_shedule .header_body input {
 main.main_shedule .header_body input:focus { outline: none; }
 main.main_shedule .header_body button,
 .btns_options article button,
-.type_contrato article button {
+.type_contrato article button,
+section.update_dates button.btn_update_date {
     min-height: 30px;
     padding: 0 15px;
     cursor: pointer;
@@ -160,10 +161,17 @@ main.main_shedule .header_body button,
 }
 main.main_shedule .header_body button:hover,
 .btns_options article button:hover,
-.type_contrato article button:hover {
+.type_contrato article button:hover,
+section.update_dates button.btn_update_date:hover {
     box-shadow: 0px 0px 8px black;
 }
-
+section.update_dates button.btn_update_date { 
+    font-weight: 600; 
+    height: 32px;
+    margin-top: 2px;
+    width: 150px;
+    border-radius: 20px ;
+}
 section.body_shedule .btns_options,
 section.body_shedule .type_contrato {
     margin-top: 20px;
@@ -330,12 +338,14 @@ main.table_shedule .resume {
     padding-left: 50;
     margin: 0 0 15px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
     gap: 15px;
     display: none;
 }
 main.table_shedule .resume span,
-section.show_shedule .resume_Show span {
+section.show_shedule .resume_Show span,
+section.sec_resume_update span {
     display: inline-block;
     border: 2px solid rgb(0, 0, 0);
     border-radius: 10px;
@@ -364,6 +374,7 @@ section.show_shedule {
 }
 section.show_shedule .show_cards {
     display: grid;
+    grid-template-columns: 1fr 1fr;
     padding-left: 25px;
     margin-bottom: 30px;
     gap: 10px;
@@ -466,11 +477,13 @@ section.dates_before {
     display: flex;
     justify-content: space-evenly;
     font-size: 1.5rem;
+    margin: 10px 0 15px;
 }
 section.dates_after {
     display: flex;
     justify-content: center;
     gap: 50px;
+    margin: 10px 0;
 }
 span.btn_color:hover {
     cursor: pointer;
@@ -482,7 +495,16 @@ section.update_info h3 {
     text-align: center;
 }
 section.show_shedule h3 { margin-top: 50px; }
-
+section.sec_resume_update {
+    padding: 16px 20px 0;
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+section.info_resum_update label {
+    font-weight: 700;
+}
 
 
 

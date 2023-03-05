@@ -3,6 +3,7 @@ import { colors } from './data';
 
 function ComponentFile({ user, sizeShed }) {
   if (user.Horario.length) {
+    
     const dataShedule = user.Horario[sizeShed];
     let colorSelector = 1;
 

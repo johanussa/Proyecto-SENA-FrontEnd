@@ -108,8 +108,8 @@ export const data = [
         Estado_Horario: true,
         Horario: [
             {
-                "FechaInicio": "2023-02-01",
-                "FechaFin": "2023-02-28",
+                "FechaInicio": "2023-01-10",
+                "FechaFin": "2023-01-18",
                 "Ficha": [
                     {
                         "Num_Ficha": "2557679",

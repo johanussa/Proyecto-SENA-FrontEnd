@@ -1,10 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useId, useRef, useState } from 'react';
 import senaLogo from '../../assets/Sena_logo.png';
 import logoSANF from '../../assets/logoSANF2.png';
-import { programas, data, aulas, colors, competencias } from './data';
+import { programas, data, aulas, colors, competencias as competData } from './data';
 import CompShowShedule from './CompShowShedule';
 import ComponentFile from './ComponentFile';
 import './css/styleShedule.css';
+import CompUpdateShedule from './CompUpdateShedule';
+import ComponentUpdate from './ComponentUpdate';
 
 let countAsignacion = 1, colorSelector = 0, cantHours = 0;
 let activeFicha = false, flagPlaneacion = false, saveUpdate = false, eventActive = false;
@@ -24,9 +26,9 @@ function ManagementShedule() {
   const [tableTitle, setTableTitle] = useState('');
   const [selectComp, setSelectComp] = useState([]);
   const [showCompShedule, setShowCompShedule] = useState(false);
+  const [showUpdateShedule, setShowUpdateShedule] = useState(false);
   const [sizeShed, setSizeShed] = useState('');
-
-  const tableTd = document.querySelectorAll('td');
+  const [form, setForm] = useState({});
 
   useEffect(() => {
     setDataDB(data);
@@ -39,7 +41,7 @@ function ManagementShedule() {
     const expReg = new RegExp(e.target.value, 'i');
     const filter = dataDB.filter(e =>
       expReg.test(e.Identificacion) || expReg.test(`${e.Nombre} ${e.Apellido}`
-      ));
+    ));
     setDataTemp(filter);
   };
   const selectInstructor = id => {
@@ -61,6 +63,7 @@ function ManagementShedule() {
     length = userSelected.Horario.length - 1;
     setSizeShed(length);
     setShowCompShedule(false);
+    setShowUpdateShedule(false);
 
     const { Nombre, Apellido } = userSelected;
     setNameUser(`${Nombre} ${Apellido}`);
@@ -103,37 +106,42 @@ function ManagementShedule() {
   }
   const changeInput = e => {
     let options = {
-      Num_Ficha: () => Num_Ficha = e.target.value,
-      Num_Ruta: () => Num_Ruta = e.target.value,
-      Trimestre: () => Trimestre = e.target.value,
+      Num_Ficha: () => setForm(prev => ({ ...prev, [e.target.id] : e.target.value })),
+      Num_Ruta: () => setForm(prev => ({ ...prev, [e.target.id] : e.target.value })),
+      Trimestre: () => setForm(prev => ({ ...prev, [e.target.id] : e.target.value })),
       Programa: () => {
-        Programa = e.target.value;
-        const name = Programa.split(' ')[0];
-        const comp = competencias.filter(e => e[name]);
+        setForm(prev => ({ ...prev, [e.target.id] : e.target.value }));
+        const name = e.target.value.split(' ')[0];
+        const comp = competData.filter(e => e[name]);
         setSelectComp(comp[0][name]);
+        area_comp.innerHTML = '';
+        Competencias = [];
       },
-      Codigo: () => Codigo = e.target.value.toUpperCase(),
+      Codigo: () => setForm(prev => ({ ...prev, [e.target.id] : e.target.value.toUpperCase() })),
       Nom_Comp: () => {
         let pos = Competencias.indexOf(e.target.value);
-        if (pos === -1) Competencias.push(e.target.value);
-        else Competencias.splice(pos, 1);
+        if (pos === -1) {
+          Competencias.push(e.target.value); 
+          setForm(prev => ({ ...prev, Competencias }));
+        } else {
+          Competencias.splice(pos, 1);
+          setForm(prev => ({ ...prev, Competencias }));
+        } 
         area_comp.innerHTML = '';
         Competencias.forEach(e => area_comp.innerHTML += `- ${e}\n`);
         document.getElementById('Nom_Comp').value = '';
       },
-      Descripcion: () => Descripcion = e.target.value,
-      Num_Aprendices: () => Num_Aprendices = e.target.value,
+      Descripcion: () => setForm(prev => ({ ...prev, [e.target.id] : e.target.value })),
+      Num_Aprendices: () => setForm(prev => ({ ...prev, [e.target.id] : e.target.value })),
       Ambiente: () => {
         let ambBefore = Ambiente;
-        Ambiente = e.target.value;
+        setForm(prev => ({ ...prev, [e.target.id] : e.target.value }));
         if (aux.length) {
-          shedule.forEach(e => {
-            if (e.Ambiente === ambBefore) e.Ambiente = Ambiente
-          });
+          shedule.forEach(e => { if (e.Ambiente === ambBefore) e.Ambiente = form.Ambiente });
         }
       }
     }
-    options[e.target.id]();
+    if (e.target) options[e.target.id]();
   }
   const updateHours = () => {
     setTotalHours(cantHours);
@@ -201,7 +209,6 @@ function ManagementShedule() {
       document.querySelector('.form_complem').style.display = 'none';
 
       if (!shedule.some(e => e.color === colorSelector)) {
-        console.log('first')
         resume.removeChild(resume.lastElementChild);
         if (flagPlaneacion) flagPlaneacion = false;
         complement = [];
@@ -210,19 +217,7 @@ function ManagementShedule() {
         activeFicha = false;
         colorSelector--;
       }
-      if (activeFicha && !dataFicha.some(e => e.Num_Ficha === Num_Ficha)) {
-        dataFicha.push({
-          Num_Ficha,
-          Num_Ruta,
-          Trimestre,
-          Programa,
-          Codigo,
-          Competencias,
-          Descripcion,
-          Num_Aprendices,
-          Ambiente
-        });
-      }
+      if (activeFicha && !dataFicha.some(e => e.Num_Ficha === form.Num_Ficha)) dataFicha.push(form);
       if (textCompl) {
         complement.push(textCompl);
         textCompl = '';
@@ -383,17 +378,28 @@ function ManagementShedule() {
     } else { alert('Aun No ha asignado las horas requeridas'); }
   }
 
-  function viewShedule() {
+  const viewShedule = () => {
     const dataShedule = userSelected.Horario;
     document.querySelector('section.show_shedule').style.display = 'flex';
     document.querySelector('.btns_table').style.display = 'none';
     document.querySelector('.btns_options').style.display = 'none';
-    document.querySelector('.resume').innerHTML = '';
     setShowCompShedule(true);
+    if (dataShedule.length) document.querySelector('.table_shedule').style.display = 'grid';
+  }
+  const updateShedule = () => {
+    userSelected = JSON.parse(JSON.stringify(dataDB[indexUser]));
+    document.querySelector('.btns_table').style.display = 'none';
+    document.querySelector('.btns_options').style.display = 'none';
+    document.querySelector('section.update_info').style.display = 'grid';
+    setShowUpdateShedule(true);
 
-    if (dataShedule.length) {
+    if (userSelected.Horario.length) {
+      const user = JSON.parse(JSON.stringify(dataDB[indexUser].Horario[length]));
       document.querySelector('.table_shedule').style.display = 'grid';
-      document.querySelector('.resume').style.display = 'grid';
+      document.querySelector('.show_hours').style.display = 'block';
+      cantHours = user.Horas.length;
+      shedule = user.Horas.map(e => e);
+      updateHours();
     }
   }
 
@@ -467,7 +473,7 @@ function ManagementShedule() {
             <article>
               <button onClick={viewShedule}>Ver Horarios</button>
               <button onClick={createShedule}>Crear Horarios</button>
-              <button onclick="updateShedule()">Modificar Horario</button>
+              <button onClick={updateShedule}>Modificar Horario</button>
             </article>
           </section>
 
@@ -483,11 +489,11 @@ function ManagementShedule() {
             <h2>Crear Horarios</h2>
             <article className="dates">
               <div>
-                <label htmlFor="date_start">Fecha de Inicio:</label>
+                <label htmlFor="date_start">Fecha de Inicio : </label>
                 <input type="date" className="input_date" name="date_start" id="date_start" />
               </div>
               <div>
-                <label htmlFor="date_end">Fecha Fin:</label>
+                <label htmlFor="date_end">Fecha Fin : </label>
                 <input type="date" className="input_date" name="date_end" id="date_end" />
               </div>
             </article>
@@ -529,13 +535,13 @@ function ManagementShedule() {
                 <label htmlFor="Trimestre">Trimestre:</label>
                 <select name="Trimestre" defaultValue={''} id="Trimestre" required>
                   <option disabled value="">Seleccione . . .</option>
-                  <option value="1 de 3">1 de 4</option>
-                  <option value="2 de 3">2 de 4</option>
-                  <option value="3 de 3">3 de 4</option>
+                  <option value="1 de 4">1 de 4</option>
+                  <option value="2 de 4">2 de 4</option>
+                  <option value="3 de 4">3 de 4</option>
                   <option value="4 de 4">4 de 4</option>
-                  <option value="4 de 4">5 de 7</option>
-                  <option value="4 de 4">6 de 7</option>
-                  <option value="4 de 4">7 de 7</option>
+                  <option value="5 de 7">5 de 7</option>
+                  <option value="6 de 7">6 de 7</option>
+                  <option value="7 de 7">7 de 7</option>
                 </select>
               </section>
               <section>
@@ -598,13 +604,18 @@ function ManagementShedule() {
           <section className="show_shedule">
             <h2>HORARIOS</h2>
             <section className='show_cards'>
-              {showCompShedule && <CompShowShedule userSelected={userSelected} sizeShed={sizeShed} setSizeShed={setSizeShed} setTableTitle={setTableTitle} clearTable={clearTable}/>}
+              {showCompShedule && <CompShowShedule userSelected={userSelected} sizeShed={sizeShed} 
+                setSizeShed={setSizeShed} setTableTitle={setTableTitle} clearTable={clearTable} />}
             </section>
             <section className="resume_Show">
-              {showCompShedule && <ComponentFile user={userSelected} sizeShed={sizeShed} setSizeShed={setSizeShed}/>}
+              {showCompShedule && <ComponentFile user={userSelected} sizeShed={sizeShed} setSizeShed={setSizeShed} />}
             </section>
           </section>
-          <section className="update_info"></section>
+
+          <section className="update_info">
+            {/* { showUpdateShedule && <CompUpdateShedule userSelected={userSelected} setTableTitle={setTableTitle} clearTable={clearTable} changeInput={changeInput} form={form} setForm={setForm} dataDB={dataDB} setDataDB={setDataDB} index={indexUser} /> } */}
+            { showUpdateShedule && <ComponentUpdate dataDB={dataDB} setDataDB={setDataDB} index={indexUser} clearTable={clearTable}/> }
+          </section>
 
           <main className="table_shedule">
             <h2>{tableTitle}</h2>
