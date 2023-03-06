@@ -5,16 +5,11 @@ import { Link } from 'react-router-dom';
 import './css/styleSidebar.css';
 
 function Sidebar() {
+
   const sidebar = document.querySelector('.sidebar');
   const [hour, setHour] = useState('');
   const [date, setDate] = useState('');
 
-  const activeSide = value => {
-    if (value === 1 && sidebar.classList.length === 1) return 0;
-    sidebar.classList.toggle('close');
-    document.querySelector('.toggle').classList.toggle('bi-caret-left-fill');
-    document.querySelector('.toggle').classList.toggle('bi-list-ul');
-  } 
   useEffect(() => {
     setHour(Intl.DateTimeFormat('CO', { timeStyle: 'short', hour12: false }).format());
     setDate(Intl.DateTimeFormat('CO', { dateStyle: 'full', hour12: false }).format());
@@ -24,6 +19,12 @@ function Sidebar() {
     setHour(Intl.DateTimeFormat('CO', { timeStyle: 'short', hour12: false }).format());
   }, 20000);
 
+  const activeSide = value => {
+    if (value === 1 && sidebar.classList.length === 1) return 0;
+    sidebar.classList.toggle('close');
+    document.querySelector('.toggle').classList.toggle('bi-caret-left-fill');
+    document.querySelector('.toggle').classList.toggle('bi-list-ul');
+  } 
   const select = e => {
     let elem = document.querySelectorAll('.menu_links .nav_link');
     elem.forEach(elm => elm.classList.remove('selected'));
@@ -61,14 +62,14 @@ function Sidebar() {
                 </Link>
               </li>
               <li className="nav_link" id="hours" onClick={() => select(2)}>
-                <Link to={''}>
+                <Link to={'/shedule'}>
                   <i className="bi bi-clock-fill icon"></i>
                   <span className="text nav_text">Géstion Horarios</span>
                   <span className="hover_span">Géstion Horarios</span>
                 </Link>
               </li>
               <li className="nav_link" id="users" onClick={() => select(3)}>
-                <Link to={''}>
+                <Link to={'/users'}>
                   <i className="bi bi-person-fill-gear icon"></i>
                   <span className="text nav_text">Géstion Usuarios</span>
                   <span className="hover_span">Géstion Usuarios</span>

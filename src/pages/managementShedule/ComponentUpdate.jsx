@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import CompUpdateFicha from './CompUpdateFicha';
-import { colors } from './data';
 
-function ComponentUpdate({ dataDB, setDataDB, index, clearTable }) {
+function ComponentUpdate({ dataDB, setDataDB, index }) {
 
   const [user, setUser] = useState({});
   const [dateStart, setDateStart] = useState('');
@@ -44,10 +43,6 @@ function ComponentUpdate({ dataDB, setDataDB, index, clearTable }) {
     const nameUser = `${dataDB[index].Nombre} ${dataDB[index].Apellido}`
     return <h3>El Instructor {nameUser} Aun No tiene Horarios Asignados </h3>
   }
-  clearTable();
-  let td = document.querySelectorAll('td');
-  user?.Horas && user.Horas.forEach(e => td[e.pos].classList.toggle(`color_${colors[e.color]}`));
-
   return (
     <>
       <section className="update_dates">

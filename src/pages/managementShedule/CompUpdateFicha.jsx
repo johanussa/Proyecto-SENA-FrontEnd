@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { colors, programas, competencias, aulas } from './data';
-import CompResumeUpdate from './CompResumeUpdate';
-import nextId from 'react-id-generator';
 
 function CompUpdateFicha({ user, setUser, dataDB, setDataDB, index, posShedule }) {
 
@@ -65,6 +63,7 @@ function CompUpdateFicha({ user, setUser, dataDB, setDataDB, index, posShedule }
     });
     setUser(JSON.parse(JSON.stringify(dataDB[index].Horario[posShedule])));
     alert('La Ficha, ha sido actualizada');
+    setFormUp({});
   }
   const saveComplem = pos => {
     if (textComplem) {
@@ -76,8 +75,7 @@ function CompUpdateFicha({ user, setUser, dataDB, setDataDB, index, posShedule }
       alert('La formacion complementaria, ha sido actualizada');
       setTextComplem('');
     }
-  }
-  
+  }  
   const showPrograms = () => programas.map(e => <option value={e} key={e}>{e}</option>);
   const showAmbientes = () => aulas.map(e => <option value={e} key={e}>{e}</option>);
 
@@ -94,8 +92,7 @@ function CompUpdateFicha({ user, setUser, dataDB, setDataDB, index, posShedule }
               </section>
               <section>
                 <label htmlFor="Num_Ruta">Número de Ruta:</label>
-                <select name="Num_Ruta" id="Num_Ruta" defaultValue={''} onChange={changeData}>
-                  <option value="" disabled>{e.Num_Ruta}</option>
+                <select name="Num_Ruta" id="Num_Ruta" defaultValue={e.Num_Ruta} onChange={changeData}>
                   <option value="Grupo 1">Grupo 1</option>
                   <option value="Grupo 2">Grupo 2</option>
                   <option value="Grupo 3">Grupo 3</option>
@@ -106,8 +103,7 @@ function CompUpdateFicha({ user, setUser, dataDB, setDataDB, index, posShedule }
               </section>
               <section>
                 <label htmlFor="Trimestre">Trimestre:</label>
-                <select name="Trimestre" defaultValue={''} id="Trimestre" onChange={changeData}>
-                  <option value="" disabled>{e.Trimestre}</option>
+                <select name="Trimestre" defaultValue={e.Trimestre} id="Trimestre" onChange={changeData}>
                   <option value="1 de 4">1 de 4</option>
                   <option value="2 de 4">2 de 4</option>
                   <option value="3 de 4">3 de 4</option>
@@ -123,8 +119,7 @@ function CompUpdateFicha({ user, setUser, dataDB, setDataDB, index, posShedule }
               </section>
               <section className="programa_forma">
                 <label htmlFor="Programa">Programa de Formación:</label>
-                <select name="Select_Programa" defaultValue={''} id="Programa" onChange={e => changeData(e, pos)}>
-                  <option disabled value="">{e.Programa}</option>
+                <select name="Select_Programa" defaultValue={e.Programa} id="Programa" onChange={e => changeData(e, pos)}>
                   {showPrograms()}
                 </select>
               </section>
@@ -134,19 +129,14 @@ function CompUpdateFicha({ user, setUser, dataDB, setDataDB, index, posShedule }
               </section>
               <section>
                 <label htmlFor="Ambiente">Núm. Ambiente:</label>
-                <select name="Select_Ambiente" defaultValue={''} id="Ambiente" onChange={changeData}>
-                  <option disabled value="">{e.Ambiente}</option>
+                <select name="Select_Ambiente" defaultValue={e.Ambiente} id="Ambiente" onChange={changeData}>
                   {showAmbientes()}
                 </select>
               </section>
               <section className="sect_competencia">
                 <label htmlFor="Competencias">Competencias:</label>
-                <select id="Nom_Comp" name="comp_upd" defaultValue={''} onChange={e => changeData(e, pos)}>
-                  <option disabled value="">Seleccione un Programa . . .</option>
-                </select>
-                <textarea rows="9" name="text_area_up" disabled >
-                  {/* {e.Competencias.map(e => `-${e}`).join().replaceAll(',', '\n')} */}
-                </textarea>
+                <select id="Nom_Comp" name="comp_upd" defaultValue={''} onChange={e => changeData(e, pos)}></select>
+                <textarea rows="9" name="text_area_up" disabled ></textarea>
               </section>
               <section className="sect_descrip">
                 <label htmlFor="Descripcion">Descripción:</label>
@@ -174,28 +164,6 @@ function CompUpdateFicha({ user, setUser, dataDB, setDataDB, index, posShedule }
           )
         })
       }
-      <section className='sec_resume_update'>
-        {function () { colorSelector = 1 }()}
-        {
-          user.Ficha.map((e, pos) => {
-            return (
-              <CompResumeUpdate ficha={e.Num_Ficha} name={'Ficha Número'} select={pos + 1} color={colorSelector++} key={nextId()}/>
-            )
-          })
-        }
-        {
-          user.Complementaria.map((e, pos) => {
-            return (
-              <CompResumeUpdate ficha={user.Complementaria.length > 1 ? pos + 1 : ''} name={`Formación Complementaria`} key={nextId()} select={'c'} color={colorSelector++} />
-            )
-          })
-        }
-        {
-          user.Horas.some(e => e.color === 'p') ? (
-            <CompResumeUpdate ficha={''} name={'Preparación Formación'} select={'p'} color={'p'} key={nextId()}/>
-          ) : ''
-        }
-      </section>
     </>
   )
 }

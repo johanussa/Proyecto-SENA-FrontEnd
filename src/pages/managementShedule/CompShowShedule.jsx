@@ -4,7 +4,7 @@ import { colors } from './data';
 function CompShowShedule({ userSelected, sizeShed, setSizeShed, setTableTitle, clearTable }) {
 
   if (userSelected.Horario.length) {
-    console.log(userSelected)
+    
     const dataShedule = userSelected.Horario[sizeShed];
     let colorSelector = 1;
 

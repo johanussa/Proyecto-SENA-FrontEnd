@@ -41,7 +41,7 @@ export const data = [
                     }
                 ],
                 Complementaria: ['Formacion Complementaria'],
-                Horas: [{ pos: 12, color: 1 }, { pos: 26, color: 'p' }, { pos: 16, color: 'c' }]
+                Horas: [{ pos: 12, color: 1 }, { pos: 26, color: 'p' }, { pos: 16, color: 2 }]
             },
             {
                 "FechaInicio": "2023-02-01",
