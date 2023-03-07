@@ -1,17 +1,16 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { programas, data, aulas, colors, competencias as competData } from './data';
+import React, { useEffect, useState } from 'react';
 import senaLogo from '../../assets/Sena_logo.png';
 import logoSANF from '../../assets/logoSANF2.png';
-import { programas, data, aulas, colors, competencias } from './data';
 import CompShowShedule from './CompShowShedule';
-import ComponentFile from './ComponentFile';
+import ComponentUpdate from './ComponentUpdate';
+import ComponentResume from './ComponentResume';
 import './css/styleShedule.css';
 
-let countAsignacion = 1, colorSelector = 0, cantHours = 0;
-let activeFicha = false, flagPlaneacion = false, saveUpdate = false, eventActive = false;
+let countAsignacion = 1, cantHours = 0;
+let activeFicha = false, flagPlaneacion = false;
 let shedule = [], dataFicha = [], Competencias = [], complement = [], aux = [];
-let userSelected, date_start, date_end, Num_Ficha, Num_Ruta;
-let Trimestre, Programa, Codigo, Descripcion, textCompl;
-let Num_Aprendices, Ambiente, length, indexUser;
+let userSelected, date_start, date_end, textCompl, Ambiente, indexUser;
 
 function ManagementShedule() {
 
@@ -24,9 +23,12 @@ function ManagementShedule() {
   const [tableTitle, setTableTitle] = useState('');
   const [selectComp, setSelectComp] = useState([]);
   const [showCompShedule, setShowCompShedule] = useState(false);
+  const [showUpdateShedule, setShowUpdateShedule] = useState(false);
   const [sizeShed, setSizeShed] = useState('');
-
-  const tableTd = document.querySelectorAll('td');
+  const [form, setForm] = useState({});
+  const [eventActive, setEventActive] = useState(false);
+  const [colorSelector, setColorSelector] = useState(0);
+  const [saveUpdate, setSaveUpdate] = useState(false);
 
   useEffect(() => {
     setDataDB(data);
@@ -54,13 +56,13 @@ function ManagementShedule() {
     dataFicha = [];
     complement = [];
     Competencias = [];
-    colorSelector = 0;
+    setColorSelector(0);
     activeFicha = false;
     flagPlaneacion = false;
-    saveUpdate = false;
-    length = userSelected.Horario.length - 1;
-    setSizeShed(length);
+    setSaveUpdate(false);
+    setSizeShed(userSelected.Horario.length - 1);
     setShowCompShedule(false);
+    setShowUpdateShedule(false);
 
     const { Nombre, Apellido } = userSelected;
     setNameUser(`${Nombre} ${Apellido}`);
@@ -103,37 +105,42 @@ function ManagementShedule() {
   }
   const changeInput = e => {
     let options = {
-      Num_Ficha: () => Num_Ficha = e.target.value,
-      Num_Ruta: () => Num_Ruta = e.target.value,
-      Trimestre: () => Trimestre = e.target.value,
+      Num_Ficha: () => setForm(prev => ({ ...prev, [e.target.id]: e.target.value })),
+      Num_Ruta: () => setForm(prev => ({ ...prev, [e.target.id]: e.target.value })),
+      Trimestre: () => setForm(prev => ({ ...prev, [e.target.id]: e.target.value })),
       Programa: () => {
-        Programa = e.target.value;
-        const name = Programa.split(' ')[0];
-        const comp = competencias.filter(e => e[name]);
+        setForm(prev => ({ ...prev, [e.target.id]: e.target.value }));
+        const name = e.target.value.split(' ')[0];
+        const comp = competData.filter(e => e[name]);
         setSelectComp(comp[0][name]);
+        area_comp.innerHTML = '';
+        Competencias = [];
       },
-      Codigo: () => Codigo = e.target.value.toUpperCase(),
+      Codigo: () => setForm(prev => ({ ...prev, [e.target.id]: e.target.value.toUpperCase() })),
       Nom_Comp: () => {
         let pos = Competencias.indexOf(e.target.value);
-        if (pos === -1) Competencias.push(e.target.value);
-        else Competencias.splice(pos, 1);
+        if (pos === -1) {
+          Competencias.push(e.target.value);
+          setForm(prev => ({ ...prev, Competencias }));
+        } else {
+          Competencias.splice(pos, 1);
+          setForm(prev => ({ ...prev, Competencias }));
+        }
         area_comp.innerHTML = '';
         Competencias.forEach(e => area_comp.innerHTML += `- ${e}\n`);
         document.getElementById('Nom_Comp').value = '';
       },
-      Descripcion: () => Descripcion = e.target.value,
-      Num_Aprendices: () => Num_Aprendices = e.target.value,
+      Descripcion: () => setForm(prev => ({ ...prev, [e.target.id]: e.target.value })),
+      Num_Aprendices: () => setForm(prev => ({ ...prev, [e.target.id]: e.target.value })),
       Ambiente: () => {
         let ambBefore = Ambiente;
-        Ambiente = e.target.value;
+        setForm(prev => ({ ...prev, [e.target.id]: e.target.value }));
         if (aux.length) {
-          shedule.forEach(e => {
-            if (e.Ambiente === ambBefore) e.Ambiente = Ambiente
-          });
+          shedule.forEach(e => { if (e.Ambiente === ambBefore) e.Ambiente = form.Ambiente });
         }
       }
     }
-    options[e.target.id]();
+    if (e.target) options[e.target.id]();
   }
   const updateHours = () => {
     setTotalHours(cantHours);
@@ -156,19 +163,17 @@ function ManagementShedule() {
     let pos = 0;
     for (let i = 0; i < 16; i++) {
       document.getElementById('table_body').innerHTML += `
-            <tr>
-                <th scope="row">
-                    ${(i + 6 < 10) ? 0 : ''}${i + 6}:00 - ${(i + 7 < 10) ? 0 : ''}${i + 7}:00
-                </th>
-                <td id="${pos++}" class="color_none"></td>
-                <td id="${pos++}" class="color_none"></td>
-                <td id="${pos++}" class="color_none"></td>
-                <td id="${pos++}" class="color_none"></td>
-                <td id="${pos++}" class="color_none"></td>
-                <td id="${pos++}" class="color_none"></td>
-                <td id="${pos++}" class="color_none"></td>
-            </tr>
-        `;
+        <tr>
+          <th scope="row">${(i + 6 < 10) ? 0 : ''}${i + 6}:00 - ${(i + 7 < 10) ? 0 : ''}${i + 7}:00</th>
+          <td id="${pos++}" class="color_none"></td>
+          <td id="${pos++}" class="color_none"></td>
+          <td id="${pos++}" class="color_none"></td>
+          <td id="${pos++}" class="color_none"></td>
+          <td id="${pos++}" class="color_none"></td>
+          <td id="${pos++}" class="color_none"></td>
+          <td id="${pos++}" class="color_none"></td>
+        </tr>
+      `;
     }
   }
   const btnFilter = () => {
@@ -200,34 +205,21 @@ function ManagementShedule() {
       document.querySelector('.btn_add_ficha').style.display = 'flex';
       document.querySelector('.form_complem').style.display = 'none';
 
-      if (!shedule.some(e => e.color === colorSelector)) {
-        console.log('first')
+      if (!shedule.some(({ color }) => color === colorSelector)) {
         resume.removeChild(resume.lastElementChild);
         if (flagPlaneacion) flagPlaneacion = false;
         complement = [];
         aux = [];
         textCompl = '';
         activeFicha = false;
-        colorSelector--;
+        setColorSelector(colorSelector - 1);
       }
-      if (activeFicha && !dataFicha.some(e => e.Num_Ficha === Num_Ficha)) {
-        dataFicha.push({
-          Num_Ficha,
-          Num_Ruta,
-          Trimestre,
-          Programa,
-          Codigo,
-          Competencias,
-          Descripcion,
-          Num_Aprendices,
-          Ambiente
-        });
-      }
+      if (activeFicha && !dataFicha.some(({ Num_Ficha }) => Num_Ficha === form.Num_Ficha)) dataFicha.push(form);
       if (textCompl) {
         complement.push(textCompl);
         textCompl = '';
       }
-      eventActive = false;
+      setEventActive(false);
       Competencias = [];
       Ambiente = '';
     }
@@ -263,10 +255,10 @@ function ManagementShedule() {
     document.querySelector('.btns_actions').style.display = 'none';
     setTableTitle(`Asignar Horario a la Ficha : ${e.target.Num_Ficha.value}`);
     document.querySelector('.resume').innerHTML += `
-        <section>
-            <label>Ficha Número ${e.target.Num_Ficha.value} : </label>
-            <span class="color_${colors[colorSelector]}"></span>
-        </section>
+      <section>
+        <label>Ficha Número ${e.target.Num_Ficha.value} : </label>
+        <span class="color_${colors[colorSelector]}"></span>
+      </section>
     `;
   };
   const handleformComplem = e => {
@@ -280,27 +272,30 @@ function ManagementShedule() {
       </section>
     `;
   };
-  const btnsAction = btn => {
+  const changeSelectorColor = () => {
     if (colorSelector === 'p' || Number.isNaN(colorSelector)) {
       const valorNew = shedule.reduce((count, elem) => {
         if (count < elem.color) count = elem.color;
         return count;
       }, 0);
-      colorSelector = valorNew;
+      setColorSelector(valorNew + 1);
     }
+  }
+  const btnsAction = btn => {
     const options = {
       1: () => {
-        colorSelector++;
+        if (colorSelector === 'p') changeSelectorColor();
+        else setColorSelector(colorSelector + 1);
         activeFicha = true;
-        eventActive = true;
+        setEventActive(true);
         document.querySelector('.type_contrato').style.display = 'none';
         document.querySelector('.btns_actions').style.display = 'flex';
         document.querySelector('#formCreate').style.display = 'grid';
         document.querySelector('.table_shedule').style.display = 'none';
       },
       2: () => {
-        colorSelector = 'p';
-        eventActive = true;
+        setColorSelector('p');
+        setEventActive(true);
         document.querySelector('.table_shedule').style.display = 'grid';
         document.querySelector('.btns_table').style.display = 'flex';
         document.querySelector('.resume').style.display = 'grid';
@@ -308,15 +303,16 @@ function ManagementShedule() {
           document.querySelector('.resume').innerHTML += `
             <section>
                 <label htmlFor="">Preparación Formación :</label>
-                <span class="color_${colors[colorSelector]}"></span>
+                <span class="color_${colors['p']}"></span>
             </section>
           `;
           flagPlaneacion = true;
         }
       },
       3: () => {
-        colorSelector++;
-        eventActive = true;
+        if (colorSelector === 'p') changeSelectorColor();
+        else setColorSelector(colorSelector + 1);
+        setEventActive(true);
         document.forms['form_complementario'].reset();
         document.querySelector('.resume').style.display = 'grid';
         document.querySelector('.btns_table').style.display = 'flex';
@@ -325,7 +321,7 @@ function ManagementShedule() {
         document.querySelector('.table_shedule').style.display = 'none';
       },
       4: () => {
-        if (colorSelector > 0) colorSelector--;
+        if (colorSelector > 0) setColorSelector(colorSelector - 1);
         document.forms['formCreate'].reset();
         document.forms['form_complementario'].reset();
         document.querySelector('.btn_add_ficha').style.display = 'flex';
@@ -335,7 +331,7 @@ function ManagementShedule() {
     if (validateDate()) {
       document.querySelector('#formCreate').style.display = 'none';
       document.querySelector('.btn_add_ficha').style.display = 'none';
-      setTableTitle('Asignación de Horario')
+      setTableTitle('Asignación de Horario');
       options[btn]();
     }
   }
@@ -344,7 +340,7 @@ function ManagementShedule() {
     date_end = document.getElementById('date_end');
 
     if (dataDB[indexUser].Horario.length) {
-      if (dataDB[indexUser].Horario.some(e => e.FechaInicio === date_start.value)) {
+      if (dataDB[indexUser].Horario.some(({ FechaInicio }) => FechaInicio === date_start.value)) {
         date_start.focus();
         return alert(`El Instructor ${userSelected.Apellido} Ya tiene asignado un horario para esa fecha`);
       }
@@ -362,8 +358,8 @@ function ManagementShedule() {
   const saveData = () => {
     if (!(cantHours - shedule.length)) {
       if (saveUpdate) {
-        dataDB[indexUser].Horario[length].Horas = shedule;
-        saveUpdate = false;
+        dataDB[indexUser].Horario[sizeShed].Horas = shedule;
+        setSaveUpdate(false);
         document.querySelector('.btns_table').style.display = 'none';
         alert('Horario Actalizado Correctamente!!');
       } else {
@@ -382,18 +378,33 @@ function ManagementShedule() {
       }
     } else { alert('Aun No ha asignado las horas requeridas'); }
   }
-
-  function viewShedule() {
+  const viewShedule = () => {
     const dataShedule = userSelected.Horario;
     document.querySelector('section.show_shedule').style.display = 'flex';
     document.querySelector('.btns_table').style.display = 'none';
     document.querySelector('.btns_options').style.display = 'none';
-    document.querySelector('.resume').innerHTML = '';
     setShowCompShedule(true);
+    if (dataShedule.length) document.querySelector('.table_shedule').style.display = 'grid';
+  }
+  const updateShedule = () => {
+    userSelected = JSON.parse(JSON.stringify(dataDB[indexUser]));
+    document.querySelector('.btns_table').style.display = 'none';
+    document.querySelector('.btns_options').style.display = 'none';
+    document.querySelector('section.update_info').style.display = 'grid';
+    setShowUpdateShedule(true);
+    setEventActive(false)
 
-    if (dataShedule.length) {
+    if (userSelected.Horario.length) {
+      const user = JSON.parse(JSON.stringify(dataDB[indexUser].Horario[sizeShed]));
+      setTableTitle(`Horario Asignado : ${user.Horas.length} Horas`);
       document.querySelector('.table_shedule').style.display = 'grid';
-      document.querySelector('.resume').style.display = 'grid';
+      document.querySelector('.show_hours').style.display = 'block';
+      clearTable();
+      let td = document.querySelectorAll('td');
+      user.Horas.forEach(e => td[e.pos].classList.toggle(`color_${colors[e.color]}`));
+      cantHours = user.Horas.length;
+      shedule = user.Horas.map(e => e);
+      updateHours();
     }
   }
 
@@ -467,7 +478,7 @@ function ManagementShedule() {
             <article>
               <button onClick={viewShedule}>Ver Horarios</button>
               <button onClick={createShedule}>Crear Horarios</button>
-              <button onclick="updateShedule()">Modificar Horario</button>
+              <button onClick={updateShedule}>Modificar Horario</button>
             </article>
           </section>
 
@@ -483,11 +494,11 @@ function ManagementShedule() {
             <h2>Crear Horarios</h2>
             <article className="dates">
               <div>
-                <label htmlFor="date_start">Fecha de Inicio:</label>
+                <label htmlFor="date_start">Fecha de Inicio : </label>
                 <input type="date" className="input_date" name="date_start" id="date_start" />
               </div>
               <div>
-                <label htmlFor="date_end">Fecha Fin:</label>
+                <label htmlFor="date_end">Fecha Fin : </label>
                 <input type="date" className="input_date" name="date_end" id="date_end" />
               </div>
             </article>
@@ -529,13 +540,13 @@ function ManagementShedule() {
                 <label htmlFor="Trimestre">Trimestre:</label>
                 <select name="Trimestre" defaultValue={''} id="Trimestre" required>
                   <option disabled value="">Seleccione . . .</option>
-                  <option value="1 de 3">1 de 4</option>
-                  <option value="2 de 3">2 de 4</option>
-                  <option value="3 de 3">3 de 4</option>
+                  <option value="1 de 4">1 de 4</option>
+                  <option value="2 de 4">2 de 4</option>
+                  <option value="3 de 4">3 de 4</option>
                   <option value="4 de 4">4 de 4</option>
-                  <option value="4 de 4">5 de 7</option>
-                  <option value="4 de 4">6 de 7</option>
-                  <option value="4 de 4">7 de 7</option>
+                  <option value="5 de 7">5 de 7</option>
+                  <option value="6 de 7">6 de 7</option>
+                  <option value="7 de 7">7 de 7</option>
                 </select>
               </section>
               <section>
@@ -598,13 +609,21 @@ function ManagementShedule() {
           <section className="show_shedule">
             <h2>HORARIOS</h2>
             <section className='show_cards'>
-              {showCompShedule && <CompShowShedule userSelected={userSelected} sizeShed={sizeShed} setSizeShed={setSizeShed} setTableTitle={setTableTitle} clearTable={clearTable}/>}
+              {showCompShedule && <CompShowShedule userSelected={userSelected} sizeShed={sizeShed}
+                setSizeShed={setSizeShed} setTableTitle={setTableTitle} clearTable={clearTable} />}
             </section>
             <section className="resume_Show">
-              {showCompShedule && <ComponentFile user={userSelected} sizeShed={sizeShed} setSizeShed={setSizeShed}/>}
+              {showCompShedule && <ComponentResume user={dataDB} index={indexUser} sizeShed={sizeShed} />}
             </section>
           </section>
-          <section className="update_info"></section>
+
+          <section className="update_info">
+            {showUpdateShedule && <ComponentUpdate dataDB={dataDB} setDataDB={setDataDB} index={indexUser} />}
+            <section className='sec_resume_update'>
+              {showUpdateShedule && <ComponentResume user={dataDB} index={indexUser} sizeShed={sizeShed} click={true} 
+                setEventActive={setEventActive} setColorSelector={setColorSelector} setSaveUpdate={setSaveUpdate}/>}
+            </section>
+          </section>
 
           <main className="table_shedule">
             <h2>{tableTitle}</h2>

@@ -4,21 +4,21 @@ import { colors } from './data';
 function CompShowShedule({ userSelected, sizeShed, setSizeShed, setTableTitle, clearTable }) {
 
   if (userSelected.Horario.length) {
-
+    
     const dataShedule = userSelected.Horario[sizeShed];
     let colorSelector = 1;
-    
+
     useEffect(() => {
       setTableTitle(`Horario Asignado : ${dataShedule.Horas.length} Horas`);
     }, [sizeShed]);
 
-    function formatDate(date) {
+    const formatDate = date => {
       if (!date) return;
       date = date.replaceAll('-', '/');
       date = new Date(date);
       return Intl.DateTimeFormat('CO', { dateStyle: 'full' }).format(date);
     }
-    function changeData(action) {
+    const changeData = action => {
       if (action) {
         if (sizeShed + 1 === userSelected.Horario.length) return;
         setSizeShed(sizeShed + 1);
