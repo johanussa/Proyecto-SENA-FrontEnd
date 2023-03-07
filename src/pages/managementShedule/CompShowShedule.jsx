@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
-import { colors } from './data';
+import { colors } from '../../components/data';
 
 function CompShowShedule({ userSelected, sizeShed, setSizeShed, setTableTitle, clearTable }) {
-
   if (userSelected.Horario.length) {
     
     const dataShedule = userSelected.Horario[sizeShed];
@@ -29,11 +28,14 @@ function CompShowShedule({ userSelected, sizeShed, setSizeShed, setTableTitle, c
       }
     }
     clearTable();
-    let td = document.querySelectorAll('td');
-    dataShedule.Horas.forEach(e => td[e.pos].classList.toggle(`color_${colors[e.color]}`));
+    setTimeout(() => {
+      let td = document.querySelectorAll('td');
+      dataShedule.Horas.forEach(e => td[e.pos].classList.add(`color_${colors[e.color]}`));
+    }, 1);
 
     return (
-      <>
+      <> 
+        <h2>HORARIOS</h2>
         <section className="dates_range">
           <i onClick={() => changeData(0)} className="bi bi-caret-left-fill icons_change_date"></i>
           <span>{formatDate(dataShedule.FechaInicio)}</span> A
@@ -43,6 +45,7 @@ function CompShowShedule({ userSelected, sizeShed, setSizeShed, setTableTitle, c
         {
           dataShedule.Ficha.length ? (
             dataShedule.Ficha.map((e, pos) => {
+              console.log(e);
               return (
                 <form className={'color_' + [colors[colorSelector++]]} key={pos + 5}>
                   <section>
@@ -69,6 +72,10 @@ function CompShowShedule({ userSelected, sizeShed, setSizeShed, setTableTitle, c
                   <section className="sect_competencia">
                     <label>Competencias:</label>
                     <textarea disabled defaultValue={e.Competencias.map(e => `- ${e}`).join().replaceAll(',', '\n')}></textarea>
+                  </section>
+                  <section className="sect_results">
+                    <label>Resultados :</label>
+                    <textarea disabled defaultValue={e.Resultados.map(e => `- ${e}`).join().replaceAll(',', '\n')}></textarea>
                   </section>
                   <section className="sect_descrip">
                     <label>Descripción:</label><textarea disabled defaultValue={e.Descripcion}></textarea>
@@ -99,4 +106,4 @@ function CompShowShedule({ userSelected, sizeShed, setSizeShed, setTableTitle, c
   }
 }
 
-export default CompShowShedule
+export default React.memo(CompShowShedule)

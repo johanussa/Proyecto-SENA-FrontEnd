@@ -1,0 +1,39 @@
+section.inst_container {
+    width: 100%;
+    min-height: 100vh;
+}
+section.inst_container section.info_instructor {
+    border-bottom: 1px solid #00000020;
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+}
+section.show_shedule.instructor_page { padding-right: 25px; }
+section.inst_container h2 { 
+    margin: 10px 0 20px; 
+    text-align: center; 
+}
+section.inst_container h3 { 
+    text-align: center; 
+    margin-bottom: 15px;
+}
+section.dates_instructor {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 0 80px;
+    margin: 0 0 20px;
+    text-transform: capitalize;
+    display: flex;
+    justify-content: space-between;
+}
+section.dates_instructor i { font-size: 2rem; }
+section.dates_instructor i {
+    font-size: 2rem;
+    cursor: pointer;
+}
+section.dates_instructor i:hover { color: #00af00; }
+section.show_shedule.instructor_page { display: flex; }
+section.show_shedule.instructor_page h2 { grid-column: span 2; }
