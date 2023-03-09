@@ -15,6 +15,7 @@
     --color-twelve: #5a6ac7;
     --color-thirteen: #b49459;
     --color-preparacion: #ffc89b;
+    --color-ocupation: #002c4b;
 }
 .container { 
     width: 100%; 
@@ -552,6 +553,7 @@ section.info_resum_update label {
 .color_twelve { background-color: var(--color-twelve); }
 .color_thirteen { background-color: var(--color-thirteen); }
 .color_preparacion { background-color: var(--color-preparacion); }
+.ocupation { background-color: var(--color-ocupation); }
 
 /* Media Queries */
 

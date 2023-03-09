@@ -22,12 +22,12 @@ export const data = [
                         ],
                         Descripcion: 'Descripcion para Sistemas',
                         Num_Aprendices: 23,
-                        Ambiente: 209
+                        Ambiente: '302 Sistemas.'
                     }
                 ],
                 Complementaria: false,
                 Planta: false,
-                Horas: [{ pos: 5, color: 1 }, { pos: 6, color: 'p' }]
+                Horas: [{ pos: 5, color: 1, Ambiente: '302 Sistemas.' }, { pos: 6, color: 'p' }]
             },
             {
                 FechaInicio: '2023-02-02',

@@ -565,7 +565,7 @@ function ManagementShedule() {
           </section>
 
           { showCreateShedule && <ComponentForm btnsAction={btnsAction} form={form} setForm={setForm} setTableTitle={setTableTitle}
-            colorSelector={colorSelector} changeAmbiente={changeAmbiente} inputAmbiente={inputAmbiente}/> }
+            colorSelector={colorSelector} changeAmbiente={changeAmbiente} inputAmbiente={inputAmbiente} clearTable={clearTable}/> }
 
           <section className="form_complem">
             <form id="form_complementario" onSubmit={handleformComplem} onChange={e => textCompl = e.target.value}>
