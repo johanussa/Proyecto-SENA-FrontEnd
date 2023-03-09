@@ -243,16 +243,16 @@ section.create_shedule article.btn_add_ficha button:hover {
     text-shadow: 1px 1px 10px #00000060;
 }
 article.form #formCreate {
-    padding: 20px;
+    padding: 25px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 10px;
     display: none;
 }
 article.form #formCreate label,
 section.body_shedule .form_complem label {
     display: block;
-    margin: 8px 0 8px 10px;
+    margin: 0 0 8px 10px;
     font-weight: 600;
 }
 article.form #formCreate input,
@@ -271,15 +271,30 @@ article.form #formCreate textarea {
     padding: 5px;
     font-size: 15px;
 }
-#formCreate textarea#area_comp {
+#formCreate textarea#area_comp,
+#formCreate textarea#area_result {
     margin-top: 8px;
-    height: 138px;
+    height: 150px;
 }
-article.form #formCreate .div_competencia {
+article.form #formCreate .sect_competencia {
     grid-row: span 2;
 }
-article.form #formCreate .btns_actions {
+article.form #formCreate .num_apren_ambi {
     grid-column: span 3;
+    align-content: space-evenly;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+article.form #formCreate .sec_description {
+    margin-top: -15px;
+    grid-column: span 4;
+}
+article.form #formCreate .sec_description textarea {
+    height: 92px;
+}
+article.form #formCreate .btns_actions {
+    grid-column: span 4;
     height: 50px;
     display: flex;
     gap: 30px;
@@ -379,6 +394,9 @@ section.show_shedule .show_cards {
     margin-bottom: 30px;
     gap: 10px;
 }
+section.show_shedule .show_cards .sect_descrip textarea {
+    height: 90px;
+}
 section.dates_range,
 section.show_shedule > h2 {
     grid-column: span 2;
@@ -426,7 +444,8 @@ section.update_info form {
     box-shadow: 0px 0px 5px #00000040;
 }
 section.programa_forma, 
-section.sect_competencia, section.sect_descrip { grid-column: span 2; }
+section.sect_competencia, section.sect_results { grid-column: span 2; }
+section.sect_descrip { grid-column: span 4; }
 section.update_btns { 
     grid-column: span 4; 
     text-align: center;
@@ -465,8 +484,7 @@ section.update_info form textarea {
     border: none;
     resize: none;
 }
-form.form_update_descrip section textarea { height: 200px; }
-section.sect_descrip #Descripcion { height: 173px; }
+section.update_info form #Descripcion { height: 80px; }
 section.update_dates { 
     line-height: 40px;
     font-weight: 600;

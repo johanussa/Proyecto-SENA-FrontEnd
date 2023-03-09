@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { colors, programas, competencias, aulas } from './data';
+import { colors, programas, competencias, aulas, resultados as resultDB } from '../../components/data';
 
 function CompUpdateFicha({ user, setUser, dataDB, setDataDB, index, posShedule }) {
 
@@ -9,25 +9,47 @@ function CompUpdateFicha({ user, setUser, dataDB, setDataDB, index, posShedule }
   const [textComplem, setTextComplem] = useState('');
 
   useEffect(() => {
-    user?.Ficha && user.Ficha.map(({ Programa }, pos) => {
+    user?.Ficha && user.Ficha.map(({ Programa, Competencias, Resultados }, pos) => {
       changeComp(Programa, pos);
+      changeTextArea(Competencias, pos);
+      changeAreaResults(Resultados, pos);
+      changeResults(Resultados, pos, true);
     });
-    user?.Ficha && user.Ficha.map(({ Competencias }, pos) => {
-      changeTextArea(Competencias, pos)
-    });
-  }, [user]);
+  }, [user, dataDB]);
 
   const changeTextArea = (compt, pos) => {
     const textAreaComp = document.getElementsByName('text_area_up');
     textAreaComp[pos].innerHTML = '';
     compt.map(e => textAreaComp[pos].innerHTML += `- ${e} \n`)
   }
+  const changeAreaResults = (results, pos) => {
+    const textAreaRes = document.getElementsByName('text_results');
+    textAreaRes[pos].innerHTML = '';
+    results.map(e => textAreaRes[pos].innerHTML += `- ${e} \n`);
+  }
   const changeComp = (programa, pos) => {
     const name = programa.split(' ')[0];
-    const comp = competencias.filter(e => e[name]);
+    const comp = competencias.filter(e => e[name])[0];
     const selectComp = document.getElementsByName('comp_upd');
     selectComp[pos].innerHTML = '<option selected disabled value="">Seleccione . . .</option>';
-    comp[0][name].forEach(e => selectComp[pos].innerHTML += `<option value="${e}">${e}</option>`);
+    comp[name].forEach(e => selectComp[pos].innerHTML += `<option value="${e}">${e}</option>`);
+  }
+  const changeResults = (comp, pos, load = false) => {
+    let progra = '';
+    let showResults;
+    if (formUp?.Programa) progra = formUp.Programa;
+    else progra = user.Ficha[pos].Programa.split(' ')[0];
+
+    if (load) showResults = comp;
+    else {
+      const compet = comp.split(' ')[0];
+      showResults = resultDB.filter(e => e[progra])[0][progra];
+      showResults = showResults.filter(e => e[compet])[0][compet];
+    }
+
+    const selectComp = document.getElementsByName('results_upd');
+    selectComp[pos].innerHTML = '<option selected disabled value="">Seleccione . . .</option>';
+    showResults.forEach(e => selectComp[pos].innerHTML += `<option value="${e}">${e}</option>`);
   }
   const changeData = (e, pos = '') => {
     let options = {
@@ -36,20 +58,29 @@ function CompUpdateFicha({ user, setUser, dataDB, setDataDB, index, posShedule }
         changeComp(e.target.value, pos);
       },
       Nom_Comp: () => {
-        let userCompet;
-        if (formUp?.Competencias) {
-          userCompet = formUp.Competencias;
-          let index = userCompet.indexOf(e.target.value);
-          if (index === -1) userCompet.push(e.target.value);
-          else userCompet.splice(index, 1);
-        } else {
-          userCompet = user.Ficha[pos].Competencias;
-          let index = userCompet.indexOf(e.target.value);
-          if (index === -1) userCompet.push(e.target.value);
-          else userCompet.splice(index, 1);
-        }
+        let userCompet = [];
+        if (formUp?.Competencias) userCompet = formUp.Competencias;
+        else userCompet = user.Ficha[pos].Competencias;
+
+        let index = userCompet.indexOf(e.target.value);
+        if (index === -1) userCompet.push(e.target.value);
+        else userCompet.splice(index, 1);
+        
         changeTextArea(userCompet, pos);
+        changeResults(e.target.value, pos);
         setFormUp(prev => ({ ...prev, ['Competencias']: userCompet }));
+        e.target.value = '';
+      },
+      Nom_Result: () => {
+        let userResults = [];
+        if (formUp?.Resultados) userResults = formUp.Resultados;
+        else userResults = user.Ficha[pos].Resultados;
+
+        let index = userResults.indexOf(e.target.value);
+        if (index === -1) userResults.push(e.target.value);
+        else userResults.splice(index, 1);
+        changeAreaResults(userResults, pos);
+        setFormUp(prev => ({ ...prev, ['Resultados']: userResults }));
         e.target.value = '';
       }
     }
@@ -75,7 +106,7 @@ function CompUpdateFicha({ user, setUser, dataDB, setDataDB, index, posShedule }
       alert('La formacion complementaria, ha sido actualizada');
       setTextComplem('');
     }
-  }  
+  }
   const showPrograms = () => programas.map(e => <option value={e} key={e}>{e}</option>);
   const showAmbientes = () => aulas.map(e => <option value={e} key={e}>{e}</option>);
 
@@ -137,6 +168,11 @@ function CompUpdateFicha({ user, setUser, dataDB, setDataDB, index, posShedule }
                 <label htmlFor="Competencias">Competencias:</label>
                 <select id="Nom_Comp" name="comp_upd" defaultValue={''} onChange={e => changeData(e, pos)}></select>
                 <textarea rows="9" name="text_area_up" disabled ></textarea>
+              </section>
+              <section className="sect_results">
+                <label htmlFor="Competencias">Resultados :</label>
+                <select id="Nom_Result" name='results_upd' defaultValue={''} onChange={e => changeData(e, pos)}></select>
+                <textarea id="area_result" name='text_results' disabled></textarea>
               </section>
               <section className="sect_descrip">
                 <label htmlFor="Descripcion">Descripción:</label>

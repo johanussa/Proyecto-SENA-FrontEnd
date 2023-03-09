@@ -1,4 +1,4 @@
-import { programas, data, aulas, colors, competencias as competData } from './data';
+import { programas, data, aulas, colors, competencias as competData, resultados } from '../../components/data';
 import React, { useEffect, useState } from 'react';
 import senaLogo from '../../assets/Sena_logo.png';
 import logoSANF from '../../assets/logoSANF2.png';
@@ -9,7 +9,7 @@ import './css/styleShedule.css';
 
 let countAsignacion = 1, cantHours = 0;
 let activeFicha = false, flagPlaneacion = false;
-let shedule = [], dataFicha = [], Competencias = [], complement = [], aux = [];
+let shedule = [], dataFicha = [], Competencias = [], complement = [], aux = [], Resultados = [];
 let userSelected, date_start, date_end, textCompl, Ambiente, indexUser;
 
 function ManagementShedule() {
@@ -22,6 +22,7 @@ function ManagementShedule() {
   const [hourSinAsig, setHoursSinAsig] = useState(0);
   const [tableTitle, setTableTitle] = useState('');
   const [selectComp, setSelectComp] = useState([]);
+  const [selectResults, setSelectResults] = useState([]);
   const [showCompShedule, setShowCompShedule] = useState(false);
   const [showUpdateShedule, setShowUpdateShedule] = useState(false);
   const [sizeShed, setSizeShed] = useState('');
@@ -51,14 +52,16 @@ function ManagementShedule() {
 
     document.forms['form_complementario'].reset();
     document.forms['formCreate'].reset();
+    area_comp.innerHTML = '';
+    area_result.innerHTML = '';
     clearTable();
     shedule = [];
     dataFicha = [];
     complement = [];
     Competencias = [];
-    setColorSelector(0);
     activeFicha = false;
     flagPlaneacion = false;
+    setColorSelector(0);
     setSaveUpdate(false);
     setSizeShed(userSelected.Horario.length - 1);
     setShowCompShedule(false);
@@ -105,42 +108,47 @@ function ManagementShedule() {
   }
   const changeInput = e => {
     let options = {
-      Num_Ficha: () => setForm(prev => ({ ...prev, [e.target.id]: e.target.value })),
-      Num_Ruta: () => setForm(prev => ({ ...prev, [e.target.id]: e.target.value })),
-      Trimestre: () => setForm(prev => ({ ...prev, [e.target.id]: e.target.value })),
       Programa: () => {
         setForm(prev => ({ ...prev, [e.target.id]: e.target.value }));
         const name = e.target.value.split(' ')[0];
         const comp = competData.filter(e => e[name]);
         setSelectComp(comp[0][name]);
+        setSelectResults([]);
         area_comp.innerHTML = '';
         Competencias = [];
       },
-      Codigo: () => setForm(prev => ({ ...prev, [e.target.id]: e.target.value.toUpperCase() })),
       Nom_Comp: () => {
         let pos = Competencias.indexOf(e.target.value);
-        if (pos === -1) {
-          Competencias.push(e.target.value);
-          setForm(prev => ({ ...prev, Competencias }));
-        } else {
-          Competencias.splice(pos, 1);
-          setForm(prev => ({ ...prev, Competencias }));
-        }
+        if (pos === -1) Competencias.push(e.target.value);
+        else Competencias.splice(pos, 1);
+        setForm(prev => ({ ...prev, Competencias }));
         area_comp.innerHTML = '';
         Competencias.forEach(e => area_comp.innerHTML += `- ${e}\n`);
+
+        const comp = e.target.value.split(' ')[0];
+        const progra = form.Programa.split(' ')[0];
+        let resulDB = resultados.filter(e => e[progra])[0][progra];
+        resulDB = resulDB.filter(e => e[comp])[0][comp];
+        setSelectResults(resulDB);
         document.getElementById('Nom_Comp').value = '';
       },
-      Descripcion: () => setForm(prev => ({ ...prev, [e.target.id]: e.target.value })),
-      Num_Aprendices: () => setForm(prev => ({ ...prev, [e.target.id]: e.target.value })),
+      Nom_Result: () => {
+        let posResult = Resultados.indexOf(e.target.value);
+        if (posResult === -1) Resultados.push(e.target.value);
+        else Resultados.splice(posResult, 1);
+        setForm(prev => ({ ...prev, Resultados }));
+        area_result.innerHTML = '';
+        Resultados.forEach(e => area_result.innerHTML += `- ${e}\n`);
+        e.target.value = '';
+      },
       Ambiente: () => {
         let ambBefore = Ambiente;
         setForm(prev => ({ ...prev, [e.target.id]: e.target.value }));
-        if (aux.length) {
-          shedule.forEach(e => { if (e.Ambiente === ambBefore) e.Ambiente = form.Ambiente });
-        }
+        if (aux.length) shedule.forEach(e => { if (e.Ambiente === ambBefore) e.Ambiente = form.Ambiente });
       }
     }
-    if (e.target) options[e.target.id]();
+    if (options[e.target.id]) options[e.target.id]();
+    else { setForm(prev => ({ ...prev, [e.target.id]: e.target.value })); }
   }
   const updateHours = () => {
     setTotalHours(cantHours);
@@ -197,6 +205,7 @@ function ManagementShedule() {
     if (validateAmb()) {
       const resume = document.querySelector('.resume');
       area_comp.innerHTML = '';
+      area_result.innerHTML = '';
       document.forms['formCreate'].reset();
       document.forms['formCreate'].style.display = 'none';
 
@@ -221,6 +230,7 @@ function ManagementShedule() {
       }
       setEventActive(false);
       Competencias = [];
+      Resultados = [];
       Ambiente = '';
     }
   }
@@ -326,6 +336,8 @@ function ManagementShedule() {
         document.forms['form_complementario'].reset();
         document.querySelector('.btn_add_ficha').style.display = 'flex';
         document.querySelector('.form_complem').style.display = 'none';
+        area_comp.innerHTML = '';
+        area_result.innerHTML = '';
       }
     }
     if (validateDate()) {
@@ -374,6 +386,7 @@ function ManagementShedule() {
         dataDB[indexUser].Estado_Horario = true;
         dataDB[indexUser].Horario.push(objectData);
         alert('Información Almacenada Correctamente!!');
+        console.log(dataDB[indexUser]);
         selectInstructor(userSelected.Identificacion);
       }
     } else { alert('Aun No ha asignado las horas requeridas'); }
@@ -521,11 +534,11 @@ function ManagementShedule() {
           <article className="form">
             <form onChange={changeInput} id="formCreate" onSubmit={handleSubmit}>
               <section>
-                <label htmlFor="Num_Ficha">Número de Ficha:</label>
+                <label htmlFor="Num_Ficha">Número de Ficha :</label>
                 <input type="number" name="Num_Ficha" id="Num_Ficha" placeholder="2557679" required />
               </section>
               <section>
-                <label htmlFor="Num_Ruta">Número de Ruta:</label>
+                <label htmlFor="Num_Ruta">Número de Ruta :</label>
                 <select name="Num_Ruta" defaultValue={''} id="Num_Ruta" required>
                   <option disabled value="">Seleccione . . .</option>
                   <option value="Grupo 1">Grupo 1</option>
@@ -537,53 +550,59 @@ function ManagementShedule() {
                 </select>
               </section>
               <section>
-                <label htmlFor="Trimestre">Trimestre:</label>
+                <label htmlFor="Trimestre">Trimestre :</label>
                 <select name="Trimestre" defaultValue={''} id="Trimestre" required>
                   <option disabled value="">Seleccione . . .</option>
-                  <option value="1 de 4">1 de 4</option>
-                  <option value="2 de 4">2 de 4</option>
-                  <option value="3 de 4">3 de 4</option>
-                  <option value="4 de 4">4 de 4</option>
+                  <option value="1 de 4">1 de 3</option>
+                  <option value="2 de 4">2 de 3</option>
+                  <option value="3 de 4">3 de 3</option>
+                  <option value="4 de 4">4 de 7</option>
                   <option value="5 de 7">5 de 7</option>
                   <option value="6 de 7">6 de 7</option>
                   <option value="7 de 7">7 de 7</option>
                 </select>
               </section>
               <section>
-                <label htmlFor="Programa">Programa de Formación:</label>
+                <label htmlFor="Codigo">Codigo de Programa :</label>
+                <input type="text" name="Codigo" id="Codigo" placeholder="233104 V.1" />
+              </section>
+              <section className='programa_forma'>
+                <label htmlFor="Programa">Programa de Formación :</label>
                 <select name="Programa" defaultValue={''} id="Programa" required>
                   <option disabled value="">Seleccione . . .</option>
                   {programas.map(e => <option key={e} value={e}>{e}</option>)}
                 </select>
               </section>
               <section>
-                <label htmlFor="Codigo">Codigo de Programa:</label>
-                <input type="text" name="Codigo" id="Codigo" placeholder="233104 V.1" />
+                <label htmlFor="Num_Aprendices">Número de Aprendices :</label>
+                <input type="number" id="Num_Aprendices" placeholder="25" min="10" max="40" />
               </section>
-              <section className="div_competencia">
-                <label htmlFor="Competencias">Competencias:</label>
+              <section>
+                <label htmlFor="Ambiente">Número de Ambiente :</label>
+                <select name="Ambiente" defaultValue={''} id="Ambiente" required>
+                  <option disabled value="">Seleccione . . .</option>
+                  {aulas.length ? aulas.map(e => <option key={e} value={e}>{e}</option>) : ''}
+                </select>
+              </section>              
+              <section className="sect_competencia">
+                <label htmlFor="Competencias">Competencias :</label>
                 <select id="Nom_Comp" defaultValue={''}>
                   <option disabled value="">Seleccione . . .</option>
                   {selectComp.length ? selectComp.map(e => <option key={e} value={e}>{e}</option>) : ''}
                 </select>
                 <textarea id="area_comp" disabled></textarea>
               </section>
-              <section>
+              <section className="sect_results">
+                <label htmlFor="Competencias">Resultados :</label>
+                <select id="Nom_Result" defaultValue={''}>
+                  <option disabled value="">Seleccione . . .</option>
+                  {selectResults.length ? selectResults.map(e => <option key={e} value={e}>{e}</option>) : ''}
+                </select>
+                <textarea id="area_result" disabled></textarea>
+              </section>
+              <section className='sec_description'>
                 <label htmlFor="Descripcion">Descripción:</label>
                 <textarea name="descripcion" id="Descripcion" rows="5"></textarea>
-              </section>
-              <section>
-                <div>
-                  <label htmlFor="Num_Aprendices">Número de Aprendices:</label>
-                  <input type="number" id="Num_Aprendices" placeholder="25" min="10" max="40" />
-                </div>
-                <div>
-                  <label htmlFor="Ambiente">Número de Ambiente:</label>
-                  <select name="Ambiente" defaultValue={''} id="Ambiente" required>
-                    <option disabled value="">Seleccione . . .</option>
-                    {aulas.length ? aulas.map(e => <option key={e} value={e}>{e}</option>) : ''}
-                  </select>
-                </div>
               </section>
               <section className="btns_actions">
                 <button type="button" onClick={() => btnsAction(4)}>Cancelar</button>
@@ -607,21 +626,20 @@ function ManagementShedule() {
           </section>
 
           <section className="show_shedule">
-            <h2>HORARIOS</h2>
             <section className='show_cards'>
               {showCompShedule && <CompShowShedule userSelected={userSelected} sizeShed={sizeShed}
                 setSizeShed={setSizeShed} setTableTitle={setTableTitle} clearTable={clearTable} />}
             </section>
             <section className="resume_Show">
-              {showCompShedule && <ComponentResume user={dataDB} index={indexUser} sizeShed={sizeShed} />}
+              {showCompShedule && <ComponentResume user={userSelected} sizeShed={sizeShed} />}
             </section>
           </section>
 
           <section className="update_info">
             {showUpdateShedule && <ComponentUpdate dataDB={dataDB} setDataDB={setDataDB} index={indexUser} />}
             <section className='sec_resume_update'>
-              {showUpdateShedule && <ComponentResume user={dataDB} index={indexUser} sizeShed={sizeShed} click={true} 
-                setEventActive={setEventActive} setColorSelector={setColorSelector} setSaveUpdate={setSaveUpdate}/>}
+              {showUpdateShedule && <ComponentResume user={dataDB} index={indexUser} sizeShed={sizeShed} click={true}
+                setEventActive={setEventActive} setColorSelector={setColorSelector} setSaveUpdate={setSaveUpdate} />}
             </section>
           </section>
 
