@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import CompUpdateFicha from './CompUpdateFicha';
 
 function ComponentUpdate({ dataDB, setDataDB, index }) {

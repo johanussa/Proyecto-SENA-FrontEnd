@@ -15,6 +15,7 @@ export const data = [
                         Trimestre: '1 de 3',
                         Programa: 'Sistemas',
                         Codigo: '144320 V.1',
+                        "Color": 1,
                         Competencias: ['Competencias 2'],
                         "Resultados": [
                             "Identificar los tipos y características de envases y empaques empleados en la industria con responsabilidad social, según normatividad vigente.",
@@ -25,6 +26,7 @@ export const data = [
                     }
                 ],
                 Complementaria: false,
+                Planta: false,
                 Horas: [{ pos: 5, color: 1 }, { pos: 6, color: 'p' }]
             },
             {
@@ -37,6 +39,7 @@ export const data = [
                         Trimestre: '3 de 3',
                         Programa: 'Programación de Software',
                         Codigo: 2443160,
+                        "Color": 2,
                         Competencias: ['Competencias 1'],
                         "Resultados": [
                             "Realizar el análisis estadístico de la información obtenida, garantizando la confidencialidad según procedimientos y protocolos establecidos por la empresa y normatividad vigente."
@@ -47,6 +50,7 @@ export const data = [
                     }
                 ],
                 Complementaria: ['Formacion Complementaria'],
+                Planta: false,
                 Horas: [{ pos: 12, color: 1 }, { pos: 26, color: 'p' }, { pos: 16, color: 2 }]
             },            
             {
@@ -57,68 +61,56 @@ export const data = [
                         "Num_Ficha": "2557679",
                         "Num_Ruta": "Grupo 2",
                         "Trimestre": "3 de 4",
-                        "Programa": "Programación de software.",
                         "Codigo": "233104 v.1",
+                        "Color": 1,
+                        "Programa": "Programación de software.",
+                        "Num_Aprendices": "24",
+                        "Ambiente": "203 Software.",
                         "Competencias": [
-                            "Administrar base de datos de acuerdo con los estándares y requisitos técnicos.",
                             "Desarrollar la solución de software de acuerdo con el diseño y metodologías de desarrollo.",
-                            "Establecer requisitos de la solución de software de acuerdo con estándares y procedimiento técnico."
+                            "Administrar base de datos de acuerdo con los estándares y requisitos técnicos."
                         ],
                         "Resultados": [
-                            "Programar sentencias SQL en un sistema manejador de bases de datos según requerimientos del cliente. ",
+                            "Resolver procesos lógicos a través de la implementación de algoritmos y el lenguaje de programación seleccionado.",
                             "Codificar el software empleando el lenguaje de programación seleccionado.",
-                            "Establecer los requisitos del software de acuerdo con la información recolectada."
+                            "Programar sentencias SQL en un sistema manejador de bases de datos según requerimientos del cliente. "
                         ],
-                        "Descripcion": "Descripción para programación de software",
-                        "Num_Aprendices": "25",
-                        "Ambiente": "203 Software."
+                        "Descripcion": "Horario para programación Ruta 2"
                     },
                     {
-                        "Num_Ficha": "2334571",
+                        "Num_Ficha": "7896481",
                         "Num_Ruta": "Grupo 1",
                         "Trimestre": "1 de 4",
-                        "Programa": "Control de calidad de alimentos.",
                         "Codigo": "111222 v.1",
-                        "Competencias": [
-                            "Prepara la carga de acuerdo con su naturaleza medio de transporte y destino.",
-                            "Presentar los informes estadísticos de calidad según especificaciones dadas por la empresa."
-                        ],
-                        "Resultados": [
-                            "Identificar los tipos y características de envases y empaques empleados en la industria con responsabilidad social, según normatividad vigente.",
-                            "Realizar el análisis estadístico de la información obtenida, garantizando la confidencialidad según procedimientos y protocolos establecidos por la empresa y normatividad vigente."
-                        ],
-                        "Descripcion": "Descripción para control de alimentos",
+                        "Color": 2,
+                        "Programa": "Programación de software.",
                         "Num_Aprendices": "17",
-                        "Ambiente": "108 AMB. Manufactura manual."
-                    },
-                    {
-                        "Num_Ficha": "3245897",
-                        "Num_Ruta": "Grupo 3",
-                        "Trimestre": "2 de 4",
-                        "Programa": "Inspección de materiales con pruebas no destructiva.",
-                        "Codigo": "234234 v.1",
+                        "Ambiente": "203 Software.",
                         "Competencias": [
-                            "Dibujar planos mecánicos de acuerdo con normas técnicas.",
-                            "Inspección materiales de acuerdo con método de líquidos penetrantes y normativa"
+                            "Establecer requisitos de la solución de software de acuerdo con estándares y procedimiento técnico.",
+                            "Desarrollar la solución de software de acuerdo con el diseño y metodologías de desarrollo."
                         ],
                         "Resultados": [
-                            "Dibujar planos de componentes mecánicos de acuerdo con normativa vigente.",
-                            "Examinar materiales con la técnica de líquidos penetrantes de acuerdo con las normas y estándares establecidos."
+                            "Caracterizar los procesos de la organización de acuerdo con el software a construir.",
+                            "Recolectar información del software a construir de acuerdo con las necesidades del cliente.",
+                            "Establecer los requisitos del software de acuerdo con la información recolectada.",
+                            "Resolver procesos lógicos a través de la implementación de algoritmos y el lenguaje de programación seleccionado."
                         ],
-                        "Descripcion": "Descripción para inspección de materiales",
-                        "Num_Aprendices": "21",
-                        "Ambiente": "111 Ensayos no destructivos."
+                        "Descripcion": "Descripción para la Ruta 1 de programación de software"
                     }
                 ],
                 "Complementaria": [],
+                "Planta": false,
                 "Horas": [
-                    {"pos": 49,"color": 1},{"pos": 56,"color": 1},{"pos": 63,"color": 1},{"pos": 70,"color": 1},{"pos": 77,"color": 1},{"pos": 78,"color": 1},
-                    {"pos": 71,"color": 1},{"pos": 64,"color": 1},{"pos": 57,"color": 1},{"pos": 50,"color": 1},{"pos": 51,"color": 1},{"pos": 58,"color": 1},
-                    {"pos": 65,"color": 1},{"pos": 72,"color": 1},{"pos": 79,"color": 1},{"pos": 80,"color": 1},{"pos": 73,"color": 1},{"pos": 66,"color": 1},
-                    {"pos": 59,"color": 1},{"pos": 52,"color": 1},{"pos": 53,"color": 1},{"pos": 60,"color": 1},{"pos": 67,"color": 1},{"pos": 74,"color": 1},
-                    {"pos": 81,"color": 1},{"pos": 7,"color": 2},{"pos": 14,"color": 2},{"pos": 21,"color": 2},{"pos": 28,"color": 2},{"pos": 35,"color": 2},
-                    {"pos": 8,"color": 3},{"pos": 15,"color": 3},{"pos": 22,"color": 3},{"pos": 29,"color": 3},{"pos": 36,"color": 3},{"pos": 37,"color": "p"},
-                    {"pos": 30,"color": "p"},{"pos": 23,"color": "p"},{"pos": 16,"color": "p"},{"pos": 9,"color": "p"}
+                    {"pos": 49,"color": 1,"Ambiente": "203 Software." }, {"pos": 56,"color": 1,"Ambiente": "203 Software." }, {"pos": 63,"color": 1,"Ambiente": "203 Software." }, {"pos": 70,"color": 1,"Ambiente": "203 Software." }, {"pos": 77,"color": 1,"Ambiente": "203 Software." },
+                    {"pos": 78,"color": 1,"Ambiente": "203 Software." }, {"pos": 71,"color": 1,"Ambiente": "203 Software." }, {"pos": 64,"color": 1,"Ambiente": "203 Software." }, {"pos": 57,"color": 1,"Ambiente": "203 Software." }, {"pos": 50,"color": 1,"Ambiente": "203 Software." },
+                    {"pos": 51,"color": 1,"Ambiente": "203 Software." }, {"pos": 58,"color": 1,"Ambiente": "203 Software." }, {"pos": 65,"color": 1,"Ambiente": "203 Software." }, {"pos": 72,"color": 1,"Ambiente": "203 Software." }, {"pos": 79,"color": 1,"Ambiente": "203 Software." }, 
+                    {"pos": 81,"color": 1,"Ambiente": "203 Software." }, {"pos": 74,"color": 1,"Ambiente": "203 Software." }, {"pos": 67,"color": 1,"Ambiente": "203 Software." }, {"pos": 60,"color": 1,"Ambiente": "203 Software." }, {"pos": 53,"color": 1,"Ambiente": "203 Software." }, 
+                    {"pos": 84,"color": 2,"Ambiente": "203 Software." }, {"pos": 91,"color": 2,"Ambiente": "203 Software." }, {"pos": 98,"color": 2,"Ambiente": "203 Software." }, {"pos": 105,"color": 2,"Ambiente": "203 Software." }, {"pos": 85,"color": 2,"Ambiente": "203 Software." },
+                    {"pos": 92,"color": 2,"Ambiente": "203 Software." }, {"pos": 99,"color": 2,"Ambiente": "203 Software." }, {"pos": 106,"color": 2,"Ambiente": "203 Software." }, {"pos": 87,"color": 2,"Ambiente": "203 Software." }, {"pos": 94,"color": 2,"Ambiente": "203 Software." },
+                    {"pos": 101,"color": 2,"Ambiente": "203 Software." }, {"pos": 108,"color": 2,"Ambiente": "203 Software." }, {"pos": 88,"color": 2,"Ambiente": "203 Software." }, {"pos": 95,"color": 2,"Ambiente": "203 Software." }, {"pos": 102,"color": 2,"Ambiente": "203 Software." },
+                    {"pos": 109,"color": 2,"Ambiente": "203 Software." }, {"pos": 80,"color": "p" }, {"pos": 73,"color": "p" }, {"pos": 66,"color": "p" },
+                    {"pos": 86,"color": "p" }, {"pos": 100,"color": "p" }, {"pos": 93,"color": "p" }
                 ]
             }
         ]
@@ -134,36 +126,66 @@ export const data = [
                 "FechaFin": "2023-04-05",
                 "Ficha": [
                     {
-                        "Num_Ficha": "5784122",
-                        "Num_Ruta": "Grupo 4",
-                        "Trimestre": "5 de 7",
-                        "Codigo": "111222 v.1",
-                        "Programa": "Programación de software.",
-                        "Num_Aprendices": "21",
+                        "Num_Ficha": "2335472",
+                        "Num_Ruta": "Grupo 1",
+                        "Trimestre": "1 de 4",
+                        "Codigo": "258741 v.2",
+                        "Color": 1,
+                        "Programa": "Control de calidad de alimentos.",
+                        "Num_Aprendices": "16",
                         "Ambiente": "203 Software.",
                         "Competencias": [
-                            "Establecer requisitos de la solución de software de acuerdo con estándares y procedimiento técnico."
+                            "Presentar los informes estadísticos de calidad según especificaciones dadas por la empresa.",
+                            "GestionarE los planes y programas de producción de acuerdo con los objetivos y políticas trazados por la empresa."
                         ],
                         "Resultados": [
-                            "Caracterizar los procesos de la organización de acuerdo con el software a construir.",
-                            "Recolectar información del software a construir de acuerdo con las necesidades del cliente."
+                            "Interpretar los resultados del análisis estadístico realizados a los procesos de producción y control de calidad de alimentos, según procedimientos y protocolos establecidos por la empresa y normatividad vigente ",
+                            "Implementar el sistema de gestión de la calidad para contribuir al mejoramiento de productos, proceso y a la calidad de vida de la sociedad, de acuerdo con los parámetros establecidos en las normas técnicas y empresariales."
                         ],
-                        "Descripcion": "Programación de software Tecnología "
+                        "Descripcion": "Descripción para control de alimentos Ruta 1"
+                    },
+                    {
+                        "Num_Ficha": "7890432",
+                        "Num_Ruta": "Grupo 4",
+                        "Trimestre": "2 de 4",
+                        "Codigo": "111222 v.1",
+                        "Color": 3,
+                        "Programa": "Inspección de materiales con pruebas no destructiva.",
+                        "Num_Aprendices": "34",
+                        "Ambiente": "302 Sistemas.",
+                        "Competencias": [
+                            "Dibujar planos mecánicos de acuerdo con normas técnicas.",
+                            "Aplicación de conocimientos de las ciencias naturales de acuerdo con situaciones del contexto productivo y social."
+                        ],
+                        "Resultados": [
+                            "Dibujar planos de componentes mecánicos de acuerdo con normativa vigente.",
+                            "Identificar requerimientos para dibujo técnico de elementos mecánicos de acuerdo con la normativa vigente.",
+                            "Solucionar problemas asociados con el sector productivo con base en los principios y leyes de la física."
+                        ],
+                        "Descripcion": "Descripción para ruta 4 de Inspección de materiales"
                     }
                 ],
                 "Complementaria": [
-                    "Formación Complementaria 1",
-                    "Formación Complementaria 2",
-                    "Formación Complementaria 3"
+                    "Formación en Colegio Celestino Mutis",
+                    "Visita a Aprendices en Etapa Productiva "
                 ],
+                "Planta": true,
                 "Horas": [
-                    {"pos": 49,"color": 1},{"pos": 56,"color": 1},{"pos": 63,"color": 1},{"pos": 70,"color": 1},{"pos": 77,"color": 1},{"pos": 78,"color": 1},
-                    {"pos": 71,"color": 1},{"pos": 64,"color": 1},{"pos": 57,"color": 1},{"pos": 50,"color": 1},{"pos": 51,"color": 2},{"pos": 58,"color": 2},
-                    {"pos": 65,"color": 2},{"pos": 72,"color": 2},{"pos": 79,"color": 2},{"pos": 80,"color": 2},{"pos": 73,"color": 2},{"pos": 66,"color": 2},
-                    {"pos": 59,"color": 2},{"pos": 52,"color": 2},{"pos": 53,"color": 2},{"pos": 60,"color": 2},{"pos": 67,"color": 2},{"pos": 74,"color": 2},
-                    {"pos": 81,"color": 2},{"pos": 8,"color": 3},{"pos": 15,"color": 3},{"pos": 22,"color": 3},{"pos": 29,"color": 3},{"pos": 36,"color": 3},
-                    {"pos": 30,"color": 3},{"pos": 37,"color": 3},{"pos": 23,"color": 3},{"pos": 16,"color": 3},{"pos": 9,"color": 3},{"pos": 31,"color": 4},
-                    {"pos": 24,"color": 4},{"pos": 17,"color": 4},{"pos": 10,"color": 4},{"pos": 11,"color": "p"},{"pos": 18,"color": "p"},{"pos": 25,"color": "p"}
+                    {"pos": 7,"color": 1,"Ambiente": "203 Software." }, {"pos": 14,"color": 1,"Ambiente": "203 Software." }, 
+                    {"pos": 21,"color": 1,"Ambiente": "203 Software." }, {"pos": 28,"color": 1,"Ambiente": "203 Software." }, 
+                    {"pos": 35,"color": 1,"Ambiente": "203 Software." }, {"pos": 36,"color": 1,"Ambiente": "203 Software." }, 
+                    {"pos": 29,"color": 1,"Ambiente": "203 Software." }, {"pos": 22,"color": 1,"Ambiente": "203 Software." }, 
+                    {"pos": 15,"color": 1,"Ambiente": "203 Software." }, {"pos": 8,"color": 1,"Ambiente": "203 Software." }, 
+                    {"pos": 37,"color": 1,"Ambiente": "203 Software." }, {"pos": 30,"color": 1,"Ambiente": "203 Software." }, 
+                    {"pos": 23,"color": 1,"Ambiente": "203 Software." }, {"pos": 16,"color": 1,"Ambiente": "203 Software." }, 
+                    {"pos": 9,"color": 1,"Ambiente": "203 Software." }, {"pos": 10,"color": 2 }, {"pos": 17,"color": 2 }, {"pos": 24,"color": 2 }, 
+                    {"pos": 31,"color": 2 }, {"pos": 38,"color": 2 }, {"pos": 39,"color": 2 }, {"pos": 32,"color": 2 }, {"pos": 25,"color": 2 }, 
+                    {"pos": 18,"color": 2 }, {"pos": 11,"color": 2 }, {"pos": 53,"color": 3,"Ambiente": "302 Sistemas." }, 
+                    {"pos": 60,"color": 3,"Ambiente": "302 Sistemas." }, {"pos": 67,"color": 3,"Ambiente": "302 Sistemas." }, 
+                    {"pos": 74,"color": 3,"Ambiente": "302 Sistemas." }, {"pos": 81,"color": 3,"Ambiente": "302 Sistemas." }, {"pos": 52,"color": 4 }, 
+                    {"pos": 59,"color": 4 }, {"pos": 49,"color": "p" }, {"pos": 56,"color": "p" }, {"pos": 63,"color": "p" }, {"pos": 70,"color": "p" }, 
+                    {"pos": 77,"color": "p" }, {"pos": 78,"color": "p" }, {"pos": 71,"color": "p" }, {"pos": 64,"color": "p" }, {"pos": 57,"color": "p" }, 
+                    {"pos": 50,"color": "p" }
                 ]
             }
         ]
@@ -172,8 +194,47 @@ export const data = [
         Identificacion: 1023456789,
         Nombre: 'Maria Mercedes',
         Apellido: 'Gonzalez Triana',
-        Estado_Horario: false,
-        Horario: []
+        Estado_Horario: true,
+        Horario: [
+            {
+                "FechaInicio": "2023-02-23",
+                "FechaFin": "2023-04-05",
+                "Ficha": [
+                    {
+                        "Num_Ficha": "5564578",
+                        "Num_Ruta": "Grupo 3",
+                        "Trimestre": "3 de 4",
+                        "Codigo": "233125 v.2",
+                        "Programa": "Programación de software.",
+                        "Num_Aprendices": "12",
+                        "Ambiente": "107 Soladura.",
+                        "Competencias": [
+                            "Administrar base de datos de acuerdo con los estándares y requisitos técnicos.",
+                            "Establecer requisitos de la solución de software de acuerdo con estándares y procedimiento técnico."
+                        ],
+                        "Resultados": [
+                            "Programar sentencias SQL en un sistema manejador de bases de datos según requerimientos del cliente. ",
+                            "Construir la base de datos según requerimientos del cliente.",
+                            "Recolectar información del software a construir de acuerdo con las necesidades del cliente.",
+                            "Validar el informe de requisitos de acuerdo con las necesidades del cliente."
+                        ],
+                        "Descripcion": "Descripción para programación ruta 3 con Mercedes González",
+                        "Color": 1
+                    }
+                ],
+                "Complementaria": [
+                    "Formación complementaria, visita a empresas y calificar aprendices"
+                ],
+                "Planta": true,
+                "Horas": [
+                    {"pos": 9,"color": 1,"Ambiente": "107 Soladura." }, {"pos": 16,"color": 1,"Ambiente": "107 Soladura." }, {"pos": 23,"color": 1,"Ambiente": "107 Soladura." }, 
+                    {"pos": 30,"color": 1,"Ambiente": "107 Soladura." }, {"pos": 37,"color": 1,"Ambiente": "107 Soladura." }, {"pos": 51,"color": 2 }, {"pos": 58,"color": 2 }, 
+                    {"pos": 65,"color": 2 }, {"pos": 72,"color": 2 }, {"pos": 79,"color": 2 }, {"pos": 52,"color": 2 }, {"pos": 59,"color": 2 }, {"pos": 66,"color": 2 }, 
+                    {"pos": 73,"color": 2 }, {"pos": 80,"color": 2 }, {"pos": 7,"color": "p" }, {"pos": 21,"color": "p" }, {"pos": 14,"color": "p" }, {"pos": 28,"color": "p" }, 
+                    {"pos": 35,"color": "p" }, {"pos": 49,"color": "p" }, {"pos": 56,"color": "p" }, {"pos": 63,"color": "p" }, {"pos": 70,"color": "p" }, {"pos": 77,"color": "p" }
+                ]
+            }
+        ]
     },
     {
         Identificacion: 79568412,

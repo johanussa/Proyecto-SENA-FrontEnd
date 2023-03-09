@@ -124,6 +124,7 @@ aside.show_hours > span {
 }
 aside.show_hours .horas_asignadas { color: rgb(6, 185, 0); }
 aside.show_hours .horas_restantes { color: red; }
+aside.show_hours .horas_plane { color: rgb(255, 115, 0); }
 
 /* Estilos para Body - Main */
 
@@ -213,6 +214,7 @@ section.body_shedule .type_contrato article {
     margin: 20px auto 25px;
 }
 section.create_shedule { display: none; }
+/* section.create_shedule.complete_shedule { display: block; grid-column: span 2; } */
 section.create_shedule article.dates {
     display: flex;
     justify-content: space-evenly;
@@ -247,7 +249,6 @@ article.form #formCreate {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 10px;
-    display: none;
 }
 article.form #formCreate label,
 section.body_shedule .form_complem label {
@@ -272,7 +273,7 @@ article.form #formCreate textarea {
     font-size: 15px;
 }
 #formCreate textarea#area_comp,
-#formCreate textarea#area_result {
+#formCreate textarea#area_result_create {
     margin-top: 8px;
     height: 150px;
 }
@@ -397,6 +398,10 @@ section.show_shedule .show_cards {
 section.show_shedule .show_cards .sect_descrip textarea {
     height: 90px;
 }
+section.show_shedule .show_cards .title_shedule {
+    grid-column: span 2;
+    text-align: center;
+}
 section.dates_range,
 section.show_shedule > h2 {
     grid-column: span 2;
@@ -413,11 +418,11 @@ section.show_shedule > h2 { margin: 20px auto 10px; }
 section.show_shedule .resume_Show {
     font-size: 1.1rem;
     font-weight: 600;
-    padding-left: 70px;
+    padding-left: 30px;
     margin: 0 0 15px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    width: 100%;
+    gap: 10px;
 }
 i.icons_change_date {
     font-size: 2rem;
@@ -512,9 +517,10 @@ section.update_info h3 {
     grid-column: span 2; 
     text-align: center;
 }
-section.show_shedule h3 { margin-top: 50px; }
+section.show_shedule h3, section.update_info h3 { margin-top: 50px; }
 section.sec_resume_update {
-    padding: 16px 20px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
     grid-column: span 2;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
