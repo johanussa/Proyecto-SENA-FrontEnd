@@ -267,7 +267,7 @@ export const programas = [
     'CarpinteríaM metálica.',
     'Engaste de gemas en joyería.',
     'Fabricación de productos con fibra de vidrio y materiales Compuestos.',
-    'Fabricación y mantenimiento de productos con materiales compuestos.',
+    'FabricaciónM y mantenimiento de productos con materiales compuestos.',
     'Joyería armada.',
     'Mantenimiento y reconstrucción de piezas metálicas para armamento básico de infantería.',
     'ModeladoJ 3D para joyería.',
@@ -423,8 +423,8 @@ export const competencias = [
             'Efectuar en productos o procesos metalmecánicos mediciones cumpliendo parámetros de efectividad operativa.',
             'Promover la interacción idónea consigo mismo, con los demás y con la naturaleza en los contextos laboral y social.',
             'Replantear los diseños de acuerdo con normas, planos y especificaciones.',
-            'Soldar productos metálicos (platina) por arco eléctrico con electrodo revestido (SMAW). Según procedimiento de fabricación.',
-            'Soldar productos metálicos (platina) por arco protegido con gas con alambre electrodo (mig-mag) según procedimiento de fabricación.',
+            'SoldarE productos metálicos (platina) por arco eléctrico con electrodo revestido (SMAW). Según procedimiento de fabricación.',
+            'SoldarG productos metálicos (platina) por arco protegido con gas con alambre electrodo (mig-mag) según procedimiento de fabricación.',
             'Resultados de aprendizaje etapa práctica.'
         ]
     },
@@ -444,18 +444,18 @@ export const competencias = [
     },
     {
         Fabricación: [
-            'Aplicación de conocimientos de las ciencias naturales de acuerdo con situaciones del contexto productivo y social.',
-            'Aplicación de prácticas de protección ambiental, seguridad y salud en el trabajo.',
+            'AplicaciónC de conocimientos de las ciencias naturales de acuerdo con situaciones del contexto productivo y social.',
+            'AplicaciónS de prácticas de protección ambiental, seguridad y salud en el trabajo.',
             'Desarrollo de procesos de comunicación eficaces y efectivos.',
             'Desempeño de derechos fundamentales de trabajo.',
             'Enrique Low Murtra - ética y cultura de paz.',
             'Fabricar modelos y placas modelo cumpliendo requerimientos de los procesos industriales.',
-            'Fabricar moldes por contacto en polímeros reforzados y cargados, requeridos en procesos de termoformado, termo soplado y espumado.',
+            'FabricarP moldes por contacto en polímeros reforzados y cargados, requeridos en procesos de termoformado, termo soplado y espumado.',
             'Actividad física y hábitos de vida saludable.',
             'Cultura emprendedora y empresarial.',
             'Interacción de lengua inglesa de forma oral y escrita.',
             'Fabricación de piezas de laminación manual.',
-            'Fabricación de piezas de transferencia de resina de acuerdo con orden de producción.',
+            'FabricaciónR de piezas de transferencia de resina de acuerdo con orden de producción.',
             'Operar máquinas de fabricación de compuestos de acuerdo con manual técnico.',
             'Razonar cuantitativamente frente a situaciones susceptibles de ser abordadas de manera matemática en contextos laborales, sociales y personales.',
             'Recubrimiento de superficies según especificaciones y técnica de aspersión.',
@@ -466,8 +466,8 @@ export const competencias = [
     },
     {
         Mantenimiento: [
-            'Aplicación de conocimientos de las ciencias naturales de acuerdo con situaciones del contexto productivo y social.',
-            'Aplicación de prácticas de protección ambiental, seguridad y salud en el trabajo.',
+            'AplicaciónC de conocimientos de las ciencias naturales de acuerdo con situaciones del contexto productivo y social.',
+            'AplicaciónS de prácticas de protección ambiental, seguridad y salud en el trabajo.',
             'Desarrollo de procesos de comunicación eficaces y efectivos.',
             'Desempeño de derechos fundamentales de trabajo.',
             'Enrique Low Murtra - ética y cultura de paz.',
@@ -501,9 +501,9 @@ export const competencias = [
     },
     {
         Reconstrucción: [
-            'Operar equipos y dispositivos de acuerdo con el proceso de recubrimientos y acabados.',
+            'OperarR equipos y dispositivos de acuerdo con el proceso de recubrimientos y acabados.',
             'Operar equipos y dispositivos de acuerdo con el proceso de tratamientos térmicos.',
-            'Operar torno paralelo según especificaciones del elemento mecánico a fabricar.',
+            'OperarT torno paralelo según especificaciones del elemento mecánico a fabricar.',
             'Recuperar productos metálicos aplicando el proceso de soldadura manual por arco eléctrico con electrodo revestido (SMAW) según procedimiento establecido.'
         ]
     },
@@ -514,8 +514,8 @@ export const competencias = [
     },
     {
         ModeladoI: [
-            'Aplicación de conocimientos de las ciencias naturales de acuerdo con situaciones del contexto productivo y social.',
-            'Aplicación de prácticas de protección ambiental, seguridad y salud en el trabajo.',
+            'AplicaciónC de conocimientos de las ciencias naturales de acuerdo con situaciones del contexto productivo y social.',
+            'AplicaciónS de prácticas de protección ambiental, seguridad y salud en el trabajo.',
             'Desarrollo de procesos de comunicación eficaces y efectivos.',
             'Dibujar propuesta de acuerdo con técnicas de dibujo y requerimientos de diseño.',
             'Digitalizar dibujo de acuerdo con técnicas de modelación virtual y manuales técnicos.',
@@ -589,8 +589,8 @@ export const competencias = [
     },
     {
         RecuperaciónP: [
-            'Aplicación de conocimientos de las ciencias naturales de acuerdo con situaciones del contexto productivo y social.',
-            'Aplicación de prácticas de protección ambiental, seguridad y salud en el trabajo.',
+            'AplicaciónC de conocimientos de las ciencias naturales de acuerdo con situaciones del contexto productivo y social.',
+            'AplicaciónS de prácticas de protección ambiental, seguridad y salud en el trabajo.',
             'Desarrollo de procesos de comunicación eficaces y efectivos.',
             'Desempeño de derechos fundamentales de trabajo.',
             'Enrique Low Murtra - ética y cultura de paz.',
@@ -606,8 +606,8 @@ export const competencias = [
     },
     {
         Sistemas: [
-            'Aplicación de conocimientos de las ciencias naturales de acuerdo situaciones del contexto productivo y social.',
-            'Aplicación de prácticas de protección ambiental, seguridad y salud en el trabajo.',
+            'AplicaciónC de conocimientos de las ciencias naturales de acuerdo situaciones del contexto productivo y social.',
+            'AplicaciónS de prácticas de protección ambiental, seguridad y salud en el trabajo.',
             'Atender requerimientos de los clientes de acuerdo con procedimiento técnico y normativa de procesos de negocios.',
             'Desarrollo de procesos de comunicación eficaces y efectivos.',
             'Desempeño de derechos fundamentales de trabajo.',
@@ -625,8 +625,8 @@ export const competencias = [
     },
     {
         SoldaduraM: [
-            'Aplicación de conocimientos de las ciencias naturales de acuerdo con situaciones del contexto productivo y social.',
-            'Aplicación de prácticas de protección ambiental, seguridad y salud en el trabajo.',
+            'AplicaciónC de conocimientos de las ciencias naturales de acuerdo con situaciones del contexto productivo y social.',
+            'AplicaciónS de prácticas de protección ambiental, seguridad y salud en el trabajo.',
             'Desarrollo de procesos de comunicación eficaces y efectivos.',
             'Desempeño de derechos fundamentales de trabajo.',
             'Enrique Low Murtra - ética y cultura de paz.',
@@ -637,24 +637,24 @@ export const competencias = [
             'Razonar cuantitativamente frente a situaciones susceptibles de ser abordadas de manera matemática en contextos laborales, sociales y personales.',
             'Resultado de aprendizaje de la inducción.',
             'Resultados de aprendizaje etapa práctica.',
-            'Soldadura en platina de acero al carbono con proceso GMAW y FCAW.',
-            'Soldadura en platina de acero al carbono con proceso SMAW.',
+            'SoldaduraGF en platina de acero al carbono con proceso GMAW y FCAW.',
+            'SoldaduraS en platina de acero al carbono con proceso SMAW.',
             'Utilización de herramientas informáticas.',
             'Construir el modelo de integración de la cadena logística según los…'
         ]
     },
     {
         SupervisiónM: [
-            'Aplicación de conocimientos de las ciencias naturales de acuerdo con situaciones del contexto productivo y social.',
-            'Aplicación de prácticas de protección ambiental, seguridad y salud en el trabajo.',
+            'AplicaciónC de conocimientos de las ciencias naturales de acuerdo con situaciones del contexto productivo y social.',
+            'AplicaciónS de prácticas de protección ambiental, seguridad y salud en el trabajo.',
             'Controlar la calidad de los procesos de acuerdo con requerimientos técnicos y normativa.',
             'Desarrollo de procesos de comunicación eficaces y efectivos.',
             'Desempeño de derechos fundamentales de trabajo.',
             'Enrique Low Murtra - ética y cultura de paz.',
             'Actividad física y hábitos de vida saludable.',
             'Cultura emprendedora y empresarial.',
-            'Inspeccionar materiales de acuerdo con método de líquidos penetrantes y normativa.',
-            'Inspeccionar materiales de acuerdo con método visual y normativa.',
+            'InspeccionarL materiales de acuerdo con método de líquidos penetrantes y normativa.',
+            'InspeccionarV materiales de acuerdo con método visual y normativa.',
             'Interacción de lengua inglesa de forma oral y escrita.',
             'Soldadura en platina de acero al carbono con proceso GTAW.',
             'Orientar investigación formativa según referentes técnicos.',
@@ -662,16 +662,16 @@ export const competencias = [
             'Razonar cuantitativamente frente a situaciones susceptibles de ser abordadas de manera matemática en contextos laborales, sociales y personales.',
             'Resultado de aprendizaje de la inducción.',
             'Resultados de aprendizaje etapa práctica.',
-            'Soldadura en platina de acero al carbono con proceso GMAW y FCAW.',
-            'Soldadura en platina de acero al carbono con proceso SMAW.',
+            'SoldaduraGF en platina de acero al carbono con proceso GMAW y FCAW.',
+            'SoldaduraS en platina de acero al carbono con proceso SMAW.',
             'Supervisar procesos de producción de acuerdo con procedimientos técnicos.',
             'Utilización de herramientas informáticas.'
         ]
     },
     {
         Análisis: [
-            'Aplicación de conocimientos de las ciencias naturales de acuerdo con situaciones del contexto productivo y social.',
-            'Aplicación de prácticas de protección ambiental, seguridad y salud en el trabajo.',
+            'AplicaciónC de conocimientos de las ciencias naturales de acuerdo con situaciones del contexto productivo y social.',
+            'AplicaciónS de prácticas de protección ambiental, seguridad y salud en el trabajo.',
             'Controlar la calidad del servicio de software de acuerdo con los estándares técnicos.',
             'Desarrollar la solución de software de acuerdo con el diseño y metodologías de desarrollo.',
             'Desarrollo de procesos de comunicación eficaces y efectivos.',
@@ -701,7 +701,7 @@ export const competencias = [
             'Costear la cadena de aprovisionamiento, distribución y transporte de acuerdo con los objetivos y estrategias del plan logístico.',
             'Procesar la información de acuerdo a las requisiciones y parámetros establecidos por la empresa.',
             'Monitorear el desarrollo de los procesos, según el sistema y políticas de la organización.',
-            'Dar soporte a los procesos según políticas y requerimientos de los clientes.',
+            'DarS soporte a los procesos según políticas y requerimientos de los clientes.',
             'Operar los procesos de importación y exportación según normas y políticas internas y externas.',
             'Establecer los sistemas de distribución según el mercado y los costos de la cadena.',
             'Definir los sistemas de información de los procesos según estrategias corporativas.',
@@ -711,14 +711,13 @@ export const competencias = [
             'Estructurar los componentes de un sistema de trazabilidad de acuerdo a los productos, servicios y procesos.',
             'Promover la interacción idónea consigo mismo, con los demás y con la naturaleza en los contextos laboral y social.',
             'Comprender textos en inglés en forma escrita y auditiva.',
-            'Producir textos en inglés en forma escrita y oral.',
             'Procesar la información recolectada de acuerdo con los manuales de manejos de información.',
             'Resultados de aprendizaje etapa práctica.'
         ]
     },
     {
         Negociación: [
-            'Proyectar las necesidades y requerimientos según el proceso o unidades de negocio.',
+            'ProyectarN las necesidades y requerimientos según el proceso o unidades de negocio.',
             'Dirigir el talento humano según necesidades de la organización.',
             'Costear la cadena de aprovisionamiento, distribución y transporte de acuerdo con los objetivos y estrategias del plan logístico.',
             'Diligenciar los documentos según normas y procedimientos establecidos a nivel interno y externo.',
@@ -729,17 +728,13 @@ export const competencias = [
             'Analizar los resultados contables y financieros según los criterios de evaluación establecidos por la organización.',
             'Promover la interacción idónea consigo mismo, con los demás y con la naturaleza en los contextos laboral y social.',
             'Comprender textos en inglés en forma escrita y auditiva.',
-            'Producir textos en inglés en forma escrita y oral.',
-            'Proyectar el mercado de acuerdo con el tipo de producto o servicio y características de los consumidores y usuarios.',
+            'ProyectarM el mercado de acuerdo con el tipo de producto o servicio y características de los consumidores y usuarios.',
             'Desarrollar los canales de distribución a partir del mercado, idiosincrasia, cultura y necesidad de los clientes.',
             'Determinar oportunidades de mercado de acuerdo con las tendencias de entorno y los objetivos de la empresa.',
             'Planear actividades de mercadeo que respondan a las necesidades y expectativas de los clientes y a los objetivos de la empresa.',
             'Negociar productos y servicios según condiciones del mercado y políticas de la empresa.',
             'Procesar la información recolectada de acuerdo con los manuales de manejos de información.',
             'Resultados de aprendizaje etapa práctica.',
-            'Promover la interacción idónea consigo mismo, con los demás y con la naturaleza en los contextos laboral y social.',
-            'Comprender textos en inglés en forma escrita y auditiva.',
-            'Producir textos en inglés en forma escrita y oral.'
         ]
     },
     {
@@ -751,7 +746,6 @@ export const competencias = [
             'Realizar la postproducción para generar la animación final de acuerdo con las especificaciones del proyecto.',
             'Promover la interacción idónea consigo mismo, con los demás y con la naturaleza en los contextos laboral y social.',
             'Comprender textos en inglés en forma escrita y auditiva.',
-            'Producir textos en inglés en forma escrita y oral.',
             'Realizar negociación con los proveedores y clientes, según los objetivos y estrategias establecidas por la organización.',
             'Resultados de aprendizaje etapa práctica.'
         ]
@@ -811,8 +805,16 @@ export const resultados = [
                     'Aplicar técnicas de cultura física para el mejoramiento de su expresión corporal, desempeño laboral según la naturaleza y complejidad del área ocupacional.'
                 ]
             },
-            { Comprender: ['Comprender en inglés en forma escrita y auditiva.'] },
-            { Producir: ['Producir textos en inglés en forma escrita y oral.'] },
+            { 
+                Comprender: [
+                    'Comprender en inglés en forma escrita y auditiva.'
+                ] 
+            },
+            { 
+                Producir: [
+                    'Producir textos en inglés en forma escrita y oral.'
+                ] 
+            },
             {
                 Presentar: [
                     'Interpretar los resultados del análisis estadístico realizados a los procesos de producción y control de calidad de alimentos, según procedimientos y protocolos establecidos por la empresa y normatividad vigente.',
@@ -1106,6 +1108,2352 @@ export const resultados = [
                     'Plantear problemas aritméticos, geométricos y métricos de acuerdo con los contextos productivo y social. ',
                     'Identificar situaciones problemáticas asociadas a sus necesidades de contexto aplicando procedimientos matemáticos.',
                     'Solucionar problemas del entorno productivo y social aplicando	principios matemáticos.'
+                ]
+            },
+            {
+                Resultado: [
+                    'Identificar la dinámica organizacional del SENA y el rol de la formación profesional integral de acuerdo con su proyecto de vida y el desarrollo profesional.'
+                ]
+            },
+            {
+                Resultados: [
+                    'Aplicar en la resolución de problemas reales del sector productivo, los conocimientos, habilidades y destrezas pertinentes a las competencias del programa de formación asumiendo estrategias y metodologías de autogestión.'
+                ]
+            }
+        ]
+    },
+    {
+        Alistamiento: [
+            {
+                Alistamiento: [
+                    'Ejecutar operaciones de limpieza de materiales, equipos, instrumentos e instalaciones de laboratorio de análisis y ensayos según procedimientos establecidos.',
+                    'Realizar montajes técnicos de laboratorio teniendo en cuenta el procedimiento experimental y el tipo de análisis y ensayo a efectuar.',
+                    'Seleccionar los insumos de laboratorio y los reactivos de acuerdo a sus características…'
+                ]
+            },
+            {
+                Almacenamiento: [
+                    'Almacenar materiales y productos de laboratorio siguiendo protocolos establecidos.',
+                    'Verificar existencias de materiales y productos de acuerdo con políticas de inventario del laboratorio.',
+                    'Implementar procedimientos de manejo y disposición de residuos generados en el laboratorio, de acuerdo con las normas técnicas y legales vigentes.'
+                ]
+            },
+            {
+                Aplicación: [
+                    'Interpretar los problemas ambientales y de SST teniendo en cuenta los planes y programas establecidos por la organización y el entorno social.',
+                    'Efectuar las acciones para la prevención y control de la problemática ambiental y de SST, teniendo en cuenta los procedimientos establecidos por la organización.',
+                    'Verificar las condiciones ambientales y de SST acorde con los lineamientos establecidos para el área de desempeño laboral.',
+                    'Reportar las condiciones y actos que afecten la protección del medio ambiente y la SST, de acuerdo con los lineamientos establecidos en el contexto organizacional y social.'
+                ]
+            },
+            {
+                Desarrollo: [
+                    'Interpretar el sentido de la comunicación como medio de expresión social, cultural, laboral y artística.',
+                    'Decodificar mensajes comunicativos en situaciones de la vida social y laboral, teniendo en cuenta el contexto de la comunicación.',
+                    'Validar la importancia de los procesos comunicativos teniendo en cuenta criterios de lógica y racionalidad.',
+                    'Aplicar acciones de mejoramiento en el desarrollo de procesos comunicativos según requerimientos del contexto.'
+                ] 
+            },
+            {
+                Desempeño: [
+                    'Reconocer el trabajo como factor de movilidad social y transformación vital con referencia a la fenomenología y a los derechos fundamentales en el trabajo.',
+                    'Valorar la importancia de la ciudadanía laboral con base en el estudio de los derechos humanos y fundamentales en el trabajo.',
+                    'Practicar los derechos fundamentales en el trabajo de acuerdo con la constitución política y los convenios internacionales.',
+                    'Participar en acciones solidarias teniendo en cuenta el ejercicio de los derechos humanos, de los pueblos y de la naturaleza.'
+                ]
+            },
+            {
+                Enrique: [
+                    'Promover mi dignidad y la del otro a partir de los principios y valores éticos como aporte en la instauración de una cultura de paz.',
+                    'Establecer relaciones de crecimiento personal y comunitario a partir del bien común como aporte para el desarrollo social.',
+                    'Promover el uso racional de los recursos naturales a partir de criterios de sostenibilidad y sustentabilidad ética y normativa vigente.',
+                    'Contribuir con el fortalecimiento de la cultura de paz a partir de la dignidad humana y las estrategias para la transformación de conflictos.'
+                ] 
+            },
+            {
+                Actividad: [
+                    'Desarrollar habilidades psicomotrices en el contexto productivo y social.',
+                    'Practicar hábitos saludables mediante la aplicación de fundamentos de nutrición e higiene.',
+                    'Ejecutar actividades de acondicionamiento físico orientadas hacia el mejoramiento de la condición física en los contextos productivo y social.',
+                    'Implementar un plan de ergonomía y pausas activas según las características de la función productiva.'
+                ]
+            },
+            {
+                Cultura: [
+                    'Valorar la propuesta de negocio conforme con su estructura y necesidades del sector productivo y social.',
+                    'Caracterizar la idea de negocio teniendo en cuenta las oportunidades y necesidades del sector productivo y social.',
+                    'Estructurar el plan de negocio de acuerdo con las características empresariales y tendencias de mercado.',
+                    'Integrar elementos de la cultura emprendedora teniendo en cuenta el perfil personal y el contexto de desarrollo social.'
+                ]
+            },
+            {
+                Interacción: [
+                    'Comprender información básica oral y escrita en inglés acerca de sí mismo, de las personas y de su contexto inmediato en realidades presentes e historias de vida.',
+                    'Describir a nivel básico, de forma oral y escrita en inglés personas, situaciones y lugares de acuerdo con sus costumbres y experiencias de vida.',
+                    'Participar en intercambios conversacionales básicos en forma oral y escrita en inglés en diferentes situaciones sociales tanto en la cotidianidad como en experiencias pasadas.',
+                    'Llevar a cabo acciones de mejora relacionadas con el intercambio de información básica en inglés, sobre sí mismo, otras personas, su contexto inmediato, así como de experiencias.',
+                    'Comunicarse de manera sencilla en inglés en forma oral y escrita con un visitante o colega en un contexto laboral cotidiano.',
+                    'Poner en práctica vocabulario básico y expresiones comunes de su área ocupacional en contextos específicos de su trabajo por medio del uso de frases sencillas en forma oral y escrita'
+                ]
+            },
+            {
+                Preparación: [
+                    'Verificar condiciones de funcionamiento y manejo de equipos e instrumentos de laboratorios de análisis y ensayos de acuerdo con los procedimientos establecidos.',
+                    'Registrar la información requerida en los análisis y ensayos de las pruebas hechas en el laboratorio de acuerdo a los protocolos establecidos.',
+                    'Identificar condiciones ambientales requeridas en el laboratorio de acuerdo con el tipo de muestra a analizar o ensayar.'
+                ]
+            },
+            {
+                Razonar: [
+                    'Identificar situaciones problemáticas asociadas a sus necesidades de contexto aplicando procedimientos matemáticos.',
+                    'Plantear problemas aritméticos, geométricos y métricos de acuerdo con los contextos productivo y social.',
+                    'Solucionar problemas del entorno productivo y social aplicando principios matemáticos.',
+                    'Verificar los resultados de los procedimientos matemáticos conforme con los requerimientos de los diferentes contextos.'
+                ]
+            },
+            {
+                Resultado: [
+                    'Identificar la dinámica organizacional del SENA y el rol de la formación profesional integral de acuerdo con su proyecto de vida y el desarrollo profesional.'
+                ]
+            },
+            {
+                Resultados: [
+                    'Aplicar en la resolución de problemas reales del sector productivo, los conocimientos, habilidades y destrezas pertinentes a las competencias del programa de formación asumiendo estrategias y metodologías de autogestión.'
+                ]
+            }
+        ]
+    },
+    {
+        CarpinteríaA: [
+            {
+                Aplicación: [
+                    'Interpretar los problemas ambientales y de SST teniendo en cuenta los planes y programas establecidos por la organización y el entorno social.',
+                    'Efectuar las acciones para la prevención y control de la problemática ambiental y de SST, teniendo en cuenta los procedimientos establecidos por la organización.',
+                    'Verificar las condiciones ambientales y de SST acorde con los lineamientos establecidos para el área de desempeño laboral.',
+                    'Reportar las condiciones y actos que afecten la protección del medio ambiente y la SST, de acuerdo con los lineamientos establecidos en el contexto organizacional y social.'
+                ]
+            },
+            {
+                Corte: [
+                    'Disponer materiales, maquinaria y herramientas de acuerdo con manual de operación. ',
+                    'Manejar herramientas y maquinaria cumpliendo manual del fabricante.'
+                ]
+            },
+            {
+                Desarrollo: [
+                    'Interpretar el sentido de la comunicación como medio de expresión social, cultural, laboral y artística.',
+                    'Decodificar mensajes comunicativos en situaciones de la vida social y laboral, teniendo en cuenta el contexto de la comunicación.',
+                    'Validar la importancia de los procesos comunicativos teniendo en cuenta criterios de lógica y racionalidad.',
+                    'Aplicar acciones de mejoramiento en el desarrollo de procesos comunicativos según requerimientos del contexto.'
+                ]
+            },
+            {
+                Desempeño: [
+                    'Reconocer el trabajo como factor de movilidad social y transformación vital con referencia a la fenomenología y a los derechos fundamentales en el trabajo.',
+                    'Valorar la importancia de la ciudadanía laboral con base en el estudio de los derechos humanos y fundamentales en el trabajo.',
+                    'Practicar los derechos fundamentales en el trabajo de acuerdo con la constitución política y los convenios internacionales.',
+                    'Participar en acciones solidarias teniendo en cuenta el ejercicio de los derechos humanos, de los pueblos y de la naturaleza.'
+                ]
+            },
+            {
+                Enrique: [
+                    'Promover mi dignidad y la del otro a partir de los principios y valores éticos como aporte en la instauración de una cultura de paz.',
+                    'Establecer relaciones de crecimiento personal y comunitario a partir del bien común como aporte para el desarrollo social.',
+                    'Promover el uso racional de los recursos naturales a partir de criterios de sostenibilidad y sustentabilidad ética y normativa vigente.',
+                    'Contribuir con el fortalecimiento de la cultura de paz a partir de la dignidad humana y las estrategias para la transformación de conflictos.'
+                ]
+            },
+            {
+                Ensamble: [
+                    'Acondicionar perfiles de acuerdo con el sistema de ensamble.',
+                    'Colocar accesorios en aluminio de acuerdo con especificaciones técnicas.',
+                    'Instalar vidrios acordes con procedimientos técnicos y normas de seguridad.'
+                ]
+            },
+            {
+                Cultura: [
+                    'Valorar la propuesta de negocio conforme con su estructura y necesidades del sector productivo y social.',
+                    'Caracterizar la idea de negocio teniendo en cuenta las oportunidades y necesidades del sector productivo y social.',
+                    'Estructurar el plan de negocio de acuerdo con las características empresariales y tendencias de mercado.',
+                    'Integrar elementos de la cultura emprendedora teniendo en cuenta el perfil personal y el contexto de desarrollo social.'
+                ]
+            },
+            {
+                Actividad: [
+                    'Desarrollar habilidades psicomotrices en el contexto productivo y social.',
+                    'Practicar hábitos saludables mediante la aplicación de fundamentos de nutrición e higiene.',
+                    'Ejecutar actividades de acondicionamiento físico orientadas hacia el mejoramiento de la condición física en los contextos productivo y social.',
+                    'Implementar un plan de ergonomía y pausas activas según las características de la función productiva.'
+                ]
+            },
+            {
+                Instalación: [
+                    'Fijar sistemas acordes con procedimientos técnicos y normas de seguridad.',
+                    'Comprobar especificaciones de vanos y/o espacios de acuerdo a planos y requerimientos técnicos.'
+                ]
+            },
+            {
+                Resultado: [
+                    'Identificar la dinámica organizacional del SENA y el rol de la formación profesional integral de acuerdo con su proyecto de vida y el desarrollo profesional.'
+                ]
+            },
+            {
+                Resultados: [
+                    'Aplicar en la resolución de problemas reales del sector productivo, los conocimientos, habilidades y destrezas pertinentes a las competencias del programa de formación asumiendo estrategias y metodologías de autogestión.'
+                ]
+            },
+            {
+                Utilización: [
+                    'Seleccionar herramientas de tecnologías de la información y la comunicación (tic), de acuerdo con las necesidades identificadas.',
+                    'Usar herramientas tic, de acuerdo con los requerimientos, manuales de funcionamiento, procedimientos y estándares.',
+                    'Verificar los resultados obtenidos, de acuerdo con los requerimientos.',
+                    'Implementar buenas prácticas de uso, de acuerdo con la tecnología empleada.'
+                ]
+            }
+        ]
+    },
+    {
+        CarpinteríaM: [
+            {
+                Comprender: [
+                    'Comunicarse en tareas sencillas y habituales que requieren un intercambio simple y directo de información cotidiana y técnica.',
+                    'Realizar intercambios sociales y prácticos muy breves, con un vocabulario suficiente para hacer una exposición o mantener una conversación sencilla sobre temas técnicos.',
+                    'Encontrar vocabulario y expresiones de inglés técnico en anuncios, folletos, páginas web.',
+                    'Comprender frases y vocabulario habitual sobre temas de interés personal y temas.',
+                    'Encontrar información específica y predecible en escritos sencillos y cotidianos.',
+                    'Comprender la idea principal en avisos y mensajes breves, claros y sencillos en inglés.',
+                    'Leer textos muy breves y sencillos en inglés general y técnico.'
+                ]
+            },
+            {
+                Conformar: [
+                    'Interpretar y elaborar planos de productos metálicos para la arquitectura teniendo en cuenta las especificaciones técnicas.',
+                    'Establecer las características de los perfiles a emplear según el tipo de puertas, ventanas y otros productos a fabricar en lámina de acero fomentando la toma de decisiones individuales y en equipo.',
+                    'Efectuar el corte de láminas y perfiles conforme a especificaciones de fabricación.',
+                    'Trazar el material cumpliendo con lo especificado en el diseño y siendo responsable con el manejo de los recursos.',
+                    'Preparar técnicamente los equipos y herramientas de trabajo de acuerdo con el tipo de trazo y corte a realizar y teniendo en cuenta las recomendaciones del fabricante.',
+                    'Ejecutar los procedimientos técnicos para el doblado manual y mecánico en perfiles y láminas de acero cumpliendo las normas de seguridad industrial y evaluando el trabajo frente a los procedimientos técnicos y los productos obtenidos ante las especificaciones técnicas solicitadas.',
+                    'Elaborar el producto final efectuando las mediciones requeridas. Programas acciones de mejoramiento con base en los resultados de la evaluación.'
+                ]
+            },
+            {
+                Construir: [
+                    'Planear los desdijeres y ensambles requeridos en los perfiles de lámina, usados para el armado de acuerdo con los productos de carpintería metálica a elaborar.',
+                    'Elaborar otros productos en perfiles de lámina metálica de acero (rejas, pasamanos, barandillas balcones, otros) buscando diversas aplicaciones de la perfilería y el máximo aprovechamiento de materiales.',
+                    'Ejecutar los procesos generales para el armado de puertas y ventanas en perfilería de lámina de acero cumpliendo las normas de seguridad industrial.',
+                    'Cumplir normas de seguridad industrial y de salud ocupacional evitando daños tanto al ambiente como a las personas durante la elaboración de los productos de carpintería.',
+                    'Analizar diseños y especificaciones establecidas realizando los cálculos requeridos según el tipo de productos de carpintería metálica a elaborar.',
+                    'Revisar las condiciones finales del producto fabricado contrastando con las especificaciones de diseño.'
+                ]
+            },
+            {
+                Efectuar: [
+                    'Realizar las mediciones requeridas verificando el cumplimiento con los estándares de calidad del producto.',
+                    'Seleccionar los equipos e instrumentos de medición a emplear respondiendo a los estándares de calidad establecidos.',
+                    'Documentar el proceso usando los ambientes virtuales y establecer actividades para aplicar lo aprendido ante nuevas situaciones del trabajo.',
+                    'Planear las mediciones a efectuar analizando en el equipo la forma más óptima de hacerlas.'
+                ]
+            },
+            {
+                Promover: [
+                    'Gestionar la información de acuerdo con los procedimientos establecidos y con las tecnologías de la información y la comunicación disponibles.',
+                    'Concertar alternativas y acciones de formación para el desarrollo de las competencias del programa formación, con base en la política institucional.',
+                    'Asumir los deberes y derechos con base en las leyes y la normativa institucional en el marco de su proyecto de vida.',
+                    'Generar hábitos saludables en su estilo de vida para garantizar la prevención de riesgos ocupacionales de acuerdo con el diagnóstico de su condición física individual y la naturaleza y complejidad de su desempeño laboral.',
+                    'Desarrollar permanentemente las habilidades psicomotrices y de pensamiento en la ejecución de los procesos de aprendizaje.',
+                    'Identificar las oportunidades que el SENA ofrece en el marco de la formación profesional de acuerdo con el contexto nacional e internacional.',
+                    'Asumir responsablemente los criterios de preservación y conservación del medio ambiente y de desarrollo sostenible, en el ejercicio de su desempeño laboral y social.',
+                    'Desarrollar procesos comunicativos eficaces y asertivos dentro de criterios de racionalidad que posibiliten la convivencia, el establecimiento de acuerdos, la construcción colectiva del conocimiento y la resolución de problemas de carácter productivo y social.',
+                    'Interactuar en los contextos productivos y sociales en función de los principios y valores universales.',
+                    'Generar procesos autónomos y de trabajo colaborativo permanentes, fortaleciendo el equilibrio de los componentes racionales y emocionales orientados hacia el desarrollo humano integral.',
+                    'Reconocer el rol de los participantes en el proceso formativo, el papel de los ambientes de aprendizaje y la metodología de formación, de acuerdo con la dinámica organizacional del SENA.',
+                    'Redimensionar permanentemente su proyecto de vida de acuerdo con las circunstancias del contexto y con visión prospectiva.',
+                    'Asumir actitudes críticas, argumentativas y propositivas en función de la resolución de problemas de carácter productivo y social.',
+                    'Aplicar técnicas de cultura física para el mejoramiento de su expresión corporal, desempeño laboral según la naturaleza y complejidad del área ocupacional.'
+                ]
+            },
+            {
+                Replantear: [
+                    'Evaluar las propuestas de diseño analizando su viabilidad técnica y económica.',
+                    'Graficar propuestas de diseño de carpintería metálica en 3d, por medio de software aplicando criterios técnicos.',
+                    'Realizar registro del proceso de diseño apoyándose en las tecnologías de la información y la comunicación.',
+                    'Analizar requerimientos de diseño para carpintería metálica evaluando tendencias del…',
+                    'Generar propuestas de diseño de carpintería metálica congruentes con el respeto por el medio ambiente y aplicando los elementos básicos de diseño.'
+                ]
+            },
+            {
+                SoldarE: [
+                    'Revisar el estado final de las uniones soldadas realizando las correcciones requeridas para entregar productos dentro de especificaciones.',
+                    'Efectuar uniones soldadas en diferentes posiciones por soldadura eléctrica manual con electrodo revestido según especificaciones del procedimiento SMAW respetando los principios ergonómicos para evitar lesiones.',
+                    'Analizar el tipo y ubicación de las uniones soldadas requeridas en el producto estableciendo el procedimiento adecuado para efectuarlas de conformidad a la orden de producción y procedimientos técnicos.',
+                    'Puntear juntas en lámina y tuberías calibradas, por arco eléctrico SMAW cumpliendo las normas de seguridad industrial de acuerdo con procedimientos técnicos.',
+                    'Preparar equipos del proceso SMAW acorde con el procedimiento especificado y manuales técnicos respectivos.'
+                ]
+            },
+            {
+                SoldarG: [
+                    'Registrar las incidencias del proceso de soldadura proponiendo posibilidades de mejora.',
+                    'Planear el proceso de soldadura a efectuar definiendo en equipo las condiciones óptimas para el mejor aprovechamiento de los recursos.',
+                    'Puntear juntas en lámina y tuberías calibradas, por arco eléctrico GMAW de acuerdo con el procedimiento.',
+                    'Seleccionar y preparar los equipos, accesorios y consumibles del proceso GMAW verificando el cumplimiento de los requerimientos de seguridad industrial y salud.',
+                    'Soldar productos metálicos con el proceso GMAW cumpliendo con las especificaciones del procedimiento de soldadura y aplicando las normas de seguridad.'
+                ]
+            },
+            {
+                Resultados: [
+                    'Aplicar en la resolución de problemas reales del sector productivo, los conocimientos, habilidades y destrezas pertinentes a las competencias del programa de formación asumiendo estrategias y metodologías de autogestión.'
+                ]
+            }
+        ]
+    },
+    {
+        Engaste: [
+            {
+                Aplicación: [
+                    'Interpretar los problemas ambientales y de SST teniendo en cuenta los planes y programas establecidos por la organización y el entorno social.',
+                    'Efectuar las acciones para la prevención y control de la problemática ambiental y de SST, teniendo en cuenta los procedimientos establecidos por la organización.',
+                    'Verificar las condiciones ambientales y de SST acorde con los lineamientos establecidos para el área de desempeño laboral.',
+                    'Reportar las condiciones y actos que afecten la protección del medio ambiente y la SST, de acuerdo con los lineamientos establecidos en el contexto organizacional y social.'
+                ]
+            },
+            {
+                Desempeño: [
+                    'Reconocer el trabajo como factor de movilidad social y transformación vital con referencia a la fenomenología y a los derechos fundamentales en el trabajo.',
+                    'Valorar la importancia de la ciudadanía laboral con base en el estudio de los derechos humanos y fundamentales en el trabajo.',
+                    'Practicar los derechos fundamentales en el trabajo de acuerdo con la constitución política y los convenios internacionales.',
+                    'Participar en acciones solidarias teniendo en cuenta el ejercicio de los derechos humanos, de los pueblos y de la naturaleza.'
+                ]
+            },
+            {
+                Engaste: [
+                    'Seleccionar las gemas según las especificaciones técnicas de la montura.',
+                    'Preparar montura según el tipo de gema y requerimientos de ficha técnica.',
+                    'Dar acabado a la pieza engastada según requerimientos técnicos.',
+                    'Alistar equipos, herramientas y materiales según requerimientos de ficha técnica.',
+                    'Ajustar la gema en la montura según la técnica y tipo de engaste.',
+                    'Verificar la calidad de la pieza engastada según condiciones de ficha técnica.',
+                    'Verificar la calidad de la montura según requerimientos técnicos del proceso.'
+                ]
+            },
+            {
+                Enrique: [
+                    'Promover mi dignidad y la del otro a partir de los principios y valores éticos como aporte en la instauración de una cultura de paz.',
+                    'Establecer relaciones de crecimiento personal y comunitario a partir del bien común como aporte para el desarrollo social.',
+                    'Promover el uso racional de los recursos naturales a partir de criterios de sostenibilidad y sustentabilidad ética y normativa vigente.',
+                    'Contribuir con el fortalecimiento de la cultura de paz a partir de la dignidad humana y las estrategias para la transformación de conflictos.'
+                ]
+            },
+            {
+                Cultura: [
+                    'Valorar la propuesta de negocio conforme con su estructura y necesidades del sector productivo y social.',
+                    'Caracterizar la idea de negocio teniendo en cuenta las oportunidades y necesidades del sector productivo y social.',
+                    'Estructurar el plan de negocio de acuerdo con las características empresariales y tendencias de mercado.',
+                    'Integrar elementos de la cultura emprendedora teniendo en cuenta el perfil personal y el contexto de desarrollo social.'
+                ]
+            },
+            {
+                Actividad: [
+                    'Desarrollar habilidades psicomotrices en el contexto productivo y social.',
+                    'Practicar hábitos saludables mediante la aplicación de fundamentos de nutrición e higiene.',
+                    'Ejecutar actividades de acondicionamiento físico orientadas hacia el mejoramiento de la condición física en los contextos productivo y social.',
+                    'Implementar un plan de ergonomía y pausas activas según las características de la función productiva.'
+                ]
+            },
+            {
+                Razonar: [
+                    'Identificar situaciones problemáticas asociadas a sus necesidades de contexto aplicando procedimientos matemáticos.',
+                    'Plantear problemas aritméticos, geométricos y métricos de acuerdo con los contextos productivo y social.',
+                    'Solucionar problemas del entorno productivo y social aplicando principios matemáticos.',
+                    'Verificar los resultados de los procedimientos matemáticos conforme con los requerimientos de los diferentes contextos.'
+                ]
+            },
+            {
+                Resultado: [
+                    'Identificar la dinámica organizacional del SENA y el rol de la formación profesional integral de acuerdo con su proyecto de vida y el desarrollo profesional.'
+                ]
+            },
+            {
+                Utilización: [
+                    'Seleccionar herramientas de tecnologías de la información y la comunicación (tic), de acuerdo con las necesidades identificadas.',
+                    'Usar herramientas tic, de acuerdo con los requerimientos, manuales de funcionamiento, procedimientos y estándares.',
+                    'Verificar los resultados obtenidos, de acuerdo con los requerimientos.',
+                    'Implementar buenas prácticas de uso, de acuerdo con la tecnología empleada.'
+                ]
+            },
+            {
+                Resultados: [
+                    'Aplicar en la resolución de problemas reales del sector productivo, los conocimientos, habilidades y destrezas pertinentes a las competencias del programa de formación asumiendo estrategias y metodologías de autogestión.'
+                ]
+            }
+        ]
+    },
+    {
+        Fabricación: [
+            {
+                AplicaciónC: [
+                    'Identificar los principios y leyes de la física en la solución de problemas de acuerdo al contexto productivo.',
+                    'Solucionar problemas asociados con el sector productivos con base en los principios y leyes de la física.',
+                    'Verificar las transformaciones físicas de la materia utilizando herramientas tecnológicas.',
+                    'Proponer acciones de mejora en los procesos productivos de acuerdo con los principios y leyes de la física.'
+                ]
+            },
+            {
+                AplicaciónS: [
+                    'Interpretar los problemas ambientales y de SST teniendo en cuenta los planes y programas establecidos por la organización y el entorno social.',
+                    'Efectuar las acciones para la prevención y control de la problemática ambiental y de SST, teniendo en cuenta los procedimientos establecidos por la organización.',
+                    'Verificar las condiciones ambientales y de SST acorde con los lineamientos establecidos para el área de desempeño laboral.',
+                    'Reportar las condiciones y actos que afecten la protección del medio ambiente y la SST, de acuerdo con los lineamientos establecidos en el contexto organizacional y social.'
+                ]
+            },
+            {
+                Desarrollo: [
+                    'Interpretar el sentido de la comunicación como medio de expresión social, cultural, laboral y artística.',
+                    'Decodificar mensajes comunicativos en situaciones de la vida social y laboral, teniendo en cuenta el contexto de la comunicación.',
+                    'Validar la importancia de los procesos comunicativos teniendo en cuenta criterios de lógica y racionalidad.',
+                    'Aplicar acciones de mejoramiento en el desarrollo de procesos comunicativos según requerimientos del contexto.'
+                ]
+            },
+            {
+                Desempeño: [
+                    'Reconocer el trabajo como factor de movilidad social y transformación vital con referencia a la fenomenología y a los derechos fundamentales en el trabajo.',
+                    'Valorar la importancia de la ciudadanía laboral con base en el estudio de los derechos humanos y fundamentales en el trabajo.',
+                    'Practicar los derechos fundamentales en el trabajo de acuerdo con la constitución política y los convenios internacionales.',
+                    'Participar en acciones solidarias teniendo en cuenta el ejercicio de los derechos humanos, de los pueblos y de la naturaleza.'
+                ]
+            },
+            {
+                Enrique: [
+                    'Promover mi dignidad y la del otro a partir de los principios y valores éticos como aporte en la instauración de una cultura de paz.',
+                    'Establecer relaciones de crecimiento personal y comunitario a partir del bien común como aporte para el desarrollo social.',
+                    'Promover el uso racional de los recursos naturales a partir de criterios de sostenibilidad y sustentabilidad ética y normativa vigente.',
+                    'Contribuir con el fortalecimiento de la cultura de paz a partir de la dignidad humana y las estrategias para la transformación de conflictos.'
+                ]
+            },
+            {
+                Fabricar: [
+                    'Representar gráficamente los modelos de acuerdo a planos suministrados. ',
+                    'Aplicar el modelo de acuerdo al molde y producto a fabricar. ',
+                    'Determinar materia prima, equipos y herramientas de acuerdo a modelo a fabricar.'
+                ]
+            },
+            {
+                FabricarP: [
+                    'Validar el molde de acuerdo a especificaciones del producto.',
+                    'Determinar las características técnicas del molde de acuerdo a modelo y planos de…',
+                    'Preparar materia prima, herramientas y equipos según el molde a fabricar.',
+                    'Elaborar el molde por contacto teniendo en cuenta las especificaciones del producto a fabricar.',
+                    'Alistar el modelo de acuerdo a orden de producción.'
+                ]
+            },
+            {
+                Actividad: [
+                    'Desarrollar habilidades psicomotrices en el contexto productivo y social.',
+                    'Practicar hábitos saludables mediante la aplicación de fundamentos de nutrición e higiene.',
+                    'Ejecutar actividades de acondicionamiento físico orientadas hacia el mejoramiento de la condición física en los contextos productivo y social.',
+                    'Implementar un plan de ergonomía y pausas activas según las características de la función productiva.'
+                ]
+            },
+            {
+                Cultura: [
+                    'Valorar la propuesta de negocio conforme con su estructura y necesidades del sector productivo y social.',
+                    'Caracterizar la idea de negocio teniendo en cuenta las oportunidades y necesidades del sector productivo y social.',
+                    'Estructurar el plan de negocio de acuerdo con las características empresariales y tendencias de mercado.',
+                    'Integrar elementos de la cultura emprendedora teniendo en cuenta el perfil personal y el contexto de desarrollo social.'
+                ]
+            },
+            {
+                Interacción: [
+                    'Comprender información básica oral y escrita en inglés acerca de sí mismo, de las personas y de su contexto inmediato en realidades presentes e historias de vida.',
+                    'Describir a nivel básico, de forma oral y escrita en inglés personas, situaciones y lugares de acuerdo con sus costumbres y experiencias de vida.',
+                    'Participar en intercambios conversacionales básicos en forma oral y escrita en inglés en diferentes situaciones sociales tanto en la cotidianidad como en experiencias pasadas.',
+                    'Llevar a cabo acciones de mejora relacionadas con el intercambio de información básica en inglés, sobre sí mismo, otras personas, su contexto inmediato, así como de experiencias.',
+                    'Comunicarse de manera sencilla en inglés en forma oral y escrita con un visitante o colega en un contexto laboral cotidiano.',
+                    'Poner en práctica vocabulario básico y expresiones comunes de su área ocupacional en contextos específicos de su trabajo por medio del uso de frases sencillas en forma oral y escrita.'
+                ]
+            },
+            {
+                Fabricación: [
+                    'Producir piezas por laminado manual de acuerdo a requerimiento técnico y orden de producción.',
+                    'Validar el proceso de terminación de la pieza de acuerdo a los requerimientos del producto.',
+                    'Disponer moldes, herramientas equipos e insumos de acuerdo a la orden de producción.',
+                    'Caracterizar materiales herramientas y equipos de acuerdo a las normativas técnicas.'
+                ]
+            },
+            {
+                FabricaciónR: [
+                    'Configurar el equipo de transferencia y la materia prima requerida de acuerdo a orden de producción y especificaciones técnicas del producto.',
+                    'Validar el producto de acuerdo a especificaciones técnicas.',
+                    'Disponer el molde de acuerdo al producto a fabricar, normas de seguridad, medio ambiente y salud ocupacional.',
+                    'Inyectar las materias primas de acuerdo a especificaciones del producto.'
+                ]
+            },
+            {
+                Operar: [
+                    ' Verificar la calidad de pieza de acuerdo a las especificaciones requeridas.',
+                    'Configurar máquina de acuerdo con la orden de producción, especificaciones técnicas y procedimientos establecidos por empresa.',
+                    'Producir piezas con material compuesto por el proceso seleccionado.'
+                ]
+            },
+            {
+                Razonar: [
+                    'Identificar situaciones problemáticas asociadas a sus necesidades de contexto aplicando procedimientos matemáticos.',
+                    'Plantear problemas aritméticos, geométricos y métricos de acuerdo con los contextos productivo y social.',
+                    'Solucionar problemas del entorno productivo y social aplicando principios matemáticos.',
+                    'Verificar los resultados de los procedimientos matemáticos conforme con los requerimientos de los diferentes contextos.'
+                ]
+            },
+            {
+                Recubrimiento: [
+                    'Disponer materias primas, insumos y equipos de acuerdo a orden de producción.',
+                    'Verificar calidad del producto.',
+                    'Recubrir superficies de acuerdo a la orden de producción.'
+                ]
+            },
+            {
+                Resultado: [
+                    'Identificar la dinámica organizacional del SENA y el rol de la formación profesional integral de acuerdo con su proyecto de vida y el desarrollo profesional.'
+                ]
+            },
+            {
+                Utilización: [
+                    'Seleccionar herramientas de tecnologías de la información y la comunicación (tic), de acuerdo con las necesidades identificadas.',
+                    'Usar herramientas tic, de acuerdo con los requerimientos, manuales de funcionamiento, procedimientos y estándares.',
+                    'Verificar los resultados obtenidos, de acuerdo con los requerimientos.',
+                    'Implementar buenas prácticas de uso, de acuerdo con la tecnología empleada.'
+                ]
+            },
+            {
+                Resultados: [
+                    'Aplicar en la resolución de problemas reales del sector productivo, los conocimientos, habilidades y destrezas pertinentes a las competencias del programa de formación asumiendo estrategias y metodologías de autogestión.'
+                ]
+            }
+        ]
+    },
+    {
+        Mantenimiento: [
+            {
+                AplicaciónC: [
+                    'Identificar los principios y leyes de la física en la solución de problemas de acuerdo al contexto productivo.',
+                    'Solucionar problemas asociados con el sector productivos con base en los principios y leyes de la física.',
+                    'Verificar las transformaciones físicas de la materia utilizando herramientas tecnológicas.',
+                    'Proponer acciones de mejora en los procesos productivos de acuerdo con los principios y leyes de la física.'
+                ]
+            },
+            {
+                AplicaciónS: [
+                    'Interpretar los problemas ambientales y de SST teniendo en cuenta los planes y programas establecidos por la organización y el entorno social.',
+                    'Efectuar las acciones para la prevención y control de la problemática ambiental y de SST, teniendo en cuenta los procedimientos establecidos por la organización.',
+                    'Verificar las condiciones ambientales y de SST acorde con los lineamientos establecidos para el área de desempeño laboral.',
+                    'Reportar las condiciones y actos que afecten la protección del medio ambiente y la SST, de acuerdo con los lineamientos establecidos en el contexto organizacional y social.'
+                ]
+            },
+            {
+                Desarrollo: [
+                    'Interpretar el sentido de la comunicación como medio de expresión social, cultural, laboral y artística.',
+                    'Decodificar mensajes comunicativos en situaciones de la vida social y laboral, teniendo en cuenta el contexto de la comunicación.',
+                    'Validar la importancia de los procesos comunicativos teniendo en cuenta criterios de lógica y racionalidad.',
+                    'Aplicar acciones de mejoramiento en el desarrollo de procesos comunicativos según requerimientos del contexto.'
+                ]
+            },
+            {
+                Desempeño: [
+                    'Reconocer el trabajo como factor de movilidad social y transformación vital con referencia a la fenomenología y a los derechos fundamentales en el trabajo.',
+                    'Valorar la importancia de la ciudadanía laboral con base en el estudio de los derechos humanos y fundamentales en el trabajo.',
+                    'Practicar los derechos fundamentales en el trabajo de acuerdo con la constitución política y los convenios internacionales.',
+                    'Participar en acciones solidarias teniendo en cuenta el ejercicio de los derechos humanos, de los pueblos y de la naturaleza.'
+                ]
+            },
+            {
+                Enrique: [
+                    'Promover mi dignidad y la del otro a partir de los principios y valores éticos como aporte en la instauración de una cultura de paz.',
+                    'Establecer relaciones de crecimiento personal y comunitario a partir del bien común como aporte para el desarrollo social.',
+                    'Promover el uso racional de los recursos naturales a partir de criterios de sostenibilidad y sustentabilidad ética y normativa vigente.',
+                    'Contribuir con el fortalecimiento de la cultura de paz a partir de la dignidad humana y las estrategias para la transformación de conflictos.'
+                ]
+            },
+            {
+                Actividad: [
+                    'Desarrollar habilidades psicomotrices en el contexto productivo y social.',
+                    'Practicar hábitos saludables mediante la aplicación de fundamentos de nutrición e higiene.',
+                    'Ejecutar actividades de acondicionamiento físico orientadas hacia el mejoramiento de la condición física en los contextos productivo y social.',
+                    'Implementar un plan de ergonomía y pausas activas según las características de la función productiva.'
+                ]
+            },
+            {
+                Generar: [
+                    'Determinar dosificación de mezclas de materia prima de acuerdo con proporciones y ficha técnica.',
+                    'Elaborar gemelo digital del modelo y del molde de acuerdo con características finales de la pieza.',
+                    'Fabricar modelo físico con base en procedimientos técnicos y características de la pieza.',
+                    'Fabricar molde físico con base en procedimientos técnicos y características del modelo.'
+                ]
+            },
+            {
+                Cultura: [
+                    'Valorar la propuesta de negocio conforme con su estructura y necesidades del sector productivo y social.',
+                    'Caracterizar la idea de negocio teniendo en cuenta las oportunidades y necesidades del sector productivo y social.',
+                    'Estructurar el plan de negocio de acuerdo con las características empresariales y tendencias de mercado.',
+                    'Integrar elementos de la cultura emprendedora teniendo en cuenta el perfil personal y el contexto de desarrollo social.'
+                ]
+            },
+            {
+                Fabricación: [
+                    'Producir piezas por laminado manual de acuerdo a requerimiento técnico y orden de producción.',
+                    'Validar el proceso de terminación de la pieza de acuerdo a los requerimientos del producto.',
+                    'Disponer moldes, herramientas equipos e insumos de acuerdo a la orden de producción.',
+                    'Caracterizar materiales herramientas y equipos de acuerdo a las normativas técnicas.'
+                ]
+            },
+            {
+                Reparar: [
+                    'Valorar fallas en las piezas con base en características técnicas del laminado y proceso de fabricación.',
+                    'Corregir fallas y defectos en piezas según proceso de fabricación y ordenes de…'
+                ]
+            },
+            {
+                Resultados: [
+                    'Aplicar en la resolución de problemas reales del sector productivo, los conocimientos, habilidades y destrezas pertinentes a las competencias del programa de formación asumiendo estrategias y metodologías de autogestión.'
+                ]
+            },
+            {
+                Razonar: [
+                    'Identificar situaciones problemáticas asociadas a sus necesidades de contexto aplicando procedimientos matemáticos.',
+                    'Plantear problemas aritméticos, geométricos y métricos de acuerdo con los contextos productivo y social.',
+                    'Solucionar problemas del entorno productivo y social aplicando principios matemáticos.',
+                    'Verificar los resultados de los procedimientos matemáticos conforme con los requerimientos de los diferentes contextos.'
+                ]
+            },
+            {
+                Resultado: [
+                    'Identificar la dinámica organizacional del SENA y el rol de la formación profesional integral de acuerdo con su proyecto de vida y el desarrollo profesional.'
+                ]
+            },
+            {
+                Utilización: [
+                    'Seleccionar herramientas de tecnologías de la información y la comunicación (tic), de acuerdo con las necesidades identificadas.',
+                    'Usar herramientas tic, de acuerdo con los requerimientos, manuales de funcionamiento, procedimientos y estándares.',
+                    'Verificar los resultados obtenidos, de acuerdo con los requerimientos.',
+                    'Implementar buenas prácticas de uso, de acuerdo con la tecnología empleada.'
+                ]
+            }
+        ]
+    },
+    {
+        Joyería: [
+            {
+                Aplicación: [
+                    'Interpretar los problemas ambientales y de SST teniendo en cuenta los planes y programas establecidos por la organización y el entorno social.',
+                    'Efectuar las acciones para la prevención y control de la problemática ambiental y de SST, teniendo en cuenta los procedimientos establecidos por la organización.',
+                    'Verificar las condiciones ambientales y de SST acorde con los lineamientos establecidos para el área de desempeño laboral.',
+                    'Reportar las condiciones y actos que afecten la protección del medio ambiente y la SST, de acuerdo con los lineamientos establecidos en el contexto organizacional y social.'
+                ]
+            },
+            {
+                Conformar: [
+                    'Planear proceso de armado de joyas teniendo en cuenta requerimientos técnicos.',
+                    'Preparar metales, equipos, herramientas e insumos de acuerdo con la ficha técnica y normatividad ambiental.',
+                    'Producir lingotes de acuerdo con los estándares internacionales para aleaciones de los metales y ficha técnica.',
+                    'Elaborar láminas y perfiles para piezas de joyería teniendo en cuenta la ficha técnica y normatividad de salud y seguridad en el trabajo.',
+                    'Verificar pesos y medidas de las aleaciones, teniendo en cuenta los estándares internacionales.'
+                ]
+            },
+            {
+                Desarrollo: [
+                    'Validar la importancia de los procesos comunicativos teniendo en cuenta criterios de lógica y racionalidad.',
+                    'Interpretar el sentido de la comunicación como medio de expresión social, cultural, laboral y artística.',
+                    'Decodificar mensajes comunicativos en situaciones de la vida social y laboral, teniendo en cuenta el contexto de la comunicación.',
+                    'Aplicar acciones de mejoramiento en el desarrollo de procesos comunicativos según requerimientos del contexto.'
+                ]
+            },
+            {
+                Desempeño: [
+                    'Reconocer el trabajo como factor de movilidad social y transformación vital con referencia a la fenomenología y a los derechos fundamentales en el trabajo.',
+                    'Valorar la importancia de la ciudadanía laboral con base en el estudio de los derechos humanos y fundamentales en el trabajo.',
+                    'Practicar los derechos fundamentales en el trabajo de acuerdo con la constitución política y los convenios internacionales.',
+                    'Participar en acciones solidarias teniendo en cuenta el ejercicio de los derechos humanos, de los pueblos y de la naturaleza.'
+                ]
+            },
+            {
+                Enrique: [
+                    'Promover mi dignidad y la del otro a partir de los principios y valores éticos como aporte en la instauración de una cultura de paz.',
+                    'Establecer relaciones de crecimiento personal y comunitario a partir del bien común como aporte para el desarrollo social.',
+                    'Promover el uso racional de los recursos naturales a partir de criterios de sostenibilidad y sustentabilidad ética y normativa vigente.',
+                    'Contribuir con el fortalecimiento de la cultura de paz a partir de la dignidad humana y las estrategias para la transformación de conflictos.'
+                ]
+            },
+            {
+                Ensamblar: [
+                    'Representar gráficamente la idea de una joya a partir de la normativa para dibujo técnico.',
+                    'Estructurar la pieza de joyería de acuerdo con la ficha técnica y normatividad ambiental.',
+                    'Elaborar las partes de la joya teniendo en cuenta la ficha técnica y normatividad de salud y seguridad en el trabajo.',
+                    'Ensamblar las partes de la joya según especificaciones técnicas.',
+                    'Verificar que los acabados dados a la joya cumplan con los requerimientos de la ficha técnica.'
+                ]
+            },
+            {
+                Actividad: [
+                    'Desarrollar habilidades psicomotrices en el contexto productivo y social.',
+                    'Practicar hábitos saludables mediante la aplicación de fundamentos de nutrición e higiene.',
+                    'Ejecutar actividades de acondicionamiento físico orientadas hacia el mejoramiento de la condición física en los contextos productivo y social.',
+                    'Implementar un plan de ergonomía y pausas activas según las características de la función productiva.'
+                ]
+            },
+            {
+                Cultura: [
+                    'Valorar la propuesta de negocio conforme con su estructura y necesidades del sector productivo y social.',
+                    'Caracterizar la idea de negocio teniendo en cuenta las oportunidades y necesidades del sector productivo y social.',
+                    'Estructurar el plan de negocio de acuerdo con las características empresariales y tendencias de mercado.',
+                    'Integrar elementos de la cultura emprendedora teniendo en cuenta el perfil personal y el contexto de desarrollo social.'
+                ]
+            },
+            {
+                Interacción: [
+                    'Comprender información básica oral y escrita en inglés acerca de sí mismo, de las personas y de su contexto inmediato en realidades presentes e historias de vida.',
+                    'Describir a nivel básico, de forma oral y escrita en inglés personas, situaciones y lugares de acuerdo con sus costumbres y experiencias de vida.',
+                    'Participar en intercambios conversacionales básicos en forma oral y escrita en inglés en diferentes situaciones sociales tanto en la cotidianidad como en experiencias pasadas.',
+                    'Llevar a cabo acciones de mejora relacionadas con el intercambio de información básica en inglés, sobre sí mismo, otras personas, su contexto inmediato, así como de experiencias.',
+                    'Comunicarse de manera sencilla en inglés en forma oral y escrita con un visitante o colega en un contexto laboral cotidiano.',
+                    'Poner en práctica vocabulario básico y expresiones comunes de su área ocupacional en contextos específicos de su trabajo por medio del uso de frases sencillas en forma oral y escrita.'
+                ]
+            },
+            {
+                Resultado: [
+                    'Identificar la dinámica organizacional del SENA y el rol de la formación profesional integral de acuerdo con su proyecto de vida y el desarrollo profesional.'
+                ]
+            },
+            {
+                Resultados: [
+                    'Aplicar en la resolución de problemas reales del sector productivo, los conocimientos, habilidades y destrezas pertinentes a las competencias del programa de formación asumiendo estrategias y metodologías de autogestión.'
+                ]
+            },
+            {
+                Utilización: [
+                    'Seleccionar herramientas de tecnologías de la información y la comunicación (tic), de acuerdo con las necesidades identificadas.',
+                    'Usar herramientas tic, de acuerdo con los requerimientos, manuales de funcionamiento, procedimientos y estándares.',
+                    'Verificar los resultados obtenidos, de acuerdo con los requerimientos.',
+                    'Implementar buenas prácticas de uso, de acuerdo con la tecnología empleada.'
+                ]
+            }
+        ]
+    },
+    {
+        Reconstrucción: [
+            {
+                OperarR: [
+                    'Verificar las condiciones finales del recubrimiento obtenido de acuerdo al programa de producción.',
+                    'Ejecutar los procesos de recubrimientos metálicos siguiendo las especificaciones del programa de producción y normas técnicas, de seguridad y medioambientales.',
+                    'Especificar el recubrimiento requerido de acuerdo con el tipo de pieza y/o material a…'
+                ]
+            },
+            {
+                Operar: [
+                    'Preparar piezas o productos, para tratar térmicamente según especificaciones técnicas, normas de seguridad y medioambientales.',
+                    'Seleccionar el tratamiento térmico a realizar según especificaciones de la pieza o producto a tratar y/o especificaciones del cliente.',
+                    'Realizar el tratamiento térmico según especificaciones técnicas o programa de producción.',
+                    'Verificar el cumplimiento de las variables críticas de acuerdo al proceso, a las piezas o productos, materias primas e insumos.'
+                ]
+            },
+            {
+                OperarT: [
+                    'Constatar el cumplimiento de las dimensionales de la pieza fabricada según especificaciones del plano u orden de trabajo.',
+                    'Afilar las herramientas de corte según especificaciones técnicas del proceso de mecanizado y características de la pieza.',
+                    'Seleccionar los equipos e instrumentos de medición según los procedimientos especificados en la ruta de trabajo.',
+                    'Mecanizar piezas según especificaciones dadas en los planos u orden de trabajo.',
+                    'Seleccionar los equipos e instrumentos de medición según los procedimientos especificados en la ruta de trabajo.'
+                ]
+            },
+            {
+                Recuperar: [
+                    'Aplica soldaduras para restaurar piezas metálicas siguiendo las especificaciones del proceso SMAW, normas técnicas de seguridad, higiene y medioambiente.',
+                    'Selección y gradúa los equipos, máquinas y herramientas de soldadura teniendo en cuenta, normas técnicas, de seguridad y medioambientales.',
+                    'Verificar la calidad de la reparación realizada de acuerdo con códigos y estándares de aceptación.'
+                ]
+            }
+        ]
+    },
+    {
+        ModeladoJ: [
+            {
+                Modelar: [
+                    'Verificar características del modelo 3d cumpliendo parámetros de prototipado.',
+                    'Aplicar herramientas de modelado teniendo en cuenta las especificaciones de la ficha.',
+                    'Obtener modelo 3d según requerimientos del cliente.',
+                    'Elaborar ficha técnica según el diseño para modelado 3d.',
+                    'Elaborar render según especificaciones del cliente.'
+                ]
+            }
+        ]
+    },
+    {
+        ModeladoI: [
+            {
+                AplicaciónC: [
+                    'Identificar los principios y leyes de la física en la solución de problemas de acuerdo al contexto productivo.',
+                    'Solucionar problemas asociados con el sector productivos con base en los principios y leyes de la física.',
+                    'Verificar las transformaciones físicas de la materia utilizando herramientas tecnológicas.',
+                    'Proponer acciones de mejora en los procesos productivos de acuerdo con los principios y leyes de la física.'
+                ]
+            },
+            {
+                AplicaciónS: [
+                    'Interpretar los problemas ambientales y de SST teniendo en cuenta los planes y programas establecidos por la organización y el entorno social.',
+                    'Efectuar las acciones para la prevención y control de la problemática ambiental y de SST, teniendo en cuenta los procedimientos establecidos por la organización.',
+                    'Verificar las condiciones ambientales y de SST acorde con los lineamientos establecidos para el área de desempeño laboral.',
+                    'Reportar las condiciones y actos que afecten la protección del medio ambiente y la SST, de acuerdo con los lineamientos establecidos en el contexto organizacional y social.'
+                ]
+            },
+            {
+                Desarrollo: [
+                    'Interpretar el sentido de la comunicación como medio de expresión social, cultural, laboral y artística.',
+                    'Decodificar mensajes comunicativos en situaciones de la vida social y laboral, teniendo en cuenta el contexto de la comunicación.',
+                    'Validar la importancia de los procesos comunicativos teniendo en cuenta criterios de lógica y racionalidad.',
+                    'Aplicar acciones de mejoramiento en el desarrollo de procesos comunicativos según requerimientos del contexto.'
+                ]
+            },
+            {
+                Dibujar: [
+                    'Validar la propuesta realizada teniendo en cuenta los requerimientos del cliente y normatividad técnica.',
+                    'Identificar la propuesta a representar de acuerdo a los requerimientos del cliente y especificaciones técnicas.',
+                    'Representar gráficamente la solución planteada a partir de técnicas de dibujo manual según normas y especificaciones.'
+                ]
+            },
+            {
+                Digitalizar: [
+                    'Desarrollar modelos digitales cumpliendo con los requerimientos y normativa.',
+                    'Validar la propuesta realizada teniendo en cuenta los requerimientos del cliente y normatividad técnica.',
+                    'Elaborar render de acuerdo a técnicas y requerimientos del cliente.',
+                    'Elaborar planos a partir de software asistido por computador cumpliendo con normas y especificaciones técnicas.'
+                ]
+            },
+            {
+                Desempeño: [
+                    'Reconocer el trabajo como factor de movilidad social y transformación vital con referencia a la fenomenología y a los derechos fundamentales en el trabajo.',
+                    'Valorar la importancia de la ciudadanía laboral con base en el estudio de los derechos humanos y fundamentales en el trabajo.',
+                    'Practicar los derechos fundamentales en el trabajo de acuerdo con la constitución política y los convenios internacionales.',
+                    'Participar en acciones solidarias teniendo en cuenta el ejercicio de los derechos humanos, de los pueblos y de la naturaleza.'
+                ]
+            },
+            {
+                Enrique: [
+                    'Promover mi dignidad y la del otro a partir de los principios y valores éticos como aporte en la instauración de una cultura de paz.',
+                    'Establecer relaciones de crecimiento personal y comunitario a partir del bien común como aporte para el desarrollo social.',
+                    'Promover el uso racional de los recursos naturales a partir de criterios de sostenibilidad y sustentabilidad ética y normativa vigente.',
+                    'Contribuir con el fortalecimiento de la cultura de paz a partir de la dignidad humana y las estrategias para la transformación de conflictos.'
+                ]
+            },
+            {
+                Actividad: [
+                    'Desarrollar habilidades psicomotrices en el contexto productivo y social.',
+                    'Practicar hábitos saludables mediante la aplicación de fundamentos de nutrición e higiene.',
+                    'Ejecutar actividades de acondicionamiento físico orientadas hacia el mejoramiento de la condición física en los contextos productivo y social.',
+                    'Implementar un plan de ergonomía y pausas activas según las características de la función productiva.'
+                ]
+            },
+            {
+                Cultura: [
+                    'Valorar la propuesta de negocio conforme con su estructura y necesidades del sector productivo y social.',
+                    'Caracterizar la idea de negocio teniendo en cuenta las oportunidades y necesidades del sector productivo y social.',
+                    'Estructurar el plan de negocio de acuerdo con las características empresariales y tendencias de mercado.',
+                    'Integrar elementos de la cultura emprendedora teniendo en cuenta el perfil personal y el contexto de desarrollo social.'
+                ]
+            },
+            {
+                Imprimir: [
+                    'Definir proyecto teniendo en cuenta características técnicas del equipo, software, materiales, insumos y herramientas.',
+                    'Utilizar equipo de prototipado rápido teniendo en cuenta parámetros de impresión y requerimientos técnicos.',
+                    'Verificar prototipo según parámetros de calidad de impresión, modelo digital y requerimientos del cliente.'
+                ]
+            },
+            {
+                Interacción: [
+                    'Comprender información básica oral y escrita en inglés acerca de sí mismo, de las personas y de su contexto inmediato en realidades presentes e historias de vida.',
+                    'Describir a nivel básico, de forma oral y escrita en inglés personas, situaciones y lugares de acuerdo con sus costumbres y experiencias de vida.',
+                    'Participar en intercambios conversacionales básicos en forma oral y escrita en inglés en diferentes situaciones sociales tanto en la cotidianidad como en experiencias pasadas.',
+                    'Llevar a cabo acciones de mejora relacionadas con el intercambio de información básica en inglés, sobre sí mismo, otras personas, su contexto inmediato, así como de experiencias.',
+                    'Comunicarse de manera sencilla en inglés en forma oral y escrita con un visitante o colega en un contexto laboral cotidiano.',
+                    'Poner en práctica vocabulario básico y expresiones comunes de su área ocupacional en contextos específicos de su trabajo por medio del uso de frases sencillas en forma oral y escrita.'
+                ]
+            },
+            {
+                Razonar: [
+                    'Identificar situaciones problemáticas asociadas a sus necesidades de contexto aplicando procedimientos matemáticos.',
+                    'Plantear problemas aritméticos, geométricos y métricos de acuerdo con los contextos productivo y social.',
+                    'Solucionar problemas del entorno productivo y social aplicando principios matemáticos.',
+                    'Verificar los resultados de los procedimientos matemáticos conforme con los requerimientos de los diferentes contextos.'
+                ]
+            },
+            {
+                Resultado: [
+                    'Identificar la dinámica organizacional del SENA y el rol de la formación profesional integral de acuerdo con su proyecto de vida y el desarrollo profesional.'
+                ]
+            },
+            {
+                Resultados: [
+                    'Aplicar en la resolución de problemas reales del sector productivo, los conocimientos, habilidades y destrezas pertinentes a las competencias del programa de formación asumiendo estrategias y metodologías de autogestión.'
+                ]
+            },
+            {
+                Utilización: [
+                    'Seleccionar herramientas de tecnologías de la información y la comunicación (tic), de acuerdo con las necesidades identificadas.',
+                    'Usar herramientas tic, de acuerdo con los requerimientos, manuales de funcionamiento, procedimientos y estándares.',
+                    'Verificar los resultados obtenidos, de acuerdo con los requerimientos.',
+                    'Implementar buenas prácticas de uso, de acuerdo con la tecnología empleada.'
+                ]
+            }
+        ]
+    },
+    {
+        Elaboración: [
+            {
+                Aplicación: [
+                    'Interpretar los problemas ambientales y de SST teniendo en cuenta los planes y programas establecidos por la organización y el entorno social.',
+                    'Efectuar las acciones para la prevención y control de la problemática ambiental y de SST, teniendo en cuenta los procedimientos establecidos por la organización.',
+                    'Verificar las condiciones ambientales y de SST acorde con los lineamientos establecidos para el área de desempeño laboral.',
+                    'Reportar las condiciones y actos que afecten la protección del medio ambiente y la SST, de acuerdo con los lineamientos establecidos en el contexto organizacional y social.'
+                ]
+            },
+            {
+                Conformar: [
+                    'Planear proceso de armado de joyas teniendo en cuenta requerimientos técnicos.',
+                    'Preparar metales, equipos, herramientas e insumos de acuerdo con la ficha técnica y normatividad ambiental.',
+                    'Producir lingotes de acuerdo con los estándares internacionales para aleaciones de los metales y ficha técnica.',
+                    'Elaborar láminas y perfiles para piezas de joyería teniendo en cuenta la ficha técnica y normatividad de salud y seguridad en el trabajo.',
+                    'Verificar pesos y medidas de las aleaciones, teniendo en cuenta los estándares internacionales.'
+                ]
+            },
+            {
+                Desempeño: [
+                    'Reconocer el trabajo como factor de movilidad social y transformación vital con referencia a la fenomenología y a los derechos fundamentales en el trabajo.',
+                    'Valorar la importancia de la ciudadanía laboral con base en el estudio de los derechos humanos y fundamentales en el trabajo.',
+                    'Practicar los derechos fundamentales en el trabajo de acuerdo con la constitución política y los convenios internacionales.',
+                    'Participar en acciones solidarias teniendo en cuenta el ejercicio de los derechos humanos, de los pueblos y de la naturaleza.'
+                ]
+            },
+            {
+                Enrique: [
+                    'Promover mi dignidad y la del otro a partir de los principios y valores éticos como aporte en la instauración de una cultura de paz.',
+                    'Establecer relaciones de crecimiento personal y comunitario a partir del bien común como aporte para el desarrollo social.',
+                    'Promover el uso racional de los recursos naturales a partir de criterios de sostenibilidad y sustentabilidad ética y normativa vigente.',
+                    'Contribuir con el fortalecimiento de la cultura de paz a partir de la dignidad humana y las estrategias para la transformación de conflictos.'
+                ]
+            },
+            {
+                Ensamblar: [
+                    'Representar gráficamente la idea de una joya a partir de la normativa para dibujo técnico.',
+                    'Estructurar la pieza de joyería de acuerdo con la ficha técnica y normatividad ambiental.',
+                    'Elaborar las partes de la joya teniendo en cuenta la ficha técnica y normatividad de salud y seguridad en el trabajo.',
+                    'Ensamblar las partes de la joya según especificaciones técnicas.',
+                    'Verificar que los acabados dados a la joya cumplan con los requerimientos de la ficha técnica.'
+                ]
+            },
+            {
+                Cultura: [
+                    'Valorar la propuesta de negocio conforme con su estructura y necesidades del sector productivo y social.',
+                    'Caracterizar la idea de negocio teniendo en cuenta las oportunidades y necesidades del sector productivo y social.',
+                    'Estructurar el plan de negocio de acuerdo con las características empresariales y tendencias de mercado.',
+                    'Integrar elementos de la cultura emprendedora teniendo en cuenta el perfil personal y el contexto de desarrollo social.'
+                ]
+            },
+            {
+                Actividad: [
+                    'Desarrollar habilidades psicomotrices en el contexto productivo y social.',
+                    'Practicar hábitos saludables mediante la aplicación de fundamentos de nutrición e higiene.',
+                    'Ejecutar actividades de acondicionamiento físico orientadas hacia el mejoramiento de la condición física en los contextos productivo y social.',
+                    'Implementar un plan de ergonomía y pausas activas según las características de la función productiva.'
+                ]
+            },
+            {
+                Resultado: [
+                    'Identificar la dinámica organizacional del SENA y el rol de la formación profesional integral de acuerdo con su proyecto de vida y el desarrollo profesional.'
+                ]
+            },
+            {
+                Resultados: [
+                    'Aplicar en la resolución de problemas reales del sector productivo, los conocimientos, habilidades y destrezas pertinentes a las competencias del programa de formación asumiendo estrategias y metodologías de autogestión.'
+                ]
+            }
+        ]
+    },
+    {
+        Bisutería: [
+            {
+                Aplicación: [
+                    'Interpretar los problemas ambientales y de SST teniendo en cuenta los planes y programas establecidos por la organización y el entorno social.',
+                    'Efectuar las acciones para la prevención y control de la problemática ambiental y de SST, teniendo en cuenta los procedimientos establecidos por la organización.',
+                    'Verificar las condiciones ambientales y de SST acorde con los lineamientos establecidos para el área de desempeño laboral.',
+                    'Reportar las condiciones y actos que afecten la protección del medio ambiente y la SST, de acuerdo con los lineamientos establecidos en el contexto organizacional y social.'
+                ]
+            },
+            {
+                Configurar: [
+                    'Acondicionar materiales e insumos de bisutería, puesto de trabajo de acuerdo a la ficha técnica de producto artesanal.',
+                    'Verificar producto artesanal de acuerdo con la ficha técnica.',
+                    'Seleccionar semillas, materia prima e insumos para la elaboración de bisutería artesanal de acuerdo con la ficha técnica y los recursos de la región.',
+                    'Elaborar bisutería artesanal según ficha técnica, y referente cultural.'
+                ]
+            },
+            {
+                Desarrollo: [
+                    'Interpretar el sentido de la comunicación como medio de expresión social, cultural, laboral y artística.',
+                    'Decodificar mensajes comunicativos en situaciones de la vida social y laboral, teniendo en cuenta el contexto de la comunicación.',
+                    'Validar la importancia de los procesos comunicativos teniendo en cuenta criterios de lógica y racionalidad.',
+                    'Aplicar acciones de mejoramiento en el desarrollo de procesos comunicativos según requerimientos del contexto.'
+                ]
+            },
+            {
+                Desempeño: [
+                    'Reconocer el trabajo como factor de movilidad social y transformación vital con referencia a la fenomenología y a los derechos fundamentales en el trabajo.',
+                    'Valorar la importancia de la ciudadanía laboral con base en el estudio de los derechos humanos y fundamentales en el trabajo.',
+                    'Practicar los derechos fundamentales en el trabajo de acuerdo con la constitución política y los convenios internacionales.',
+                    'Participar en acciones solidarias teniendo en cuenta el ejercicio de los derechos humanos, de los pueblos y de la naturaleza.'
+                ]
+            },
+            {
+                Enrique: [
+                    'Promover mi dignidad y la del otro a partir de los principios y valores éticos como aporte en la instauración de una cultura de paz.',
+                    'Establecer relaciones de crecimiento personal y comunitario a partir del bien común como aporte para el desarrollo social.',
+                    'Promover el uso racional de los recursos naturales a partir de criterios de sostenibilidad y sustentabilidad ética y normativa vigente.',
+                    'Contribuir con el fortalecimiento de la cultura de paz a partir de la dignidad humana y las estrategias para la transformación de conflictos.'
+                ]
+            },
+            {
+                Actividad: [
+                    'Desarrollar habilidades psicomotrices en el contexto productivo y social.',
+                    'Practicar hábitos saludables mediante la aplicación de fundamentos de nutrición e higiene.',
+                    'Ejecutar actividades de acondicionamiento físico orientadas hacia el mejoramiento de la condición física en los contextos productivo y social.',
+                    'Implementar un plan de ergonomía y pausas activas según las características de la función productiva.'
+                ]
+            },
+            {
+                Cultura: [
+                    'Valorar la propuesta de negocio conforme con su estructura y necesidades del sector productivo y social.',
+                    'Caracterizar la idea de negocio teniendo en cuenta las oportunidades y necesidades del sector productivo y social.',
+                    'Estructurar el plan de negocio de acuerdo con las características empresariales y tendencias de mercado.',
+                    'Integrar elementos de la cultura emprendedora teniendo en cuenta el perfil personal y el contexto de desarrollo social.'
+                ]
+            },
+            {
+                Razonar: [
+                    'Identificar situaciones problemáticas asociadas a sus necesidades de contexto aplicando procedimientos matemáticos.',
+                    'Plantear problemas aritméticos, geométricos y métricos de acuerdo con los contextos productivo y social.',
+                    'Solucionar problemas del entorno productivo y social aplicando principios matemáticos.',
+                    'Verificar los resultados de los procedimientos matemáticos conforme con los requerimientos de los diferentes contextos.'
+                ]
+            },
+            {
+                Resultado: [
+                    'Identificar la dinámica organizacional del SENA y el rol de la formación profesional integral de acuerdo con su proyecto de vida y el desarrollo profesional.'
+                ]
+            },
+            {
+                Resultados: [
+                    'Aplicar en la resolución de problemas reales del sector productivo, los conocimientos, habilidades y destrezas pertinentes a las competencias del programa de formación asumiendo estrategias y metodologías de autogestión.'
+                ]
+            },
+            {
+                Utilización: [
+                    'Seleccionar herramientas de tecnologías de la información y la comunicación (tic), de acuerdo con las necesidades identificadas.',
+                    'Usar herramientas tic, de acuerdo con los requerimientos, manuales de funcionamiento, procedimientos y estándares.',
+                    'Verificar los resultados obtenidos, de acuerdo con los requerimientos.',
+                    'Implementar buenas prácticas de uso, de acuerdo con la tecnología empleada.'
+                ]
+            }
+        ]
+    },
+    {
+        Laminación: [
+            {
+                Aplicar: [
+                    'Limpiar equipo de aspersión finalizada la aplicación del recubrimiento con criterios técnicos y normas de seguridad.',
+                    'Aplicar el recubrimiento con el equipo de aspersión cumpliendo las condiciones técnicas del producto a elaborar con criterios técnicos y normas de seguridad vigentes.',
+                    'Verificar la aplicación del recubrimiento según requerimiento técnico de acuerdo con procedimientos y normas de seguridad.',
+                    'Alistar los equipos de aspersión para aplicación de recubrimientos de matriz polimérica de acuerdo con procedimientos y normativa vigente.'
+                ]
+            },
+            {
+                Fabricación: [
+                    'Producir piezas por laminado manual de acuerdo a requerimiento técnico y orden de producción.',
+                    'Validar el proceso de terminación de la pieza de acuerdo a los requerimientos del producto.',
+                    'Disponer moldes, herramientas equipos e insumos de acuerdo a la orden de producción.',
+                    'Caracterizar materiales herramientas y equipos de acuerdo a las normativas técnicas.'
+                ]
+            },
+            {
+                Promover: [
+                    'Gestionar la información de acuerdo con los procedimientos establecidos y con las tecnologías de la información y la comunicación disponibles.',
+                    'Concertar alternativas y acciones de formación para el desarrollo de las competencias del programa formación, con base en la política institucional.',
+                    'Asumir los deberes y derechos con base en las leyes y la normativa institucional en el marco de su proyecto de vida.',
+                    'Generar hábitos saludables en su estilo de vida para garantizar la prevención de riesgos ocupacionales de acuerdo con el diagnóstico de su condición física individual y la naturaleza y complejidad de su desempeño laboral.',
+                    'Desarrollar permanentemente las habilidades psicomotrices y de pensamiento en la ejecución de los procesos de aprendizaje.',
+                    'Identificar las oportunidades que el SENA ofrece en el marco de la formación profesional de acuerdo con el contexto nacional e internacional.',
+                    'Asumir responsablemente los criterios de preservación y conservación del medio ambiente y de desarrollo sostenible, en el ejercicio de su desempeño laboral y social.',
+                    'Desarrollar procesos comunicativos eficaces y asertivos dentro de criterios de racionalidad que posibiliten la convivencia, el establecimiento de acuerdos, la construcción colectiva del conocimiento y la resolución de problemas de carácter productivo y social.',
+                    'Interactuar en los contextos productivos y sociales en función de los principios y valores universales.',
+                    'Generar procesos autónomos y de trabajo colaborativo permanentes, fortaleciendo el equilibrio de los componentes racionales y emocionales orientados hacia el desarrollo humano integral.',
+                    'Reconocer el rol de los participantes en el proceso formativo, el papel de los ambientes de aprendizaje y la metodología de formación, de acuerdo con la dinámica organizacional del SENA.',
+                    'Redimensionar permanentemente su proyecto de vida de acuerdo con las circunstancias del contexto y con visión prospectiva.',
+                    'Asumir actitudes críticas, argumentativas y propositivas en función de la resolución de problemas de carácter productivo y social.',
+                    'Aplicar técnicas de cultura física para el mejoramiento de su expresión corporal, desempeño laboral según la naturaleza y complejidad del área ocupacional.'
+                ]
+            },
+            {
+                Resultados: [
+                    'Aplicar en la resolución de problemas reales del sector productivo, los conocimientos, habilidades y destrezas pertinentes a las competencias del programa de formación asumiendo estrategias y metodologías de autogestión.'
+                ]
+            }
+        ]
+    },
+    {
+        RecuperaciónR: [
+            {
+                Aplicación: [
+                    'Interpretar los problemas ambientales y de SST teniendo en cuenta los planes y programas establecidos por la organización y el entorno social.',
+                    'Efectuar las acciones para la prevención y control de la problemática ambiental y de SST, teniendo en cuenta los procedimientos establecidos por la organización.',
+                    'Verificar las condiciones ambientales y de SST acorde con los lineamientos establecidos para el área de desempeño laboral.',
+                    'Reportar las condiciones y actos que afecten la protección del medio ambiente y la SST, de acuerdo con los lineamientos establecidos en el contexto organizacional y social.'
+                ]
+            },
+            {
+                Desarrollo: [
+                    'Interpretar el sentido de la comunicación como medio de expresión social, cultural, laboral y artística.',
+                    'Decodificar mensajes comunicativos en situaciones de la vida social y laboral, teniendo en cuenta el contexto de la comunicación.',
+                    'Validar la importancia de los procesos comunicativos teniendo en cuenta criterios de lógica y racionalidad.',
+                    'Aplicar acciones de mejoramiento en el desarrollo de procesos comunicativos según requerimientos del contexto.'
+                ]
+            },
+            {
+                Desempeño: [
+                    'Reconocer el trabajo como factor de movilidad social y transformación vital con referencia a la fenomenología y a los derechos fundamentales en el trabajo.',
+                    'Valorar la importancia de la ciudadanía laboral con base en el estudio de los derechos humanos y fundamentales en el trabajo.',
+                    'Practicar los derechos fundamentales en el trabajo de acuerdo con la constitución política y los convenios internacionales.',
+                    'Participar en acciones solidarias teniendo en cuenta el ejercicio de los derechos humanos, de los pueblos y de la naturaleza.'
+                ]
+            },
+            {
+                Enrique: [
+                    'Promover mi dignidad y la del otro a partir de los principios y valores éticos como aporte en la instauración de una cultura de paz.',
+                    'Establecer relaciones de crecimiento personal y comunitario a partir del bien común como aporte para el desarrollo social.',
+                    'Promover el uso racional de los recursos naturales a partir de criterios de sostenibilidad y sustentabilidad ética y normativa vigente.',
+                    'Contribuir con el fortalecimiento de la cultura de paz a partir de la dignidad humana y las estrategias para la transformación de conflictos.'
+                ]
+            },
+            {
+                Actividad: [
+                    'Desarrollar habilidades psicomotrices en el contexto productivo y social.',
+                    'Practicar hábitos saludables mediante la aplicación de fundamentos de nutrición e higiene.',
+                    'Ejecutar actividades de acondicionamiento físico orientadas hacia el mejoramiento de la condición física en los contextos productivo y social.',
+                    'Implementar un plan de ergonomía y pausas activas según las características de la función productiva.'
+                ]
+            },
+            {
+                Cultura: [
+                    'Valorar la propuesta de negocio conforme con su estructura y necesidades del sector productivo y social.',
+                    'Caracterizar la idea de negocio teniendo en cuenta las oportunidades y necesidades del sector productivo y social.',
+                    'Estructurar el plan de negocio de acuerdo con las características empresariales y tendencias de mercado.',
+                    'Integrar elementos de la cultura emprendedora teniendo en cuenta el perfil personal y el contexto de desarrollo social.'
+                ]
+            },
+            {
+                Razonar: [
+                    'Identificar situaciones problemáticas asociadas a sus necesidades de contexto aplicando procedimientos matemáticos.',
+                    'Plantear problemas aritméticos, geométricos y métricos de acuerdo con los contextos productivo y social.',
+                    'Solucionar problemas del entorno productivo y social aplicando principios matemáticos.',
+                    'Verificar los resultados de los procedimientos matemáticos conforme con los requerimientos de los diferentes contextos.'
+                ]
+            },
+            {
+                Recolectar: [
+                    'Alistar implementos, materiales, herramientas y área de trabajo para la recuperación de residuos sólidos reciclables de acuerdo con normativa procedimientos técnicos.',
+                    'Ejecutar procedimientos de separación selectiva de residuos sólidos recuperables, según criterios técnicos establecidos.',
+                    'Ejecutar procesos de embalaje y empacado de residuos sólidos recuperables para su traslado de acuerdo con procedimientos establecidos.',
+                    'Trasladar los residuos sólidos recuperables de acuerdo con normas técnicas, ambientales y de seguridad.'
+                ]
+            },
+            {
+                Resultado: [
+                    'Identificar la dinámica organizacional del SENA y el rol de la formación profesional integral de acuerdo con su proyecto de vida y el desarrollo profesional.'
+                ]
+            },
+            {
+                Resultados: [
+                    'Aplicar en la resolución de problemas reales del sector productivo, los conocimientos, habilidades y destrezas pertinentes a las competencias del programa de formación asumiendo estrategias y metodologías de autogestión.'
+                ]
+            },
+            {
+                Utilización: [
+                    'Seleccionar herramientas de tecnologías de la información y la comunicación (tic), de acuerdo con las necesidades identificadas.',
+                    'Usar herramientas tic, de acuerdo con los requerimientos, manuales de funcionamiento, procedimientos y estándares.',
+                    'Verificar los resultados obtenidos, de acuerdo con los requerimientos.',
+                    'Implementar buenas prácticas de uso, de acuerdo con la tecnología empleada.'
+                ]
+            }
+        ]
+    },
+    {
+        Soldadura: [
+            {
+                Aplicar: [
+                    'Aplicar pases de raíz con el proceso GTAW, relleno y presentación con el proceso SMAW, a tuberías en acero al carbono, cumpliendo con criterios de calidad, especificaciones técnicas de seguridad, ambiental y procedimiento de soldadura calificado.',
+                    'Verificar la calidad de la soldadura aplicada, de acuerdo con parámetros de aceptabilidad definidos en el procedimiento técnico y norma aplicable, documentando la información en formatos establecidos por la empresa.',
+                    'Preparar la junta de acuerdo con el procedimiento calificado, normas de salud ocupacional y de medio ambiente.',
+                    'Interpretar códigos, estándares y especificaciones de soldadura de tuberías con el proceso GTAW y SMAW de acuerdo con órdenes de trabajo.'
+                ]
+            }
+        ]
+    },
+    {
+        RecuperaciónP: [
+            {
+                AplicaciónC: [
+                    'Identificar los principios y leyes de la física en la solución de problemas de acuerdo al contexto productivo.',
+                    'Solucionar problemas asociados con el sector productivos con base en los principios y leyes de la física.',
+                    'Verificar las transformaciones físicas de la materia utilizando herramientas tecnológicas.',
+                    'Proponer acciones de mejora en los procesos productivos de acuerdo con los principios y leyes de la física.'
+                ]
+            },
+            {
+                AplicaciónS: [
+                    'Interpretar los problemas ambientales y de SST teniendo en cuenta los planes y programas establecidos por la organización y el entorno social.',
+                    'Efectuar las acciones para la prevención y control de la problemática ambiental y de SST, teniendo en cuenta los procedimientos establecidos por la organización.',
+                    'Verificar las condiciones ambientales y de SST acorde con los lineamientos establecidos para el área de desempeño laboral.',
+                    'Reportar las condiciones y actos que afecten la protección del medio ambiente y la SST, de acuerdo con los lineamientos establecidos en el contexto organizacional y social.'
+                ]
+            },
+            {
+                Desarrollo: [
+                    'Validar la importancia de los procesos comunicativos teniendo en cuenta criterios de lógica y racionalidad.',
+                    'Interpretar el sentido de la comunicación como medio de expresión social, cultural, laboral y artística.',
+                    'Decodificar mensajes comunicativos en situaciones de la vida social y laboral, teniendo en cuenta el contexto de la comunicación.',
+                    'Aplicar acciones de mejoramiento en el desarrollo de procesos comunicativos según requerimientos del contexto.'
+                ]
+            },
+            {
+                Desempeño: [
+                    'Reconocer el trabajo como factor de movilidad social y transformación vital con referencia a la fenomenología y a los derechos fundamentales en el trabajo.',
+                    'Valorar la importancia de la ciudadanía laboral con base en el estudio de los derechos humanos y fundamentales en el trabajo.',
+                    'Practicar los derechos fundamentales en el trabajo de acuerdo con la constitución política y los convenios internacionales.',
+                    'Participar en acciones solidarias teniendo en cuenta el ejercicio de los derechos humanos, de los pueblos y de la naturaleza.'
+                ]
+            },
+            {
+                Enrique: [
+                    'Promover mi dignidad y la del otro a partir de los principios y valores éticos como aporte en la instauración de una cultura de paz.',
+                    'Establecer relaciones de crecimiento personal y comunitario a partir del bien común como aporte para el desarrollo social.',
+                    'Promover el uso racional de los recursos naturales a partir de criterios de sostenibilidad y sustentabilidad ética y normativa vigente.',
+                    'Contribuir con el fortalecimiento de la cultura de paz a partir de la dignidad humana y las estrategias para la transformación de conflictos.'
+                ]
+            },
+            {
+                Cultura: [
+                    'Valorar la propuesta de negocio conforme con su estructura y necesidades del sector productivo y social.',
+                    'Caracterizar la idea de negocio teniendo en cuenta las oportunidades y necesidades del sector productivo y social.',
+                    'Estructurar el plan de negocio de acuerdo con las características empresariales y tendencias de mercado.',
+                    'Integrar elementos de la cultura emprendedora teniendo en cuenta el perfil personal y el contexto de desarrollo social.'
+                ]
+            },
+            {
+                Actividad: [
+                    'Desarrollar habilidades psicomotrices en el contexto productivo y social.',
+                    'Practicar hábitos saludables mediante la aplicación de fundamentos de nutrición e higiene.',
+                    'Ejecutar actividades de acondicionamiento físico orientadas hacia el mejoramiento de la condición física en los contextos productivo y social.',
+                    'Implementar un plan de ergonomía y pausas activas según las características de la función productiva.'
+                ]
+            },
+            {
+                Interacción: [
+                    'Comprender información básica oral y escrita en inglés acerca de sí mismo, de las personas y de su contexto inmediato en realidades presentes e historias de vida.',
+                    'Describir a nivel básico, de forma oral y escrita en inglés personas, situaciones y lugares de acuerdo con sus costumbres y experiencias de vida.',
+                    'Participar en intercambios conversacionales básicos en forma oral y escrita en inglés en diferentes situaciones sociales tanto en la cotidianidad como en experiencias pasadas.',
+                    'Llevar a cabo acciones de mejora relacionadas con el intercambio de información básica en inglés, sobre sí mismo, otras personas, su contexto inmediato, así como de experiencias.',
+                    'Comunicarse de manera sencilla en inglés en forma oral y escrita con un visitante o colega en un contexto laboral cotidiano.',
+                    'Poner en práctica vocabulario básico y expresiones comunes de su área ocupacional en contextos específicos de su trabajo por medio del uso de frases sencillas en forma oral y escrita.'
+                ]
+            },
+            {
+                Preparar: [
+                    'Disponer materias primas para el proceso de acuerdo con sus características técnicas y orden de producción.',
+                    'Recuperar material flexible según orden de producción y especificaciones técnicas.',
+                    'Recuperar material rígido según orden de producción.'
+                ]
+            },
+            {
+                Razonar: [
+                    'Identificar situaciones problemáticas asociadas a sus necesidades de contexto aplicando procedimientos matemáticos.',
+                    'Plantear problemas aritméticos, geométricos y métricos de acuerdo con los contextos productivo y social.',
+                    'Solucionar problemas del entorno productivo y social aplicando principios matemáticos.',
+                    'Verificar los resultados de los procedimientos matemáticos conforme con los requerimientos de los diferentes contextos.'
+                ]
+            },
+            {
+                Recolectar: [
+                    'Identificar residuos sólidos según requerimientos técnicos y normativos.',
+                    'Acopiar material según procedimiento técnico y protocolo de manejo.',
+                    'Recibir material en centro de acopio según protocolo de manejo y procedimiento.'
+                ]
+            },
+            {
+                Resultado: [
+                    'Identificar la dinámica organizacional del SENA y el rol de la formación profesional integral de acuerdo con su proyecto de vida y el desarrollo profesional.'
+                ]
+            },
+            {
+                Resultados: [
+                    'Aplicar en la resolución de problemas reales del sector productivo, los conocimientos, habilidades y destrezas pertinentes a las competencias del programa de formación asumiendo estrategias y metodologías de autogestión.'
+                ]
+            }
+        ]
+    },
+    {
+        Sistemas: [
+            {
+                AplicaciónC: [
+                    'Identificar los principios y leyes de la física en la solución de problemas de acuerdo al contexto productivo.',
+                    'Solucionar problemas asociados con el sector productivos con base en los principios y leyes de la física.',
+                    'Verificar las transformaciones físicas de la materia utilizando herramientas tecnológicas.',
+                    'Proponer acciones de mejora en los procesos productivos de acuerdo con los principios y leyes de la física.'
+                ]
+            },
+            {
+                AplicaciónS: [
+                    'Interpretar los problemas ambientales y de SST teniendo en cuenta los planes y programas establecidos por la organización y el entorno social.',
+                    'Efectuar las acciones para la prevención y control de la problemática ambiental y de SST, teniendo en cuenta los procedimientos establecidos por la organización.',
+                    'Verificar las condiciones ambientales y de SST acorde con los lineamientos establecidos para el área de desempeño laboral.',
+                    'Reportar las condiciones y actos que afecten la protección del medio ambiente y la SST, de acuerdo con los lineamientos establecidos en el contexto organizacional y social.'
+                ]
+            },
+            {
+                Atender: [
+                    'Evaluar el servicio de acuerdo a protocolos y normatividad correspondiente.',
+                    'Optimizar, los procedimientos para la solicitud y trámite de servicios.',
+                    'Organizar las solicitudes de servicio según procedimientos técnicos establecidos.',
+                    'Procesar las solicitudes de acuerdo a los requerimientos y recursos necesarios para el…'
+                ]
+            },
+            {
+                Desarrollo: [
+                    'Validar la importancia de los procesos comunicativos teniendo en cuenta criterios de lógica y racionalidad.',
+                    'Interpretar el sentido de la comunicación como medio de expresión social, cultural, laboral y artística.',
+                    'Decodificar mensajes comunicativos en situaciones de la vida social y laboral, teniendo en cuenta el contexto de la comunicación.',
+                    'Aplicar acciones de mejoramiento en el desarrollo de procesos comunicativos según requerimientos del contexto.'
+                ]
+            },
+            {
+                Desempeño: [
+                    'Reconocer el trabajo como factor de movilidad social y transformación vital con referencia a la fenomenología y a los derechos fundamentales en el trabajo.',
+                    'Valorar la importancia de la ciudadanía laboral con base en el estudio de los derechos humanos y fundamentales en el trabajo.',
+                    'Practicar los derechos fundamentales en el trabajo de acuerdo con la constitución política y los convenios internacionales.',
+                    'Participar en acciones solidarias teniendo en cuenta el ejercicio de los derechos humanos, de los pueblos y de la naturaleza.'
+                ]
+            },
+            {
+                Enrique: [
+                    'Promover mi dignidad y la del otro a partir de los principios y valores éticos como aporte en la instauración de una cultura de paz.',
+                    'Establecer relaciones de crecimiento personal y comunitario a partir del bien común como aporte para el desarrollo social.',
+                    'Promover el uso racional de los recursos naturales a partir de criterios de sostenibilidad y sustentabilidad ética y normativa vigente.',
+                    'Contribuir con el fortalecimiento de la cultura de paz a partir de la dignidad humana y las estrategias para la transformación de conflictos.'
+                ]
+            },
+            {
+                Actividad: [
+                    'Desarrollar habilidades psicomotrices en el contexto productivo y social.',
+                    'Practicar hábitos saludables mediante la aplicación de fundamentos de nutrición e higiene.',
+                    'Ejecutar actividades de acondicionamiento físico orientadas hacia el mejoramiento de la condición física en los contextos productivo y social.',
+                    'Implementar un plan de ergonomía y pausas activas según las características de la función productiva.'
+                ]
+            },
+            {
+                Cultura: [
+                    'Valorar la propuesta de negocio conforme con su estructura y necesidades del sector productivo y social.',
+                    'Caracterizar la idea de negocio teniendo en cuenta las oportunidades y necesidades del sector productivo y social.',
+                    'Estructurar el plan de negocio de acuerdo con las características empresariales y tendencias de mercado.',
+                    'Integrar elementos de la cultura emprendedora teniendo en cuenta el perfil personal y el contexto de desarrollo social.'
+                ]
+            },
+            {
+                Implementar: [
+                    'Elaborar la documentación técnica necesaria del proyecto de cableado estructurado de acuerdo con la normatividad vigente.',
+                    'Verificar el funcionamiento de la red de acuerdo con el diseño y la instalación realizada.',
+                    'Instalar el cableado estructurado de acuerdo con el diseño de la red de datos y la normatividad vigente.',
+                    'Especificar los recursos para la instalación del cableado estructurado, de acuerdo con el diseño.'
+                ]
+            },
+            {
+                Interacción: [
+                    'Comprender información básica oral y escrita en inglés acerca de sí mismo, de las personas y de su contexto inmediato en realidades presentes e historias de vida.',
+                    'Describir a nivel básico, de forma oral y escrita en inglés personas, situaciones y lugares de acuerdo con sus costumbres y experiencias de vida.',
+                    'Participar en intercambios conversacionales básicos en forma oral y escrita en inglés en diferentes situaciones sociales tanto en la cotidianidad como en experiencias pasadas.',
+                    'Llevar a cabo acciones de mejora relacionadas con el intercambio de información básica en inglés, sobre sí mismo, otras personas, su contexto inmediato, así como de experiencias.',
+                    'Comunicarse de manera sencilla en inglés en forma oral y escrita con un visitante o colega en un contexto laboral cotidiano.',
+                    'Poner en práctica vocabulario básico y expresiones comunes de su área ocupacional en contextos específicos de su trabajo por medio del uso de frases sencillas en forma oral y escrita.'
+                ]
+            },
+            {
+                Mantener: [
+                    'Documentar el mantenimiento de equipos de cómputo, de acuerdo con el procedimiento y los formatos establecidos.',
+                    'Realizar mantenimiento físico y/o lógico a los equipos de cómputo y/o periféricos de acuerdo con el manual del fabricante.',
+                    'Especificar los recursos para el mantenimiento de equipos de cómputo, de acuerdo con el procedimiento a realizar.',
+                    'Verificar el funcionamiento del equipo de cómputo, de acuerdo con el protocolo.'
+                ]
+            },
+            {
+                Razonar: [
+                    'Identificar situaciones problemáticas asociadas a sus necesidades de contexto aplicando procedimientos matemáticos.',
+                    'Plantear problemas aritméticos, geométricos y métricos de acuerdo con los contextos productivo y social.',
+                    'Solucionar problemas del entorno productivo y social aplicando principios matemáticos.',
+                    'Verificar los resultados de los procedimientos matemáticos conforme con los requerimientos de los diferentes contextos.'
+                ]
+            },
+            {
+                Resultado: [
+                    'Identificar la dinámica organizacional del SENA y el rol de la formación profesional integral de acuerdo con su proyecto de vida y el desarrollo profesional.'
+                ]
+            },
+            {
+                Resultados: [
+                    'Aplicar en la resolución de problemas reales del sector productivo, los conocimientos, habilidades y destrezas pertinentes a las competencias del programa de formación asumiendo estrategias y metodologías de autogestión.'
+                ]
+            },
+            {
+                Utilización: [
+                    'Seleccionar herramientas de tecnologías de la información y la comunicación (tic), de acuerdo con las necesidades identificadas.',
+                    'Usar herramientas tic, de acuerdo con los requerimientos, manuales de funcionamiento, procedimientos y estándares.',
+                    'Verificar los resultados obtenidos, de acuerdo con los requerimientos.',
+                    'Implementar buenas prácticas de uso, de acuerdo con la tecnología empleada.'
+                ]
+            }
+        ]
+    },
+    {
+        SoldaduraM: [
+            {
+                AplicaciónC: [
+                    'Identificar los principios y leyes de la física en la solución de problemas de acuerdo al contexto productivo.',
+                    'Solucionar problemas asociados con el sector productivos con base en los principios y leyes de la física.',
+                    'Verificar las transformaciones físicas de la materia utilizando herramientas tecnológicas.',
+                    'oner acciones de mejora en los procesos productivos de acuerdo con los principios y leyes de la física.'
+                ]
+            },
+            {
+                AplicaciónS: [
+                    'Interpretar los problemas ambientales y de SST teniendo en cuenta los planes y programas establecidos por la organización y el entorno social.',
+                    'Efectuar las acciones para la prevención y control de la problemática ambiental y de SST, teniendo en cuenta los procedimientos establecidos por la organización.',
+                    'Verificar las condiciones ambientales y de SST acorde con los lineamientos establecidos para el área de desempeño laboral.',
+                    'Reportar las condiciones y actos que afecten la protección del medio ambiente y la SST, de acuerdo con los lineamientos establecidos en el contexto organizacional y social.'
+                ]
+            },
+            {
+                Desarrollo: [
+                    ' Validar la importancia de los procesos comunicativos teniendo en cuenta criterios de lógica y racionalidad.',
+                    'Interpretar el sentido de la comunicación como medio de expresión social, cultural, laboral y artística.',
+                    'Decodificar mensajes comunicativos en situaciones de la vida social y laboral, teniendo en cuenta el contexto de la comunicación.',
+                    'Aplicar acciones de mejoramiento en el desarrollo de procesos comunicativos según requerimientos del contexto.'
+                ]
+            },
+            {
+                Desempeño: [
+                    'Reconocer el trabajo como factor de movilidad social y transformación vital con referencia a la fenomenología y a los derechos fundamentales en el trabajo.',
+                    'Valorar la importancia de la ciudadanía laboral con base en el estudio de los derechos humanos y fundamentales en el trabajo.',
+                    'Practicar los derechos fundamentales en el trabajo de acuerdo con la constitución política y los convenios internacionales.',
+                    'Participar en acciones solidarias teniendo en cuenta el ejercicio de los derechos humanos, de los pueblos y de la naturaleza.'
+                ]
+            },
+            {
+                Enrique: [
+                    'Promover mi dignidad y la del otro a partir de los principios y valores éticos como aporte en la instauración de una cultura de paz.',
+                    'Establecer relaciones de crecimiento personal y comunitario a partir del bien común como aporte para el desarrollo social.',
+                    'Promover el uso racional de los recursos naturales a partir de criterios de sostenibilidad y sustentabilidad ética y normativa vigente.',
+                    'Contribuir con el fortalecimiento de la cultura de paz a partir de la dignidad humana y las estrategias para la transformación de conflictos.'
+                ]
+            },
+            {
+                Actividad: [
+                    'Desarrollar habilidades psicomotrices en el contexto productivo y social.',
+                    'Practicar hábitos saludables mediante la aplicación de fundamentos de nutrición e higiene.',
+                    'Ejecutar actividades de acondicionamiento físico orientadas hacia el mejoramiento de la condición física en los contextos productivo y social.',
+                    'Implementar un plan de ergonomía y pausas activas según las características de la función productiva.'
+                ]
+            },
+            {
+                Cultura: [
+                    'Valorar la propuesta de negocio conforme con su estructura y necesidades del sector productivo y social.',
+                    'Caracterizar la idea de negocio teniendo en cuenta las oportunidades y necesidades del sector productivo y social.',
+                    'Estructurar el plan de negocio de acuerdo con las características empresariales y tendencias de mercado.',
+                    'Integrar elementos de la cultura emprendedora teniendo en cuenta el perfil personal y el contexto de desarrollo social.'
+                ]
+            },
+            {
+                Interacción: [
+                    'Comprender información básica oral y escrita en inglés acerca de sí mismo, de las personas y de su contexto inmediato en realidades presentes e historias de vida.',
+                    'Describir a nivel básico, de forma oral y escrita en inglés personas, situaciones y lugares de acuerdo con sus costumbres y experiencias de vida.',
+                    'Participar en intercambios conversacionales básicos en forma oral y escrita en inglés en diferentes situaciones sociales tanto en la cotidianidad como en experiencias pasadas.',
+                    'Llevar a cabo acciones de mejora relacionadas con el intercambio de información básica en inglés, sobre sí mismo, otras personas, su contexto inmediato, así como de experiencias.',
+                    'Comunicarse de manera sencilla en inglés en forma oral y escrita con un visitante o colega en un contexto laboral cotidiano.',
+                    'Poner en práctica vocabulario básico y expresiones comunes de su área ocupacional en contextos específicos de su trabajo por medio del uso de frases sencillas en forma oral y escrita.'
+                ]
+            },
+            {
+                Soldadura: [
+                    'Soldar juntas en ángulo con proceso GTAW según procedimiento calificado y normas de seguridad e higiene en el trabajo.',
+                    'Soldar juntas en ranura con proceso GTAW según procedimiento calificado y normas de seguridad e higiene en el trabajo.',
+                    'Verificar la calidad final de las juntas soldadas con GTAW según los criterios de aceptación y rechazo de la norma seleccionada.'
+                ]
+            },
+            {
+                Razonar: [
+                    'Identificar situaciones problemáticas asociadas a sus necesidades de contexto aplicando procedimientos matemáticos.',
+                    'Plantear problemas aritméticos, geométricos y métricos de acuerdo con los contextos productivo y social.',
+                    'Solucionar problemas del entorno productivo y social aplicando principios matemáticos.',
+                    'Verificar los resultados de los procedimientos matemáticos conforme con los requerimientos de los diferentes contextos.'
+                ]
+            },
+            {
+                Resultado: [
+                    'Identificar la dinámica organizacional del SENA y el rol de la formación profesional integral de acuerdo con su proyecto de vida y el desarrollo profesional.'
+                ]
+            },
+            {
+                Resultados: [
+                    'Aplicar en la resolución de problemas reales del sector productivo, los conocimientos, habilidades y destrezas pertinentes a las competencias del programa de formación asumiendo estrategias y metodologías de autogestión.'
+                ]
+            },
+            {
+                SoldaduraGF: [
+                    'Soldar juntas en ángulo con proceso GMAW y FCAW según procedimiento calificado y normas de seguridad e higiene en el trabajo.',
+                    'Soldar juntas en ranura con proceso GMAW y FCAW según procedimiento calificado y normas de seguridad e higiene en el trabajo.',
+                    'Verificar la calidad final de las juntas soldadas con GMAW y FCAW según los criterios de aceptación y rechazo de la norma seleccionada.'
+                ]
+            },
+            {
+                SoldaduraS: [
+                    'Soldar juntas en ángulo con el proceso SMAW según procedimiento calificado y normas de seguridad e higiene en el trabajo.',
+                    'Soldar juntas en ranura con proceso SMAW según procedimiento calificado y normas de seguridad e higiene en el trabajo.',
+                    'Verificar calidad de juntas soldadas con proceso SMAW según criterios de aceptación y rechazo de la norma seleccionada.'
+                ]
+            },
+            {
+                Utilización: [
+                    'Seleccionar herramientas de tecnologías de la información y la comunicación (tic), de acuerdo con las necesidades identificadas.',
+                    'Usar herramientas tic, de acuerdo con los requerimientos, manuales de funcionamiento, procedimientos y estándares.',
+                    'Verificar los resultados obtenidos, de acuerdo con los requerimientos.',
+                    'Implementar buenas prácticas de uso, de acuerdo con la tecnología empleada.'
+                ]
+            },
+            {
+                Construir: [
+                    'Elaborar la estructura de la red geográfica y tecnológica de los procesos y la información según necesidades de la organización considerando tipología de redes, bienes, servicios y tecnología e información.',
+                    'Desarrollar el plan de integración del negocio a partir de la relación entre los eslabones de la cadena de abastecimiento según tecnologías y herramientas de gestión.'
+                ]
+            }
+        ]
+    },
+    {
+        SupervisiónM: [
+            {
+                AplicaciónC: [
+                    'Identificar los principios y leyes de la física en la solución de problemas de acuerdo al contexto productivo.',
+                    'Solucionar problemas asociados con el sector productivos con base en los principios y leyes de la física.',
+                    'Verificar las transformaciones físicas de la materia utilizando herramientas tecnológicas.',
+                    'Proponer acciones de mejora en los procesos productivos de acuerdo con los principios y leyes de la física.'
+                ]
+            },
+            {
+                AplicaciónS: [
+                    'Interpretar los problemas ambientales y de SST teniendo en cuenta los planes y programas establecidos por la organización y el entorno social.',
+                    'Efectuar las acciones para la prevención y control de la problemática ambiental y de SST, teniendo en cuenta los procedimientos establecidos por la organización.',
+                    'Verificar las condiciones ambientales y de SST acorde con los lineamientos establecidos para el área de desempeño laboral.',
+                    'Reportar las condiciones y actos que afecten la protección del medio ambiente y la SST, de acuerdo con los lineamientos establecidos en el contexto organizacional y social.'
+                ]
+            },
+            {
+                Controlar: [
+                    'Elaborar reporte estadístico de no conformidades, de acuerdo a los resultados de las mediciones.',
+                    'Inspeccionar el comportamiento de las variables siguiendo los estándares de calidad, procedimientos técnicos, normas de seguridad industrial.',
+                    'Establecer ajustes al proceso acorde a los requisitos de calidad.',
+                    'Elaborar cartas de control de acuerdo a los requerimientos del proceso productivo.'
+                ]
+            },
+            {
+                Desarrollo: [
+                    'Validar la importancia de los procesos comunicativos teniendo en cuenta criterios de lógica y racionalidad.',
+                    'Interpretar el sentido de la comunicación como medio de expresión social, cultural, laboral y artística.',
+                    'Decodificar mensajes comunicativos en situaciones de la vida social y laboral, teniendo en cuenta el contexto de la comunicación.',
+                    'Aplicar acciones de mejoramiento en el desarrollo de procesos comunicativos según requerimientos del contexto.'
+                ]
+            },
+            {
+                Desempeño: [
+                    'Reconocer el trabajo como factor de movilidad social y transformación vital con referencia a la fenomenología y a los derechos fundamentales en el trabajo.',
+                    'Valorar la importancia de la ciudadanía laboral con base en el estudio de los derechos humanos y fundamentales en el trabajo.',
+                    'Practicar los derechos fundamentales en el trabajo de acuerdo con la constitución política y los convenios internacionales.',
+                    'Participar en acciones solidarias teniendo en cuenta el ejercicio de los derechos humanos, de los pueblos y de la naturaleza.'
+                ]
+            },
+            {
+                Enrique: [
+                    'Promover mi dignidad y la del otro a partir de los principios y valores éticos como aporte en la instauración de una cultura de paz.',
+                    'Establecer relaciones de crecimiento personal y comunitario a partir del bien común como aporte para el desarrollo social.',
+                    'Promover el uso racional de los recursos naturales a partir de criterios de sostenibilidad y sustentabilidad ética y normativa vigente.',
+                    'Contribuir con el fortalecimiento de la cultura de paz a partir de la dignidad humana y las estrategias para la transformación de conflictos.'
+                ]
+            },
+            {
+                Actividad: [
+                    'Desarrollar habilidades psicomotrices en el contexto productivo y social.',
+                    'Practicar hábitos saludables mediante la aplicación de fundamentos de nutrición e higiene.',
+                    'Ejecutar actividades de acondicionamiento físico orientadas hacia el mejoramiento de la condición física en los contextos productivo y social.',
+                    'Implementar un plan de ergonomía y pausas activas según las características de la función productiva.'
+                ]
+            },
+            {
+                Cultura: [
+                    'Valorar la propuesta de negocio conforme con su estructura y necesidades del sector productivo y social.',
+                    'Caracterizar la idea de negocio teniendo en cuenta las oportunidades y necesidades del sector productivo y social.',
+                    'Estructurar el plan de negocio de acuerdo con las características empresariales y tendencias de mercado.',
+                    'Integrar elementos de la cultura emprendedora teniendo en cuenta el perfil personal y el contexto de desarrollo social.'
+                ]
+            },
+            {
+                InspeccionarL: [
+                    'Reportar indicaciones de acuerdo con los criterios de la norma, estándar o especificación de referencia.',
+                    'Alistar prueba con líquidos penetrantes de acuerdo con procedimiento técnicos y especificaciones establecidas.',
+                    'Inspeccionar componentes metálicos con líquidos penetrantes de acuerdo con las normas y estándares establecidos.'
+                ]
+            },
+            {
+                InspeccionarV: [
+                    'Alistar las piezas, materiales y equipos de acuerdo con normas y especificaciones de procedimiento de inspección visual.',
+                    'Inspeccionar piezas, materiales y equipos de acuerdo con normas y estándares de procedimiento de inspección visual.',
+                    'Reportar discontinuidades de acuerdo con los criterios de la norma, estándar o especificación de inspección visual.'
+                ]
+            },
+            {
+                Interacción: [
+                    'Comprender información básica oral y escrita en inglés acerca de sí mismo, de las personas y de su contexto inmediato en realidades presentes e historias de vida.',
+                    'Describir a nivel básico, de forma oral y escrita en inglés personas, situaciones y lugares de acuerdo con sus costumbres y experiencias de vida.',
+                    'Participar en intercambios conversacionales básicos en forma oral y escrita en inglés en diferentes situaciones sociales tanto en la cotidianidad como en experiencias pasadas.',
+                    'Llevar a cabo acciones de mejora relacionadas con el intercambio de información básica en inglés, sobre sí mismo, otras personas, su contexto inmediato, así como de experiencias.',
+                    'Comunicarse de manera sencilla en inglés en forma oral y escrita con un visitante o colega en un contexto laboral cotidiano.',
+                    'Poner en práctica vocabulario básico y expresiones comunes de su área ocupacional en contextos específicos de su trabajo por medio del uso de frases sencillas en forma oral y escrita.'
+                ]
+            },
+            {
+                Soldadura: [
+                    'Soldar juntas en ángulo con proceso GTAW según procedimiento calificado y normas de seguridad e higiene en el trabajo.',
+                    'Soldar juntas en ranura con proceso GTAW según procedimiento calificado y normas de seguridad e higiene en el trabajo.',
+                    'Verificar la calidad final de las juntas soldadas con GTAW según los criterios de aceptación y rechazo de la norma seleccionada.'
+                ]
+            },
+            {
+                Orientar: [
+                    'Estructurar el proyecto de acuerdo a criterios de la investigación.',
+                    'Proponer soluciones a las necesidades del contexto según resultados de la investigación.',
+                    'Analizar el contexto productivo según sus características y necesidades.',
+                    'Argumentar aspectos teóricos del proyecto según referentes nacionales e internacionales.'
+                ]
+            },
+            {
+                Programar: [
+                    'Programar el talento humano de acuerdo con los requerimientos técnicos del proyecto.',
+                    'Programar recursos materiales e insumos según requerimientos de fabricación.',
+                    'Formular proceso de fabricación de acuerdo con necesidades del cliente.',
+                    'Programar maquinaria y equipos según requerimientos de fabricación.'
+                ]
+            },
+            {
+                Razonar: [
+                    'Identificar situaciones problemáticas asociadas a sus necesidades de contexto aplicando procedimientos matemáticos.',
+                    'Plantear problemas aritméticos, geométricos y métricos de acuerdo con los contextos productivo y social.',
+                    'Solucionar problemas del entorno productivo y social aplicando principios matemáticos.',
+                    'Verificar los resultados de los procedimientos matemáticos conforme con los requerimientos de los diferentes contextos.'
+                ]
+            },
+            {
+                Resultado: [
+                    'Identificar la dinámica organizacional del SENA y el rol de la formación profesional integral de acuerdo con su proyecto de vida y el desarrollo profesional.'
+                ]
+            },
+            {
+                Resultados: [
+                    'Aplicar en la resolución de problemas reales del sector productivo, los conocimientos, habilidades y destrezas pertinentes a las competencias del programa de formación asumiendo estrategias y metodologías de autogestión.'
+                ]
+            },
+            {
+                SoldaduraGF: [
+                    'Soldar juntas en ángulo con proceso GMAW y FCAW según procedimiento calificado y normas de seguridad e higiene en el trabajo.',
+                    'Soldar juntas en ranura con proceso GMAW y FCAW según procedimiento calificado y normas de seguridad e higiene en el trabajo.',
+                    'Verificar la calidad final de las juntas soldadas con GMAW y FCAW según los criterios de aceptación y rechazo de la norma seleccionada.'
+                ]
+            },
+            {
+                SoldaduraS: [
+                    'Soldar juntas en ángulo con el proceso SMAW según procedimiento calificado y normas de seguridad e higiene en el trabajo.',
+                    'Soldar juntas en ranura con proceso SMAW según procedimiento calificado y normas de seguridad e higiene en el trabajo.',
+                    'Verificar calidad de juntas soldadas con proceso SMAW según criterios de aceptación y rechazo de la norma seleccionada.'
+                ]
+            },
+            {
+                Supervisar: [
+                    'Organizar operaciones de fabricación con base en procedimientos técnicos y orden de producción.',
+                    'Elaborar informe de productividad con base en los procedimientos y criterios técnicos.',
+                    'Verificar calidad de juntas soldadas con SMAW según criterios de aceptación y rechazo de la norma seleccionada.',
+                    'Inspeccionar el cumplimiento de los procedimientos de fabricación con base en criterios técnicos y orden de producción.',
+                    'Verificar la calidad final de las juntas soldadas con GMAW y FCAW según los criterios de aceptación y rechazo de la norma seleccionada.',
+                    'Verificar la calidad final de las juntas soldadas con GMAW según los criterios de aceptación y rechazo de la norma seleccionada.'
+                ]
+            },
+            {
+                Utilización: [
+                    'Seleccionar herramientas de tecnologías de la información y la comunicación (tic), de acuerdo con las necesidades identificadas.',
+                    'Usar herramientas tic, de acuerdo con los requerimientos, manuales de funcionamiento, procedimientos y estándares.',
+                    'Verificar los resultados obtenidos, de acuerdo con los requerimientos.',
+                    'Implementar buenas prácticas de uso, de acuerdo con la tecnología empleada.'
+                ]
+            }
+        ]
+    },
+    {
+        Análisis: [
+            {
+                AplicaciónC: [
+                    'Identificar los principios y leyes de la física en la solución de problemas de acuerdo al contexto productivo.',
+                    'Solucionar problemas asociados con el sector productivos con base en los principios y leyes de la física.',
+                    'Verificar las transformaciones físicas de la materia utilizando herramientas tecnológicas.',
+                    'Proponer acciones de mejora en los procesos productivos de acuerdo con los principios y leyes de la física.'
+                ]
+            },
+            {
+                AplicaciónS: [
+                    'Interpretar los problemas ambientales y de SST teniendo en cuenta los planes y programas establecidos por la organización y el entorno social.',
+                    'Efectuar las acciones para la prevención y control de la problemática ambiental y de SST, teniendo en cuenta los procedimientos establecidos por la organización.',
+                    'Verificar las condiciones ambientales y de SST acorde con los lineamientos establecidos para el área de desempeño laboral.',
+                    'Reportar las condiciones y actos que afecten la protección del medio ambiente y la SST, de acuerdo con los lineamientos establecidos en el contexto organizacional y social.'
+                ]
+            },
+            {
+                Controlar: [
+                    'Incorporar actividades de aseguramiento de la calidad del software de acuerdo con estándares de la industria.',
+                    'Verificar la calidad del software de acuerdo con las prácticas asociadas en los procesos de desarrollo.',
+                    'Realizar actividades de mejora de la calidad del software a partir de los resultados de la verificación.'
+                ]
+            },
+            {
+                Desarrollar: [
+                    'Planear actividades de construcción del software de acuerdo con el diseño establecido.',
+                    'Construir la base de datos para el software a partir del modelo de datos.',
+                    'Crear componentes front-end del software de acuerdo con el diseño.',
+                    'Codificar el software de acuerdo con el diseño establecido.',
+                    'Realizar pruebas al software para verificar su funcionalidad.'
+                ]
+            },
+            {
+                Desarrollo: [
+                    'Validar la importancia de los procesos comunicativos teniendo en cuenta criterios de lógica y racionalidad.',
+                    'Interpretar el sentido de la comunicación como medio de expresión social, cultural, laboral y artística.',
+                    'Decodificar mensajes comunicativos en situaciones de la vida social y laboral, teniendo en cuenta el contexto de la comunicación.',
+                    'Aplicar acciones de mejoramiento en el desarrollo de procesos comunicativos según requerimientos del contexto.'
+                ]
+            },
+            {
+                Diseñar: [
+                    'Elaborar los artefactos de diseño del software siguiendo las prácticas de la metodología seleccionada.',
+                    'Estructurar el modelo de datos del software de acuerdo con las especificaciones del análisis.',
+                    'Determinar las características técnicas de la interfaz gráfica del software adoptando estándares.',
+                    'Verificar los entregables de la fase de diseño del software de acuerdo con lo establecido en el informe de análisis.'
+                ]
+            },
+            {
+                Desempeño: [
+                    'Reconocer el trabajo como factor de movilidad social y transformación vital con referencia a la fenomenología y a los derechos fundamentales en el trabajo.',
+                    'Valorar la importancia de la ciudadanía laboral con base en el estudio de los derechos humanos y fundamentales en el trabajo.',
+                    'Practicar los derechos fundamentales en el trabajo de acuerdo con la constitución política y los convenios internacionales.',
+                    'Participar en acciones solidarias teniendo en cuenta el ejercicio de los derechos humanos, de los pueblos y de la naturaleza.'
+                ]
+            },
+            {
+                Enrique: [
+                    'Promover mi dignidad y la del otro a partir de los principios y valores éticos como aporte en la iEstablecer relaciones de crecimiento personal y comunitario a partir del bien común como aporte para el desarrollo social.',
+                    'Promover el uso racional de los recursos naturales a partir de criterios de sostenibilidad y sustentabilidad ética y normativa vigente.',
+                    'Contribuir con el fortalecimiento de la cultura de paz a partir de la dignidad humana y las estrategias para la transformación de conflictos.'
+                ]
+            },
+            {
+                Establecer: [
+                    'Caracterizar los procesos de la organización de acuerdo con el software a construir.',
+                    'Recolectar información del software a construir de acuerdo con las necesidades del cliente.',
+                    'Establecer los requisitos del software de acuerdo con la información recolectada.',
+                    'Validar el informe de requisitos de acuerdo con las necesidades del cliente.'
+                ]
+            },
+            {
+                Estructurar: [
+                    'Definir especificaciones Técnicas del software de acuerdo con las caracteristicas del software a construir.',
+                    'Elaborar propuesta técnica del software de acuerdo con las especificaciones técnicas definidas.',
+                    'Validar las condiciones de propuesta técnica del software de acuerdo con los intereses de las partes.'
+                ]
+            },
+            {
+                Evaluar: [
+                    'Planear actividades de análisis de acuerdo con la metodología seleccionada.',
+                    'Modelar las funciones del software de acuerdo con el informe de requisitos.',
+                    'Desarrollar procesos lógicos a través de la implementación de algoritmos.',
+                    'Verificar los modelos realizados en la fase de análisis de acuerdo con lo establecido en el informe de requisitos.'
+                ]
+            },
+            {
+                Actividad: [
+                    'Desarrollar habilidades psicomotrices en el contexto productivo y social.',
+                    'Practicar hábitos saludables mediante la aplicación de fundamentos de nutrición e higiene.',
+                    'Ejecutar actividades de acondicionamiento físico orientadas hacia el mejoramiento de la condición física en los contextos productivo y social.',
+                    'Implementar un plan de ergonomía y pausas activas según las características de la función productiva.'
+                ]
+            },
+            {
+                Cultura: [
+                    'Poner en práctica vocabulario básico y expresiones comunes de su área ocupacional en contextos específicos de su trabajo por medio del uso de frases sencillas en forma oral y escrita.',
+                    'Caracterizar la idea de negocio teniendo en cuenta las oportunidades y necesidades del sector productivo y social.',
+                    'Estructurar el plan de negocio de acuerdo con las características empresariales y tendencias de mercado.',
+                    'Integrar elementos de la cultura emprendedora teniendo en cuenta el perfil personal y el contexto de desarrollo social.'
+                ]
+            },
+            {
+                Implantación: [
+                    'Planear actividades de implantación del software de acuerdo con las condiciones del sistema.',
+                    'Desplegar el software de acuerdo con la arquitectura y las políticas establecidas.',
+                    'Documentar el proceso de implantación de software siguiendo estándares de calidad.',
+                    'Implantar el software de acuerdo con los niveles de servicio establecidos con el cliente.'
+                ]
+            },
+            {
+                Interacción: [
+                    'Comprender información básica oral y escrita en inglés acerca de sí mismo, de las personas y de su contexto inmediato en realidades presentes e historias de vida.',
+                    'Describir a nivel básico, de forma oral y escrita en inglés personas, situaciones y lugares de acuerdo con sus costumbres y experiencias de vida.',
+                    'Participar en intercambios conversacionales básicos en forma oral y escrita en inglés en diferentes situaciones sociales tanto en la cotidianidad como en experiencias pasadas.',
+                    'Llevar a cabo acciones de mejora relacionadas con el intercambio de información básica en inglés, sobre sí mismo, otras personas, su contexto inmediato, así como de experiencias.',
+                    'Comunicarse de manera sencilla en inglés en forma oral y escrita con un visitante o colega en un contexto laboral cotidiano.',
+                    'Poner en práctica vocabulario básico y expresiones comunes de su área ocupacional en contextos específicos de su trabajo por medio del uso de frases sencillas en forma oral y escrita.'
+                ]
+            },
+            {
+                Orientar: [
+                    'Estructurar el proyecto de acuerdo a criterios de la investigación.',
+                    'Proponer soluciones a las necesidades del contexto según resultados de la investigación.',
+                    'Analizar el contexto productivo según sus características y necesidades.',
+                    'Argumentar aspectos teóricos del proyecto según referentes nacionales e internacionales.'
+                ]
+            },
+            {
+                Razonar: [
+                    'Identificar situaciones problemáticas asociadas a sus necesidades de contexto aplicando procedimientos matemáticos.',
+                    'Plantear problemas aritméticos, geométricos y métricos de acuerdo con los contextos productivo y social.',
+                    'Solucionar problemas del entorno productivo y social aplicando principios matemáticos.',
+                    'Verificar los resultados de los procedimientos matemáticos conforme con los requerimientos de los diferentes contextos.'
+                ]
+            },
+            {
+                Resultado: [
+                    'Identificar la dinámica organizacional del SENA y el rol de la formación profesional integral de acuerdo con su proyecto de vida y el desarrollo profesional.'
+                ]
+            },
+            {
+                Resultados: [
+                    'Aplicar en la resolución de problemas reales del sector productivo, los conocimientos, habilidades y destrezas pertinentes a las competencias del programa de formación asumiendo estrategias y metodologías de autogestión.'
+                ]
+            },
+            {
+                Utilización: [
+                    'Seleccionar herramientas de tecnologías de la información y la comunicación (tic), de acuerdo con las necesidades identificadas.',
+                    'Usar herramientas tic, de acuerdo con los requerimientos, manuales de funcionamiento, procedimientos y estándares.',
+                    'Verificar los resultados obtenidos, de acuerdo con los requerimientos.',
+                    'Implementar buenas prácticas de uso, de acuerdo con la tecnología empleada.'
+                ]
+            }
+        ]
+    },
+    {
+        Gestión: [
+            {
+                Proyectar: [
+                    'Interpretar los diferentes tipos de proyecciones en la determinación de los pronósticos mediante la aplicación de simuladores para determinar la oferta y la demanda del mercado de bienes y servicios según los objetivos de la organización.',
+                    'Analizar la relación entre las políticas de producción y las proyecciones de la oferta y la demanda del mercado potencial, real, los inventarios, tipos de stock, ciclos de pedidos y la capacidad de producción de la empresa.',
+                    'Planear los presupuestos a partir de la valoración de necesidades requeridas por las diferentes unidades, áreas o procesos del negocio. Con base en los acuerdos y negociaciones pactada con los clientes, las técnicas contables y las normas legales.',
+                    'Elaborar los diferentes tipos de presupuesto en forma manual y sistematizada de acuerdo con la definición del plan de necesidades de las áreas o unidades de negocio y las proyecciones de ingresos y egresos en los periodos establecidos de acuerdo con las políticas, monedas y tasas solicitadas por la organización.'
+                ]
+            },
+            {
+                Evaluar: [
+                    'Presentar informes de resultados de la verificación, actualización y retroalimentación del desarrollo de los acuerdos entre las partes según los requerimientos de los procesos y acciones de la competencia.',
+                    'Realizar el seguimiento al desarrollo de los acuerdos entre las partes según los tipos de control, normas legales y comerciales y políticas establecidas definidas entre las partes teniendo en cuenta especificaciones e indicadores de gestión y su cumplimiento.',
+                    'Rediseñar los procesos logísticos apoyado por tecnologías de la información de acuerdo con los resultados de la evaluación, los indicadores de gestión y las exigencias del...',
+                    'Valorar el desarrollo de los procesos logísticos periódicamente utilizando las técnicas de seguimiento y control que permitan verificar su cumplimiento frente a las actividades, tiempos y costos establecidos por la organización según el desempeño de la industria y la competencia nacional e internacional.'
+                ]
+            },
+            {
+                Dirigir: [
+                    'Evaluar la gestión del talento humano a través de indicadores de gestión teniendo en cuenta el desarrollo de las funciones con relación a metas establecidas y tiempos gestión según niveles de rendimiento a partir de normas y procedimientos establecidos a nivel interno y externo.',
+                    'Coordinar el talento humano apoyado por tecnologías de información teniendo en cuenta la situación de distribución y asignación de funciones establecidas en el plan de actividades de acuerdo con los objetivos, estrategias e indicadores de gestión según tiempos y recursos.',
+                    'Realizar el entrenamiento y el seguimiento del talento humano de la efectividad del desempeño en el puesto de trabajo, el estilo de dirección utilizada y el cumplimiento de los objetivos propuestos en cada proceso según planes de mejoramiento establecidos por la organización.',
+                    'Analizar los resultados de la evaluación según metas organizacionales teniendo en cuenta las variables de gestión y áreas de rendimiento identificando las debilidades y fortalezas del talento humano según las técnicas establecidas.'
+                ]
+            },
+            {
+                Formular: [
+                    'Diagnosticar las necesidades de los clientes en los distintos eslabones de la cadena de suministros considerando la relación de la empresa y el sector externo apoyado en las tecnologías de información y comunicación para comparar sus resultados con los objetivos propuestos.',
+                    'Estructurar políticas de aprovisionamiento, producción y distribución a partir de la valoración de variables internas y externas del entorno económico y tecnológico vigente para ajustar los recursos, presupuestos, e indicadores establecidos por la organización considerando la amplitud del mercado y el alcance de la política.',
+                    'Establecer las estrategias para el desarrollo de los procesos de la cadena logística verificando su cumplimiento con los objetivos y metas institucionales a través de la relación costo/ beneficio y las tecnologías aplicadas en la cadena de abastecimiento según los segmentos del mercado y los acuerdos internacionales.',
+                    'Elaborar el plan maestro de la organización considerando el flujo de materiales, energía, información y dinero apoyado en modelos de simulación relacionados con los procesos de compras, producción y distribución de la cadena de abastecimiento frente a los resultados y objetivos esperados.',
+                    'Determinar los indicadores de gestión a partir de la información de los factores críticos de los diferentes procesos o unidades de negocio y las necesidades de los clientes de acuerdo con la amplitud de los mercados, las áreas funcionales y el cumplimiento de las políticas definidas por la empresa para su medición.'
+                ]
+            },
+            {
+                Costear: [
+                    'Evaluar los costos logísticos por unidades de proceso que intervienen en los eslabones de la cadena con el fin de definir la estructura de costos logísticos en la distribución física internacional según estrategias e indicadores de gestión.',
+                    'Analizar el comportamiento del mercado financiero internacional para tomar decisiones frente a la importación y exportación a partir de la simulación de la operación teniendo en cuenta el comportamiento de divisas a mediano y largo plazo.'
+                ]
+            },
+            {
+                Procesar: [
+                    'Realizar la consolidación de la información a través de la comparación de los resultados obtenidos de los diferentes procesos logísticos con los indicadores y presupuestos establecidos por la organización, considerando tipos de consolidación y equipos para tal fin en el período señalado.',
+                    'Presentar informes del comportamiento de los procesos logísticos parala toma de decisiones teniendo en cuenta las formas de presentación, los tipos de informes e instrumentos establecidos por la organización.',
+                    'Clasificar la información recolectada de las requisiciones de las áreas o unidades de negocio de acuerdo con los procesos logísticos a través de instrumentos y herramientas de recolección con apoyo de tecnologías de información.'
+                ]
+            },
+            {
+                Monitorear: [
+                    'Inspeccionar los recursos asignados a los procesos y clientes, los programas de seguridad e higiene industrial en el desarrollo de las actividades según procedimientos establecidos por la organización.',
+                    'Informar los resultados del seguimiento de las actividades propias de los procesos logísticos y la implementación de los programas de seguridad e higiene industrial ante las autoridades y áreas respectivas en los tiempos establecidos.',
+                    'Reportar novedades ante las autoridades y áreas respectivas de acuerdo con el comportamiento de los procesos en las diferentes entidades y áreas según formatos y procedimientos establecidos en tiempos determinados.',
+                    'Realizar seguimiento a las actividades propias de los procesos logísticos para el suministro y uso de los recursos frente a las variables de seguridad de objetos e instalaciones y aplicando normas de seguridad e higiene requeridas según el proceso, de acuerdo al plan de trabajo e indicadores de gestión.'
+                ]
+            },
+            {
+                DarS: [
+                    'Evaluar la calidad de los procesos comerciales relacionados con los proveedores y clientes, canales de distribución y desarrollo del mercado según indicadores de gestión y valor agregado del proceso, para el desarrollo de alianzas entre proveedores y clientes.',
+                    'Implementar programas para el desarrollo de alianzas estratégicas entre proveedores y clientes mediante asesorías y soportes a proveedores teniendo en cuenta principios éticos entre las partes y considerando el intercambio de información según necesidades de organización, clientes y proveedores.',
+                    'Verificar la satisfacción del cliente aplicando los indicadores de gestión según solicitudes, requisiciones y estrategias apoyado en medios electrónicos de acuerdo con las políticas de la organización y la trazabilidad del servicio.',
+                    'Aplicar técnicas de contacto con el cliente teniendo en cuenta el nivel de satisfacción, inquietudes y solicitudes según políticas de servicio al cliente.'
+                ]
+            },
+            {
+                Operar: [
+                    'Clasificar la mercancía en la subpartida arancelaria establecida en las notas legales del sistema armonizado al diligenciar documentos para la exportación, de acuerdo con su naturaleza, composición y uso; considerando su origen y destino y los tratados y acuerdos comerciales.',
+                    'Realizar procedimientos para la exportación de mercancías de acuerdo al régimen aduanero y de exportación vigente, al efectuar los trámites documentales y procedimentales ante las entidades gubernamentales delegadas, según la normatividad establecida y considerando diversas modalidades de exportación.',
+                    'Ejecutar procedimientos para la nacionalización de las mercancías de acuerdo con las políticas de la compañía y las normas legales aduaneras vigentes considerando diversos tipos de inspección, modalidades de importación y tiempos establecidos para la presentación de documentos y obtención del levante.'
+                ]
+            },
+            {
+                Establecer: [
+                    'Determinar los sistemas de distribución a partir de los factores ambientales, las condiciones económicas, comerciales, legales y los productos y servicios a distribuir, teniendo en cuenta la forma de entrega del producto, el costo, el tiempo, el lugar y el nivel programado de servicio al cliente.',
+                    'Organizar el canal en la red de distribución considerando vendedores, logística, cubrimiento, alcance, fortaleza económica y tradición en el mercado, asegurando que los actores cumplan funciones, deberes y responsabilidades para garantizar la efectividad del desarrollo del canal.',
+                    'Definir los medios y modos de transporte a partir de la naturaleza de la carga y la capacidad requerida teniendo en cuenta los embalajes de los objetos y el trayecto a recorrer considerando transporte intermodal.',
+                    'Determinar las redes de transporte mundial óptimas en el desarrollo de la distribución internacional apoyadas por tecnologías de información teniendo en cuenta la ubicación geográfica de los mercados y proveedores, según los canales de distribución y el nivel de servicio asociados a los mismos.',
+                    'Establecer las estrategias de distribución teniendo en cuenta aspectos técnicos y legales de la distribución de acuerdo con la misión, objetivos, variables de mercadeo y los objetivos de la logística de la organización.',
+                    'Elegir los canales de distribución a partir de la contextualización del mercadeo, característicos de los contactos comerciales, la competencia y la empresa de acuerdo con la definición de los acuerdos comerciales.'
+                ]
+            },
+            {
+                Definir: [
+                    'Identificar el flujo de información interno y externo de los procesos logísticos según el tipo de negocio, tiempos de respuesta y costos asociados para facilitar el flujo de bienes, servicios y transacciones.',
+                    'Establecer la tecnología requerida según necesidades de información, las necesidades de los clientes internos y externos y el plan maestro de la organización apoyados por base de datos y sistemas de intercomunicación según la estructura de la cadena.',
+                    'Diseñar procesos logísticos mediante el uso de técnicas y métodos de programación simulados apoyados en tecnologías de la información teniendo en cuenta los requerimientos de la organización definidos en el manual de procesos para responder al plan de servicios de los clientes y objetivos de la organización.'
+                ]
+            },
+            {
+                Organizar: [
+                    'Diseñar la planta o centro de distribución a partir de requerimientos de almacenamiento de los objetos, capacidad y dimensión verificando el diseño a través de los planos y mediante el apoyo de software aplicado sobre el manejo y distribución del espacio.',
+                    'Identificar las variables que se deben tener en cuenta para la distribución de espacios en plantas o centros de distribución de acuerdo con las estrategias de mercadeo.',
+                    'Valorar la infraestructura de la zona para la ubicación de la planta en el contexto mercadológico en las zonas geográficas acorde con los parámetros de organización del centro de distribución y las políticas de organización del almacén.',
+                    'Ubicar almacenes en el punto seleccionado con sus respectivas características mediante la simulación a través de un modelo de traficación sobre la ubicación de un punto y nodo según la red logística.'
+                ]
+            },
+            {
+                Generar: [
+                    'Evaluar los procesos que generan valor en la cadena de abastecimiento en el desarrollo de las actividades logísticas mediante la aplicación de métodos y técnicas y el soporte tecnológico según la interacción de la cadena de abastecimiento.',
+                    'Estructurar las relaciones entre los actores de la cadena de abastecimiento a través de las tecnologías de la información y la comunicación para al desarrollo de las operaciones logísticas según la caracterización de los clientes.'
+                ]
+            },
+            {
+                Establecer: [
+                    'Caracterizar los productos teniendo en cuenta la categorización, la ficha técnica, la tecnología de proceso e información para la identificación y registro de los puntos críticos del proceso dentro de la cadena de acuerdo al flujo físico y los requisitos de trazabilidad según la elaboración de la lista del plan maestro.',
+                    'Establecer los mecanismos de medición de un proceso de trazabilidad de productos y/o servicios según estándares nacionales e internacionales y guías establecidas.',
+                    'Documentar los procesos y registros para la verificación de la información entre los actores de la cadena teniendo en cuenta el ámbito de aplicación del sistema y las normas nacionales e internacionales.'
+                ]
+            },
+            {
+                Estructurar: [
+                    'Estructurar la base de datos de acuerdo a las normas legales, información requerida por los actores de la cadena de suministro, la capacidad de almacenamiento y los requerimientos del proceso de trazabilidad.',
+                    'Comprobar los registros de los proveedores y clientes para levantar la información de los procesos, procedimientos y archivos para el sistema de trazabilidad, mediante la aplicación de técnicas de verificación, según los sistemas, los objetivos y los requerimientos de…',
+                    'Monitorear los procesos mediante la aplicación de las variables de control y seguimiento de la trazabilidad de productos y servicios, de acuerdo con las necesidades de la cadena de distribución mediante la traficación de su recorrido, identificando los puntos críticos del proceso y teniendo en cuenta los tipos de trazabilidad.',
+                    'Organizar el sistema de trazabilidad entre los socios o actores de la cadena, su alcance y necesidades teniendo en cuenta los productos, datos, estándares nacionales e…'
+                ]
+            },
+            {
+                Promover: [
+                    'Gestionar la información de acuerdo con los procedimientos establecidos y con las tecnologías de la información y la comunicación disponibles.',
+                    'Concertar alternativas y acciones de formación para el desarrollo de las competencias del programa formación, con base en la política institucional.',
+                    'Asumir los deberes y derechos con base en las leyes y la normativa institucional en el marco de su proyecto de vida.',
+                    'Generar hábitos saludables en su estilo de vida para garantizar la prevención de riesgos ocupacionales de acuerdo con el diagnóstico de su condición física individual y la naturaleza y complejidad de su desempeño laboral.',
+                    'Desarrollar permanentemente las habilidades psicomotrices y de pensamiento en la ejecución de los procesos de aprendizaje.',
+                    'Identificar las oportunidades que el SENA ofrece en el marco de la formación profesional de acuerdo con el contexto nacional e internacional.',
+                    'Asumir responsablemente los criterios de preservación y conservación del medio ambiente y de desarrollo sostenible, en el ejercicio de su desempeño laboral y social.',
+                    'Desarrollar procesos comunicativos eficaces y asertivos dentro de criterios de racionalidad que posibiliten la convivencia, el establecimiento de acuerdos, la construcción colectiva del conocimiento y la resolución de problemas de carácter productivo y social.',
+                    'Interactuar en los contextos productivos y sociales en función de los principios y valores universales.',
+                    'Generar procesos autónomos y de trabajo colaborativo permanentes, fortaleciendo el equilibrio de los componentes racionales y emocionales orientados hacia el desarrollo humano integral.',
+                    'Reconocer el rol de los participantes en el proceso formativo, el papel de los ambientes de aprendizaje y la metodología de formación, de acuerdo con la dinámica organizacional del SENA.',
+                    'Redimensionar permanentemente su proyecto de vida de acuerdo con las circunstancias del contexto y con visión prospectiva.',
+                    'Asumir actitudes críticas, argumentativas y propositivas en función de la resolución de problemas de carácter productivo y social.',
+                    'Aplicar técnicas de cultura física para el mejoramiento de su expresión corporal, desempeño laboral según la naturaleza y complejidad del área ocupacional.'
+                ]
+            },
+            {
+                Comprender: [
+                    'Comunicarse en tareas sencillas y habituales que requieren un intercambio simple y directo de información cotidiana y técnica.',
+                    'Realizar intercambios sociales y prácticos muy breves, con un vocabulario suficiente para hacer una exposición o mantener una conversación sencilla sobre temas técnicos.',
+                    'Encontrar vocabulario y expresiones de inglés técnico en anuncios, folletos, páginas web.',
+                    'Comprender frases y vocabulario habitual sobre temas de interés personal y temas.',
+                    'Encontrar información específica y predecible en escritos sencillos y cotidianos.',
+                    'Comprender la idea principal en avisos y mensajes breves, claros y sencillos en inglés.',
+                    'Leer textos muy breves y sencillos en inglés general y técnico.'
+                ]
+            },
+            {
+                Procesar: [
+                    'Registrar la información apoyado por tecnologías de información aplicando el inglés al manejo informático de datos dentro del tiempo establecido según el plan de investigación y los resultados obtenidos.',
+                    'Analizar la información a partir del desarrollo de elementos de lógica matemática y la aplicación de métodos de inferencia estadística para proyectar los datos cuantitativos según técnicas proyectivas.',
+                    'Procesar el conjunto de datos con el apoyo de tecnologías de la información teniendo en cuenta la amplitud, profundidad de contenidos, el problema y objetivos de investigación según al plan esquema básico de publicación de resultados.',
+                    'Clasificar los datos obtenidos mediante la asignación de números de formularios de estudio y códigos según respuestas de los diferentes ítems de acuerdo con las variables y parámetros requeridos en la investigación.'
+                ]
+            },
+            {
+                Resultados: [
+                    'Aplicar en la resolución de problemas reales del sector productivo, los conocimientos, habilidades y destrezas pertinentes a las competencias del programa de formación asumiendo estrategias y metodologías de autogestión.'
+                ]
+            }
+        ]
+    },
+    {
+        Negociación: [
+            {
+                ProyectarN: [
+                    'Interpretar los diferentes tipos de proyecciones en la determinación de los pronósticos mediante la aplicación de simuladores para determinar la oferta y la demanda del mercado de bienes y servicios según los objetivos de la organización.',
+                    'Analizar la relación entre las políticas de producción y las proyecciones de la oferta y la demanda del mercado potencial, real, los inventarios, tipos de stock, ciclos de pedidos y la capacidad de producción de la empresa.',
+                    'Planear los presupuestos a partir de la valoración de necesidades requeridas por las diferentes unidades, áreas o procesos del negocio. Con base en los acuerdos y negociaciones pactada con los clientes, las técnicas contables y las normas legales.',
+                    'Elaborar los diferentes tipos de presupuesto en forma manual y sistematizada de acuerdo con la definición del plan de necesidades de las áreas o unidades de negocio y las proyecciones de ingresos y egresos en los periodos establecidos de acuerdo con las políticas, monedas y tasas solicitadas por la organización.'
+                ]
+            },
+            {
+                Dirigir: [
+                    'Evaluar la gestión del talento humano a través de indicadores de gestión teniendo en cuenta el desarrollo de las funciones con relación a metas establecidas y tiempos gestión según niveles de rendimiento a partir de normas y procedimientos establecidos a nivel interno y externo.',
+                    'Coordinar el talento humano apoyado por tecnologías de información teniendo en cuenta la situación de distribución y asignación de funciones establecidas en el plan de actividades de acuerdo con los objetivos, estrategias e indicadores de gestión según tiempos y recursos.',
+                    'Realizar el entrenamiento y el seguimiento del talento humano de la efectividad del desempeño en el puesto de trabajo, el estilo de dirección utilizada y el cumplimiento de los objetivos propuestos en cada proceso según planes de mejoramiento establecidos por la organización.',
+                    'Analizar los resultados de la evaluación según metas organizacionales teniendo en cuenta las variables de gestión y áreas de rendimiento identificando las debilidades y fortalezas del talento humano según las técnicas establecidas.'
+                ]
+            },
+            {
+                Costear: [
+                    'Evaluar los costos logísticos por unidades de proceso que intervienen en los eslabones de la cadena con el fin de definir la estructura de costos logísticos en la distribución física internacional según estrategias e indicadores de gestión.',
+                    'Analizar el comportamiento del mercado financiero internacional para tomar decisiones frente a la importación y exportación a partir de la simulación de la operación teniendo en cuenta el comportamiento de divisas a mediano y largo plazo.'
+                ]
+            },
+            {
+                Diligenciar: [
+                    'Diligenciar los documentos en su totalidad, teniendo en cuenta normas legales, comerciales tramitando los documentos ante las entidades respectivas, según el proceso de flujo de bienes y servicios siguiendo procedimientos legales, técnicos y administrativos exigidos por las empresas, verificando que sean digitados con exactitud según la técnica o método señalado para ser tramitados, llevando a cabo los procedimientos administrativos de las diferentes organizaciones.',
+                    'Analizar la documentación presentada y requerida por los posibles proveedores y clientes para las importaciones y exportaciones evaluada de acuerdo con las normas legales vigentes verificando que los documentos requeridos se ajusten a las normas legales nacionales e internacionales vigentes y a los procesos y requisitos exigidos por la empresa.',
+                    'Revisar que el certificado de constitución y gerencia cumple con los requisitos comerciales y legales, evaluando los antecedentes comerciales certificados para la selección del proveedor teniendo en cuenta las referencias comerciales solicitadas determinando que los productos cumplan con los requisitos sanitario, fitosanitarios, ambientales y de calidad, de acuerdo con las normas legales vigentes.',
+                    'Registrar los exportadores ante el organismo respectivo de acuerdo con las normas legales tramitando los documentos según especificaciones dentro del periodo señalado para entregarlos a la unidad de negocio para el proceso respectivo, de acuerdo con los requisitos exigidos por la empresa.'
+                ]
+            },
+            {
+                Operar: [
+                    'Clasificar la mercancía en la subpartida arancelaria establecida en las notas legales del sistema armonizado al diligenciar documentos para la exportación, de acuerdo con su naturaleza, composición y uso; considerando su origen y destino y los tratados y acuerdos comerciales.',
+                    'Realizar procedimientos para la exportación de mercancías de acuerdo al régimen aduanero y de exportación vigente, al efectuar los trámites documentales y procedimentales ante las entidades gubernamentales delegadas, según la normatividad establecida y considerando diversas modalidades de exportación.',
+                    'Ejecutar procedimientos para la nacionalización de las mercancías de acuerdo con las políticas de la compañía y las normas legales aduaneras vigentes considerando diversos tipos de inspección, modalidades de importación y tiempos establecidos para la presentación de documentos y obtención del levante.'
+                ]
+            },
+            {
+                Coordinar: [
+                    'Soportar las rutas asignadas para el transporte de carga y reglamentadas con los mapas respectivos de vías y recorridos teniendo en cuenta las normas nacionales e internacionales vigentes elaborando las rutas para cada fase de transporte de destino a destino, simulando y verificando el cumplimiento de los parámetros establecidos en la ruta, de acuerdo con las normas legales vigentes y las políticas trazadas por la empresa.',
+                    'Asignar las rutas de transporte según las vías asignadas para la movilización de la carga teniendo en cuenta las normas legales nacionales e internacionales vigentes de importación y exportación, determinando las rutas de transporte elaboradas según las vías asignadas para la movilización de la carga de importación y exportación, de acuerdo con los objetivos fijados por la empresa.',
+                    'Elaborar las rutas de transporte teniendo en cuenta la naturaleza de los objetos o elementos que se van a transportar, infraestructura, el origen, destino, tiempo, distancia y recorrido fijando tiempos en el ruteo, elaborando el plan de ruta crítica con el apoyo de software especializado, de acuerdo con el clima, la seguridad aérea, marítima, terrestre, fluvial infraestructura de basado en las normas legales vigentes y las políticas establecidas por la organización.',
+                    'Definir las rutas según los canales de distribución, las fábricas y clientes de acuerdo a las normas de transporte nacional e internacional, para importaciones y exportaciones teniendo en cuenta los incoterms, según la ruta y modo de transporte utilizado en las importaciones y exportaciones de acuerdo con las normas legales nacionales e internacionales ajustadas a las necesidades de la organización.'
+                ]
+            },
+            {
+                Controlar: [
+                    'Entregar los documentos de embarque al agente aduanero para llevar a cabo el proceso de importación y exportación de acuerdo con las normas legales registrando los documentos ante los organismos competentes conforme a las políticas comerciales, tributarias, aduaneras y de comercio internacional vigentes para llevar a cabo los controles de las importaciones y exportaciones concordantes con la política de la empresa.',
+                    'Contactar el comprador o importador y vendedor exportador directamente o por las vías indirectas de acuerdo con los procedimientos que se siguen en las importaciones y exportaciones enviando el detalle de los productos a importar o exportar a la sociedad de intermediación aduanera si a cumpliendo con los requisitos de la codificación arancelaria y fechas establecidas según las normas de comercio internacional vigentes teniendo en cuenta las políticas de la compañía.',
+                    'Cubrir los contratos de compraventa en las operaciones de los riesgos jurídicos del comercio internacional teniendo en cuenta las normas legales vigentes obteniendo los vistos buenos o permisos previos para los productos que requieren ante los organismos respectivos con base en las normas legales de comercio internacional vigentes de acuerdo con las políticas de la empresa.',
+                    'Registrar la empresa como productor nacional, oferta exportable y determinación de origen ante las entidades correspondientes de acuerdo con las normas de comercio internacional vigentes, teniendo en cuenta las contingencias de importación frente a las restricciones relativas a la naturaleza de los productos, de acuerdo con las normas de comercio internacional vigentes para obtener las licencias y certificaciones y de acuerdo con las políticas de la organización.'
+                ]
+            },
+            {
+                Efectuar: [
+                    'Presentar a las diferentes áreas o unidades de proceso el reporte de las diferentes anomalías presentadas basado en las normas legales, el análisis de costos, de acuerdo con los términos de negociación internacional, identificando las líneas de financiación bancarias y presupuestos para la importación y exportación, teniendo en cuenta las normas legales vigentes y las políticas establecidas por la organización.',
+                    'Evaluar los niveles de servicios prestados por los diferentes proveedores según estándares de calidad establecidos, efectuando los pagos y cobros de acuerdo con los términos acordados, realizando los reembolsos y reintegros de acuerdo con las normas legales teniendo en cuenta los acuerdos y tratados entre países y basado en las políticas.',
+                    'Analizar los términos de negociación internacional dependiendo de las cláusulas establecidas por la cámara de comercio internacional, los términos contractuales acordados por el comprador y vendedor, analizando los fletes, seguros y servicios portuarios y aduaneros de acuerdo con las normas legales nacionales e internacionales con base en las políticas y necesidades de la organización.',
+                    'Evaluar los servicios bancarios según los términos de negociación de acuerdo con las operaciones complementarias para transacciones de importaciones y exportaciones, identificando los acuerdos establecidos que se han incumplido con base en las normas legales vigentes, las reglas y políticas establecidas por la empresa.'
+                ]
+            },
+            {
+                Analizar: [
+                    'Analizar e interpretar la información de los procesos contables y financieros de acuerdo con la política de la organización.',
+                    'Identificar e investigar las causas y sus correspondientes soluciones a los problemas contables y financieros, de acuerdo con las normas de control interno y financieras.'
+                ]
+            },
+            {
+                Promover: [
+                    'Gestionar la información de acuerdo con los procedimientos establecidos y con las tecnologías de la información y la comunicación disponibles.',
+                    'Concertar alternativas y acciones de formación para el desarrollo de las competencias del programa formación, con base en la política institucional.',
+                    'Asumir los deberes y derechos con base en las leyes y la normativa institucional en el marco de su proyecto de vida.',
+                    'Generar hábitos saludables en su estilo de vida para garantizar la prevención de riesgos ocupacionales de acuerdo con el diagnóstico de su condición física individual y la naturaleza y complejidad de su desempeño laboral.',
+                    'Desarrollar permanentemente las habilidades psicomotrices y de pensamiento en la ejecución de los procesos de aprendizaje.',
+                    'Identificar las oportunidades que el SENA ofrece en el marco de la formación profesional de acuerdo con el contexto nacional e internacional.',
+                    'Asumir responsablemente los criterios de preservación y conservación del medio ambiente y de desarrollo sostenible, en el ejercicio de su desempeño laboral y social.',
+                    'Desarrollar procesos comunicativos eficaces y asertivos dentro de criterios de racionalidad que posibiliten la convivencia, el establecimiento de acuerdos, la construcción colectiva del conocimiento y la resolución de problemas de carácter productivo y social.',
+                    'Interactuar en los contextos productivos y sociales en función de los principios y valores universales.',
+                    'Generar procesos autónomos y de trabajo colaborativo permanentes, fortaleciendo el equilibrio de los componentes racionales y emocionales orientados hacia el desarrollo humano integral.',
+                    'Reconocer el rol de los participantes en el proceso formativo, el papel de los ambientes de aprendizaje y la metodología de formación, de acuerdo con la dinámica organizacional del SENA.',
+                    'Redimensionar permanentemente su proyecto de vida de acuerdo con las circunstancias del contexto y con visión prospectiva.',
+                    'Asumir actitudes críticas, argumentativas y propositivas en función de la resolución de problemas de carácter productivo y social.',
+                    'Aplicar técnicas de cultura física para el mejoramiento de su expresión corporal, desempeño laboral según la naturaleza y complejidad del área ocupacional.'
+                ]
+            },
+            {
+                Comprender: [
+                    'Comunicarse en tareas sencillas y habituales que requieren un intercambio simple y directo de información cotidiana y técnica.',
+                    'Realizar intercambios sociales y prácticos muy breves, con un vocabulario suficiente para hacer una exposición o mantener una conversación sencilla sobre temas técnicos.',
+                    'Encontrar vocabulario y expresiones de inglés técnico en anuncios, folletos, páginas web.',
+                    'Comprender frases y vocabulario habitual sobre temas de interés personal y temas.',
+                    'Encontrar información específica y predecible en escritos sencillos y cotidianos.',
+                    'Comprender la idea principal en avisos y mensajes breves, claros y sencillos en inglés.',
+                    'Leer textos muy breves y sencillos en inglés general y técnico.'
+                ]
+            },
+            {
+                ProyectarM: [
+                    'Recopilar la información sobre comportamiento, relaciones de causalidad, tamaño de muestra son recopiladas para base de datos de población por edades, mapas, planos, fotografías definiendo el segmento objetivo, dividiendo los países en grupos homogéneos con el fin de que las estrategias definidas sean válidas en distintos países por las similitudes económicas y culturales, geográficas, climas, costumbres, religión, teniendo en cuenta las normas legales para vender los productos en el mercado internacional de acuerdo con los objetivos propuestos por la organización.',
+                    'Realizar la segmentación a partir de características psicográficas, demográficas, culturales, geográficas, psicológicos y socioeconómicas de cada estrato social combinando las variables para producir el nivel de aceptación de un producto o servicio, identificando el segmento de mercado con base en características, intereses, preferencias y opiniones de la población a la que se desea llegar con el producto o servicio a mercadear basado en las políticas establecidas por la organización.',
+                    'Seleccionar los criterios de segmentación dependiendo si se trata de segmentación de clientes de consumo o segmentación de clientes de inversión teniendo en cuenta normas nacionales e internacionales, determinando el potencial de exportación, las dimensiones y característica de la demanda y los canales de distribución de acuerdo con las normas legales, son determinados para segmentar el mercado y el potencial de compradores de los productos o servicios de acuerdo con la misión y visión de la empresa.'
+                ]
+            },
+            {
+                Desarrollar: [
+                    'Establecer los estándares del canal de distribución teniendo en cuenta las normas legales, el número de pedidos, cantidad de unidades compradas, vendidas y devueltas, por cada canal en un tiempo determinado de acuerdo con las características de los productos y/o servicios, la tecnología, tipo de empaques, precio, fletes según las políticas implementadas por la organización.',
+                    'Seleccionar los canales teniendo en cuenta la naturaleza del producto y el segmento del mercado, las variables evaluadas en cada canal analizando el mercado, tamaño, volumen, venta, cobertura y capacidad financiera siguiendo procedimientos en la revisión del informe de acuerdo con la mezcla de productos y las políticas de la organización.',
+                    'Definir el número de aciertos y errores en el sistema de distribución y venta a partir de los hábitos de compra de los consumidores, la naturaleza de los productos, transporte teniendo en cuenta los factores ambientales, condiciones económicas, comerciales, geográficas y legales de los productos y servicios a distribuir de acuerdo con las estrategias promocionales de la organización.',
+                    'Evaluar la intensidad de los canales de distribución elegidos, las funciones esperadas de los intermediarios, las fortalezas y debilidades, el cumplimiento en los pagos, la evaluación de precios y el respeto en los acuerdos definidos en cada canal de comercialización, las líneas de distribución con base en los lineamientos generales de operación y plan estratégico diseñado por la organización.'
+                ]
+            },
+            {
+                Determinar: [
+                    'Aplicar las técnicas, métodos y procedimientos de evaluación de ideas en el proceso de selección, de acuerdo con las necesidades del mercado en relación con el uso y beneficio del producto, aplicando técnicas y procedimientos existentes que estén de acuerdo con las políticas, necesidades y objetivos de la empresa.',
+                    'Estudiar el nivel de desarrollo, la tendencia de crecimiento y los posibles tratados internacionales con otros mercados, regiones o países, previamente seleccionados analizando las características económicas, de estabilidad política, comportamiento legal y cultural, antes de determinar la posibilidad de ingreso y definir el ambiente de un mercado que se ajuste a las políticas y objetivos de la organización.',
+                    'Evaluar las ideas de los productos y servicios frente a las necesidades y requerimientos establecidos en el estudio de mercado, teniendo en cuenta las necesidades, requerimientos, ajustando las ideas a los mercados a partir del análisis de las variables del entorno y las barreras de entrada tarifarias y no tarifarias, que se ajusten a las necesidades y políticas de la organización.',
+                    'eleccionar las ideas de productos o servicios teniendo en cuenta la disponibilidad económica y tecnológica que responden a las necesidades del mercado en relación con el uso y beneficio del producto, a partir de la capacidad productiva y objetivos trazados por…'
+                ]
+            },
+            {
+                Planear: [
+                    'Determinar los indicadores y estándares de gestión de acuerdo con los planes de mercadeo teniendo en cuenta el cumplimiento de metas logradas en un periodo de tiempo con base en los objetivos fijados por la organización.',
+                    'Preparar los informes relacionados con el comportamiento del consumidor teniendo en cuenta el contexto mercadológico, elaborando el plan de acción de mercadeo teniendo en cuenta las técnicas mercadológicas y de planeación de acuerdo con los objetivos fijados.',
+                    'Diseñar las estrategias de acuerdo con el plan de mercadeo teniendo en cuenta productos y servicios y el comportamiento de los consumidores, la gestión de ventas y las metas fijadas por la organización.',
+                    'Definir el plan de acción de mercadeo teniendo en cuenta datos y estadísticas de gestión y el comportamiento de los consumidores, realizando un diagnóstico de mercados que identifique oportunidades de negocios utilizando software especializado en proyecciones de mercadeo teniendo en cuenta las políticas de la empresa.'
+                ]
+            },
+            {
+                Negociar: [
+                    'Informar a los clientes la disponibilidad de producto y condiciones de entrega a través del sistema de comunicación establecida, informando sobre garantías y servicio post venta aplicados de acuerdo con los productos y servicios adquiridos, con base en la política de servicio establecidas por la organización.',
+                    'Observar el proceso de acuerdo con la estrategia utilizada, apoyando la presentación de los productos y servicios con el uso de catálogos, muestras, degustaciones, exhibición reforzando la información sobre los productos y servicios con demostraciones, argumentos sobre beneficios y características relacionadas con calidad, precio, necesidades a satisfacer teniendo en cuenta las políticas establecidas por la organización.',
+                    'Presentar los productos y servicios con el apoyo de manuales, programas o navegadores con gráficos y animaciones, presentando información sobre productos o servicios respaldada con la certificación del productor, características distintivas a partir de exclusividad e innovación teniendo en cuenta los objetivos de la organización.'
+                ]
+            },
+            {
+                Procesar: [
+                    'Procesar el conjunto de datos con el apoyo de tecnologías de la información teniendo en cuenta la amplitud, profundidad de contenidos, el problema y objetivos de investigación según el plan esquema básico de publicación de resultados.',
+                    'Analizar la información a partir del desarrollo de elementos de lógica matemática y la aplicación de métodos de inferencia estadística para proyectar los datos cuantitativos según técnicas proyectivas.',
+                    'Registrar la información apoyado por tecnologías de información aplicando el inglés al manejo informático de datos dentro del tiempo establecido según el plan de investigación y los resultados obtenidos.',
+                    'Clasificar los datos obtenidos mediante la asignación de números de formularios de estudio y códigos según respuesta de los diferentes items de acuerdo con las variables y parámetros requeridos en la investigación.'
+                ]
+            },
+            {
+                Resultados: [
+                    'Aplicar en la resolución de problemas reales del sector productivo, los conocimientos, habilidades y destrezas pertinentes a las competencias del programa de formación asumiendo estrategias y metodologías de autogestión.'
+                ]
+            }
+        ]
+    },
+    {
+        ProducciónM: [
+            {
+                Analizar: [
+                    'Elaborar el cronograma de trabajo con base en los acuerdos de tiempo y presupuesto pactados con el cliente',
+                    'Determinar la plataforma del proyecto a partir de las necesidades del cliente aplicando las técnicas de recolección y procesamiento de la información.',
+                    'Confrontar la información recolectada con las necesidades presentadas por el público destino. ',
+                    'Reconocer el lenguaje cinematográfico para la planeación de la multimedia.',
+                    'Escribir actas e informes de procesos de acuerdo con el cronograma de actividades y siguiendo las normas y protocolos establecidos.',
+                    'Identificar las tipologías multimedia a realizar según el requerimiento del público destino y del medio.'
+                ]
+            },
+            {
+                Diseñar: [
+                    'Modelar los elementos de la imagen con base en los objetos o personajes establecidos en el guion.',
+                    'Crear el prototipo de la multimedia siguiendo el patrón establecido en el guion, el mapa de navegación y el storyboard.',
+                    'Validar el storyboard con el cliente de acuerdo con las especificaciones del guion técnico para su aprobación dejando constancia en un acta.',
+                    'Construir el storyboard aplicando técnicas de creatividad de acuerdo con la estructura del guion técnico y el mapa de navegación.',
+                    'Elaborar el guion multimedia (literario y técnico) aplicando técnicas de composición literaria y lenguaje cinematográfico conforme a la tipología definida y al público destino.',
+                    'Definir la estructura del mapa de navegación según la necesidad del cliente.',
+                    'Diseñar la interfaz gráfica con base en el mapa de navegación.'
+                ]
+            },
+            {
+                Integrar: [
+                    'Incorporar los elementos de la multimedia según los criterios del storyboard.',
+                    'Estructurar los elementos de la multimedia a través de lenguajes de maquetación web.',
+                    'Verificar el funcionamiento de la aplicación con base en el storyboard.',
+                    'Codificar los elementos de la multimedia siguiendo las especificaciones del mapa de navegación con la plataforma seleccionada.'
+                ]
+            },
+            {
+                Entregar: [
+                    'Probar la accesibilidad, diseño, escalabilidad y usabilidad de la multimedia de acuerdo a la definición del mapa del sitio y el público objetivo.',
+                    'Realizar el empaque y los elementos de merchandising con los que se distribuirá el proyecto multimedia.',
+                    'Realizar las modificaciones pertinentes de acuerdo a lo evaluado en las pruebas de accesibilidad, diseño, escalabilidad y usabilidad de la multimedia.',
+                    'Elaborar los manuales y ayudas análogas o digitales necesarias para facilitar la operación del proyecto multimedia.'
+                ]
+            },
+            {
+                Realizar: [
+                    'Ajustar la iluminación y el color de la escena para lograr la apariencia visual deseada.',
+                    'Editar imágenes utilizando software de edición audiovisual de acuerdo con lo establecido en guion técnico.',
+                    'Montar secuencias de acuerdo con las especificaciones del proyecto multimedia.',
+                    'Agregar efectos especiales: visuales y sonoros al proyecto multimedia siguiendo los lineamientos del guion técnico.',
+                    'Importar y exportar archivos según el soporte técnico final elegido para la proyección y/o distribución de la producción.'
+                ]
+            },
+            {
+                Promover: [
+                    'Gestionar la información de acuerdo con los procedimientos establecidos y con las tecnologías de la información y la comunicación disponibles.',
+                    'Concertar alternativas y acciones de formación para el desarrollo de las competencias del programa formación, con base en la política institucional.',
+                    'Asumir los deberes y derechos con base en las leyes y la normativa institucional en el marco de su proyecto de vida.',
+                    'Generar hábitos saludables en su estilo de vida para garantizar la prevención de riesgos ocupacionales de acuerdo con el diagnóstico de su condición física individual y la naturaleza y complejidad de su desempeño laboral.',
+                    'Desarrollar permanentemente las habilidades psicomotrices y de pensamiento en la ejecución de los procesos de aprendizaje.',
+                    'Identificar las oportunidades que el SENA ofrece en el marco de la formación profesional de acuerdo con el contexto nacional e internacional.',
+                    'Asumir responsablemente los criterios de preservación y conservación del medio ambiente y de desarrollo sostenible, en el ejercicio de su desempeño laboral y social.',
+                    'Desarrollar procesos comunicativos eficaces y asertivos dentro de criterios de racionalidad que posibiliten la convivencia, el establecimiento de acuerdos, la construcción colectiva del conocimiento y la resolución de problemas de carácter productivo y social.',
+                    'Interactuar en los contextos productivos y sociales en función de los principios y valores universales.',
+                    'Generar procesos autónomos y de trabajo colaborativo permanentes, fortaleciendo el equilibrio de los componentes racionales y emocionales orientados hacia el desarrollo humano integral.',
+                    'Reconocer el rol de los participantes en el proceso formativo, el papel de los ambientes de aprendizaje y la metodología de formación, de acuerdo con la dinámica organizacional del SENA.',
+                    'Redimensionar permanentemente su proyecto de vida de acuerdo con las circunstancias del contexto y con visión prospectiva.',
+                    'Asumir actitudes críticas, argumentativas y propositivas en función de la resolución de problemas de carácter productivo y social.',
+                    'Aplicar técnicas de cultura física para el mejoramiento de su expresión corporal, desempeño laboral según la naturaleza y complejidad del área ocupacional.'
+                ]
+            },
+            {
+                Comprender: [
+                    'Comunicarse en tareas sencillas y habituales que requieren un intercambio simple y directo de información cotidiana y técnica.',
+                    'Realizar intercambios sociales y prácticos muy breves, con un vocabulario suficiente para hacer una exposición o mantener una conversación sencilla sobre temas técnicos.',
+                    'Encontrar vocabulario y expresiones de inglés técnico en anuncios, folletos, páginas web.',
+                    'Comprender frases y vocabulario habitual sobre temas de interés personal y temas.',
+                    'Encontrar información específica y predecible en escritos sencillos y cotidianos.',
+                    'Comprender la idea principal en avisos y mensajes breves, claros y sencillos en inglés.',
+                    'Leer textos muy breves y sencillos en inglés general y técnico.'
+                ]
+            },
+            {
+                Realizar: [
+                    'Verificar entre las partes la propuesta comercial de acuerdo con los parámetros de la negociación.',
+                    'Crear la propuesta y/o contrapropuesta que establezca detalles de rentabilidad, precios, y compromisos con base en las políticas del cliente (financiación, presupuesto, objetivos e identidad corporativa).',
+                    'Identificar las tendencias del mercado y del diseño en la producción de proyectos multimedia para orientar al cliente.',
+                    'Definir el costo del proyecto teniendo en cuenta los gastos fijos, variables y tiempo invertido en la realización del mismo.'
+                ]
+            },
+            {
+                Resultados: [
+                    'Aplicar en la resolución de problemas reales del sector productivo, los conocimientos, habilidades y destrezas pertinentes a las competencias del programa de formación asumiendo estrategias y metodologías de autogestión.'
+                ]
+            }
+        ]
+    },
+    {
+        Apoyo: [
+            {
+                Admitir: [
+                    'Reconocer las necesidades de la persona en el acceso a los servicios de salud de acuerdo con portafolio de servicios y normativa legal vigente.',
+                    'Crear la propuesta y/o contrapropuesta que establezca detalles de rentabilidad, precios, y compromisos con base en las políticas del cliente (financiación, presupuesto, objetivos e identidad corporativa).',
+                    'Identificar las tendencias del mercado y del diseño en la producción de proyectos multimedia para orientar al cliente.',
+                    'Definir el costo del proyecto teniendo en cuenta los gastos fijos, variables y tiempo invertido en la realización del mismo.'
+                ]
+            },
+            {
+                Aplicación: [
+                    'Interpretar los problemas ambientales y de SST teniendo en cuenta los planes y programas establecidos por la organización y el entorno social.',
+                    'Efectuar las acciones para la prevención y control de la problemática ambiental y de SST, teniendo en cuenta los procedimientos establecidos por la organización.',
+                    'Verificar las condiciones ambientales y de SST acorde con los lineamientos establecidos para el área de desempeño laboral.',
+                    'Reportar las condiciones y actos que afecten la protección del medio ambiente y la SST, de acuerdo con los lineamientos establecidos en el contexto organizacional y social.'
+                ]
+            },
+            {
+                Afiliación: [
+                    'Reconocer condiciones socio-económica de la población para afiliarla al sistema general de seguridad social en salud según políticas institucionales y normativa.',
+                    'Asesorar al usuario sobre el acceso a los beneficios del aseguramiento teniendo en cuenta normativa y políticas institucionales.',
+                    'Garantizar la completitud de la documentación requerida en el proceso de afiliación de acuerdo con principios del sistema general de seguridad social y políticas institucionales.',
+                    'Verificar el proceso de afiliación de acuerdo con normativa legal e institucional.'
+                ]
+            },
+            {
+                Desempeño: [
+                    'Reconocer el trabajo como factor de movilidad social y transformación vital con referencia a la fenomenología y a los derechos fundamentales en el trabajo.',
+                    'Valorar la importancia de la ciudadanía laboral con base en el estudio de los derechos humanos y fundamentales en el trabajo.',
+                    'Practicar los derechos fundamentales en el trabajo de acuerdo con la constitución política y los convenios internacionales.',
+                    'Participar en acciones solidarias teniendo en cuenta el ejercicio de los derechos humanos, de los pueblos y de la naturaleza.'
+                ]
+            },
+            {
+                Enrique: [
+                    'Promover mi dignidad y la del otro a partir de los principios y valores éticos como aporte en la instauración de una cultura de paz.',
+                    'Establecer relaciones de crecimiento personal y comunitario a partir del bien común como aporte para el desarrollo social.',
+                    'Promover el uso racional de los recursos naturales a partir de criterios de sostenibilidad y sustentabilidad ética y normativa vigente.',
+                    'Contribuir con el fortalecimiento de la cultura de paz a partir de la dignidad humana y las estrategias para la transformación de conflictos.'
+                ]
+            },
+            {
+                Actividad: [
+                    'Desarrollar habilidades psicomotrices en el contexto productivo y social.',
+                    'Practicar hábitos saludables mediante la aplicación de fundamentos de nutrición e higiene.',
+                    'Ejecutar actividades de acondicionamiento físico orientadas hacia el mejoramiento de la condición física en los contextos productivo y social.',
+                    'Implementar un plan de ergonomía y pausas activas según las características de la función productiva.'
+                ]
+            },
+            {
+                Interacción: [
+                    'Comprender información básica oral y escrita en inglés acerca de sí mismo, de las personas y de su contexto inmediato en realidades presentes e historias de vida.',
+                    'Describir a nivel básico, de forma oral y escrita en inglés personas, situaciones y lugares de acuerdo con sus costumbres y experiencias de vida.',
+                    'Participar en intercambios conversacionales básicos en forma oral y escrita en inglés en diferentes situaciones sociales tanto en la cotidianidad como en experiencias pasadas.',
+                    'Llevar a cabo acciones de mejora relacionadas con el intercambio de información básica en inglés, sobre sí mismo, otras personas, su contexto inmediato, así como de experiencias.',
+                    'Comunicarse de manera sencilla en inglés en forma oral y escrita con un visitante o colega en un contexto laboral cotidiano.',
+                    'Poner en práctica vocabulario básico y expresiones comunes de su área ocupacional en contextos específicos de su trabajo por medio del uso de frases sencillas en forma oral y escrita.'
+                ]
+            },
+            {
+                Orientar: [
+                    'Reconocer necesidades del usuario teniendo en cuenta el marco normativo, políticas de atención y portafolio de servicios de salud.',
+                    'Ofrecer información al usuario de acuerdo con necesidades y portafolio de servicios de salud.',
+                    'Orientar al usuario hacia los servicios de salud, teniendo en cuenta sus necesidades, condiciones de aseguramiento, derechos y deberes.',
+                    'Verificar el nivel de satisfacción de la persona de acuerdo con sus expectativas y normas técnicas.'
+                ]
+            },
+            {
+                Razonar: [
+                    'Identificar situaciones problemáticas asociadas a sus necesidades de contexto aplicando procedimientos matemáticos.',
+                    'Plantear problemas aritméticos, geométricos y métricos de acuerdo con los contextos productivo y social.',
+                    'Solucionar problemas del entorno productivo y social aplicando principios matemáticos.',
+                    'Verificar los resultados de los procedimientos matemáticos conforme con los requerimientos de los diferentes contextos.'
+                ]
+            },
+            {
+                Registrar: [
+                    'Reconocer el marco normativo que rige el proceso de facturación y costos en salud según los manuales tarifarios y acuerdos establecidos.',
+                    'Liquidar los procedimientos de salud prestados según protocolo institucional y normativa vigente.',
+                    'Realizar el cobro de los servicios prestados de acuerdo con protocolos institucionales.',
+                    'Verificar el proceso de facturación según tipo de cuenta, forma de pago y procedimientos institucionales.'
                 ]
             },
             {

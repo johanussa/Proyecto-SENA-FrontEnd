@@ -47,6 +47,7 @@ header .title h1 {
 }
 header section.title i { margin-right: 15px; }
 header .logos {
+    width: 100%;
     padding: 10px;
     display: flex;
     align-items: center;
@@ -215,7 +216,6 @@ section.body_shedule .type_contrato article {
     margin: 20px auto 25px;
 }
 section.create_shedule { display: none; }
-/* section.create_shedule.complete_shedule { display: block; grid-column: span 2; } */
 section.create_shedule article.dates {
     display: flex;
     justify-content: space-evenly;
@@ -223,6 +223,7 @@ section.create_shedule article.dates {
     font-weight: 600;
 }
 section.create_shedule article.btn_add_ficha {
+    flex-flow: row wrap;
     display: flex;
     justify-content: space-evenly;
     height: 40px;
@@ -337,19 +338,21 @@ section.body_shedule .form_complem {
 
 /* Estilos Tabla Horarios */
 
-main.table_shedule { padding: 10px; }
-main.table_shedule table {
-    width: 95%;
-    max-width: 1500px;
-    margin: auto;
+section.table_shedule { 
+    overflow: auto;
 }
-main.table_shedule table thead { height: 35px; }
-main.table_shedule table th { 
+section.table_shedule table {
+    width: 96%;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+section.table_shedule table thead { height: 35px; }
+section.table_shedule table th { 
     background-color: var(--table-color);
 }
-main.table_shedule table thead th { min-width: 100px; }
-main.table_shedule table tr { height: 30px; }
-main.table_shedule .resume {
+section.table_shedule table thead th { min-width: 100px; }
+section.table_shedule table tr { height: 30px; }
+section.table_shedule .resume {
     font-size: 1.1rem;
     font-weight: 600;
     padding-left: 50;
@@ -360,7 +363,7 @@ main.table_shedule .resume {
     gap: 15px;
     display: none;
 }
-main.table_shedule .resume span,
+section.table_shedule .resume span,
 section.show_shedule .resume_Show span,
 section.sec_resume_update span {
     display: inline-block;
@@ -530,10 +533,6 @@ section.sec_resume_update {
 section.info_resum_update label {
     font-weight: 700;
 }
-
-
-
-
 .table_shedule tbody td:hover {
     cursor: pointer;
     background-color: #24bd24;
@@ -568,3 +567,113 @@ section.info_resum_update label {
         font-size: 14px;
     }
 }
+@media screen and (max-width: 970px) {
+    header .title h1 { font-size: 2.5rem; }
+}
+@media screen and (max-width: 1150px) {
+    .container header {
+        grid-template-columns: 100%;
+        justify-items: center;
+    }
+    header .logos { justify-content: space-evenly; }
+    main.main_shedule {
+        display: flex;
+        flex-direction: column;
+    }
+    main.main_shedule section.side_left {
+        width: 280px;
+        margin: auto;
+        height: 160px;
+        overflow: auto;
+    }
+    main.main_shedule .body_shedule .header_body {
+        flex-direction: column;
+        height: 100px;
+    }
+}
+@media screen and (max-width: 845px) {
+    article.form #formCreate {
+        display: flex;
+        flex-direction: column;
+    }
+    section.body_shedule .show_cards {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+    }
+    section.update_info {
+        display: flex !important;
+        flex-direction: column;
+        padding: 15px;
+    }
+    section.dates_after {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    section.dates_before {
+        flex-direction: column;
+        align-items: center;
+    }
+    section.sec_resume_update {
+        grid-template-columns: 1fr;
+    }
+}
+@media screen and (max-width: 515px) {
+    section.create_shedule article.dates {
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 20px;
+        align-items: center;
+    }
+    section.create_shedule article.btn_add_ficha {
+        flex-flow: row wrap;
+        margin: 0 auto 30px;
+    }
+    header .title h1 { font-size: 1.8rem; }
+    header .logos .logos_head { width: 50px; }
+    section.body_shedule .btns_options article { 
+        flex-direction: column; 
+        gap: 8px;
+        margin-top: 15px;
+        height: 130px;
+        align-items: center;
+    }
+    section.show_shedule form, section.update_info form {
+        display: flex;
+        flex-direction: column;
+    }
+    section.show_shedule .resume_Show {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    section.show_shedule section.dates_range {
+        flex-flow: row wrap;
+        font-size: 20px;
+        align-items: center;
+        justify-content: space-around
+    }
+    article.article_search {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    main.main_shedule section.side_left { width: 100%; }
+    section.body_shedule .show_cards { padding: 0; }
+    section.body_shedule .type_contrato { text-align: center; }
+    section.dates_before { 
+        font-size: 16px; 
+        font-weight: 700;
+        margin: 60px 0 10px;
+        line-height: 20px; 
+    }
+    .update_info { padding: 0 !important; }
+}
+@media screen and (max-width: 380px) {
+    header .title h1 { font-size: 1.2rem; }
+    header .logos .logos_head { width: 40px; }
+    .container .icons { font-size: 40px; }
+    .container header section.title h1 .bi-clock-history { font-size: 25px; }
+}
+
+
