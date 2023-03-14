@@ -1,9 +1,22 @@
+import Swal from 'sweetalert2';
 import React, { useEffect, useState } from 'react';
 import { colors, programas, competencias, aulas, resultados as resultDB } from '../../components/data';
 
+export const confirmChanges = async () => {
+  return await Swal.fire({
+    title: 'Estas Seguro?',
+    text: "Desea guardar los cambios realizados?",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Si, Guardarlo!'
+  }).then((result) => result.isConfirmed );
+}
+
 function CompUpdateFicha({ user, setUser, dataDB, setDataDB, index, posShedule }) {
 
-  let colorSelector = 1;
+  let color = 0;
 
   const [formUp, setFormUp] = useState({});
   const [textComplem, setTextComplem] = useState('');
@@ -16,11 +29,18 @@ function CompUpdateFicha({ user, setUser, dataDB, setDataDB, index, posShedule }
       changeResults(Resultados, pos, true);
     });
   }, [user, dataDB]);
-
+  if (user?.Horas) {
+    color = user.Horas.reduce((acum, elm) => {
+      if (!elm?.Ambiente && !acum[elm.color] && Number(elm.color)) {
+        if (!acum.some(e => e === elm.color)) acum.push(elm.color);
+      }
+      return acum;
+    }, []);
+  }
   const changeTextArea = (compt, pos) => {
     const textAreaComp = document.getElementsByName('text_area_up');
     textAreaComp[pos].innerHTML = '';
-    compt.map(e => textAreaComp[pos].innerHTML += `- ${e} \n`)
+    compt.map(e => textAreaComp[pos].innerHTML += `- ${e} \n`);
   }
   const changeAreaResults = (results, pos) => {
     const textAreaRes = document.getElementsByName('text_results');
@@ -65,7 +85,7 @@ function CompUpdateFicha({ user, setUser, dataDB, setDataDB, index, posShedule }
         let index = userCompet.indexOf(e.target.value);
         if (index === -1) userCompet.push(e.target.value);
         else userCompet.splice(index, 1);
-        
+
         changeTextArea(userCompet, pos);
         changeResults(e.target.value, pos);
         setFormUp(prev => ({ ...prev, ['Competencias']: userCompet }));
@@ -87,24 +107,31 @@ function CompUpdateFicha({ user, setUser, dataDB, setDataDB, index, posShedule }
     if (options[e.target.id]) options[e.target.id]();
     else setFormUp(prev => ({ ...prev, [e.target.id]: e.target.value }));
   }
-  const saveDataFicha = pos => {
-    setDataDB(prev => {
-      prev[index].Horario[posShedule].Ficha[pos] = { ...user.Ficha[pos], ...formUp };
-      return [...prev];
-    });
-    setUser(JSON.parse(JSON.stringify(dataDB[index].Horario[posShedule])));
-    alert('La Ficha, ha sido actualizada');
-    setFormUp({});
-  }
-  const saveComplem = pos => {
-    if (textComplem) {
+  const saveDataFicha = async pos => {
+    if (await confirmChanges()) {
       setDataDB(prev => {
-        prev[index].Horario[posShedule].Complementaria[pos] = textComplem;
+        formUp.Ambiente && prev[index].Horario[posShedule].Horas.forEach(e => {
+          if (e.color === user.Ficha[pos].Color) e.Ambiente = formUp.Ambiente;
+        });
+        prev[index].Horario[posShedule].Ficha[pos] = { ...user.Ficha[pos], ...formUp };
         return [...prev];
       });
       setUser(JSON.parse(JSON.stringify(dataDB[index].Horario[posShedule])));
-      alert('La formacion complementaria, ha sido actualizada');
-      setTextComplem('');
+      setFormUp({});
+      Swal.fire('Almacenado!', 'Los cambios en la Ficha han sido guardados.', 'success');
+    }
+  }
+  const saveComplem = async pos => {
+    if (await confirmChanges()) {
+      if (textComplem) {
+        setDataDB(prev => {
+          prev[index].Horario[posShedule].Complementaria[pos] = textComplem;
+          return [...prev];
+        });
+        setUser(JSON.parse(JSON.stringify(dataDB[index].Horario[posShedule])));
+        setTextComplem('');
+        Swal.fire('Almacenado!', 'Los cambios en Formación Complementaria han sido guardados.', 'success');
+      }
     }
   }
   const showPrograms = () => programas.map(e => <option value={e} key={e}>{e}</option>);
@@ -116,7 +143,7 @@ function CompUpdateFicha({ user, setUser, dataDB, setDataDB, index, posShedule }
       {
         user.Ficha.map((e, pos) => {
           return (
-            <form className={'color_' + [colors[colorSelector++]]} key={e.Num_Ficha} >
+            <form className={'color_' + [colors[e.Color]]} key={e.Num_Ficha} >
               <section>
                 <label htmlFor="Num_Ficha">Número de Ficha:</label>
                 <input type="number" id="Num_Ficha" placeholder={e.Num_Ficha} onChange={changeData} />
@@ -188,7 +215,7 @@ function CompUpdateFicha({ user, setUser, dataDB, setDataDB, index, posShedule }
       {
         user.Complementaria.map((e, pos) => {
           return (
-            <form className={`form_update_descrip color_${colors[colorSelector++]}`} key={pos} >
+            <form className={`form_update_descrip color_${colors[color[pos]]}`} key={pos} >
               <section>
                 <label htmlFor="update_comple">Descripción Formación Complementaria :</label>
                 <textarea id="update_comple" onChange={(e) => setTextComplem(e.target.value)} defaultValue={e}></textarea>
