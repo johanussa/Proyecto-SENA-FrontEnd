@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { programas, aulas, competencias, resultados, colors } from '../../components/data';
+import { programas, aulas, competencias, resultados, colors, data } from '../../components/data';
 
 let compSelected = [], resultsSelected = [];
 
-function ComponentForm({ btnsAction, form, setForm, setTableTitle, colorSelector, changeAmbiente, inputAmbiente }) {
+function ComponentForm({ btnsAction, form, setForm, setTableTitle, colorSelector, changeAmbiente, inputAmbiente, clearTable }) {
 
   const [selectComp, setSelectComp] = useState({});
   const [selectResults, setSelectResults] = useState({});
@@ -45,6 +45,20 @@ function ComponentForm({ btnsAction, form, setForm, setTableTitle, colorSelector
         e.target.value = '';
       },
       Ambiente: () => {
+        const ambientesShedule = data.reduce((acum, elm) => {
+          if (elm.Horario.length) {
+            elm.Horario.map(el => {
+              let filter = el.Horas.filter(hor => hor.Ambiente === e.target.value);
+              if (filter.length) acum.push(...filter);
+              return acum;
+            });
+          }
+          return acum;
+        }, []);
+        console.log(ambientesShedule);
+        clearTable();
+        let td = document.querySelectorAll('td');
+        ambientesShedule.forEach(e => td[e.pos].classList.toggle(`ocupation`));
         if (form?.Ambiente) changeAmbiente(e.target.value);
         else setForm(prev => ({ ...prev, [e.target.id]: e.target.value }));
       }

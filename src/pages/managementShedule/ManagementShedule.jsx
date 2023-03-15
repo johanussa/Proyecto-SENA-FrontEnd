@@ -51,7 +51,7 @@ function ManagementShedule() {
     const expReg = new RegExp(e.target.value, 'i');
     const filter = dataDB.filter(e =>
       expReg.test(e.Identificacion) || expReg.test(`${e.Nombre} ${e.Apellido}`
-    ));
+      ));
     setDataTemp(filter);
   };
   const selectInstructor = id => {
@@ -92,24 +92,24 @@ function ManagementShedule() {
   }
   const handleClickTable = e => {
     if (eventActive) {
-      if (e.target && e.target.tagName == 'TD') {        
+      if (e.target && e.target.tagName == 'TD') {
         let pos = Number(e.target.id);
         const posNum = shedule.findIndex(e => e.pos === pos);
         if (posNum === -1) {
           if (cantHours - shedule.length === 0) {
             return Swal.fire('Atencion!', 'Ya completaste el número de Horas para éste Instructor.', 'warning');
           }
-          if ((totalHours - cantPlaneacion) === hoursAsig + 1) { 
+          if ((totalHours - cantPlaneacion) === hoursAsig + 1) {
             if (!limitInduc) {
-              Swal.fire('Atencion!', 'Ya ha asignado las horas de Inducción correspondientes.', 'info'); 
+              Swal.fire('Atencion!', 'Ya ha asignado las horas de Inducción correspondientes.', 'info');
               limitInduc = true;
             }
           } else limitInduc = false;
-          if (totalPlanHours === cantPlaneacion - 1) { 
+          if (totalPlanHours === cantPlaneacion - 1) {
             if (!limitPlan) {
-              Swal.fire('Atencion!', 'Ya ha asignado las horas de Preparación de formación correspondientes.', 'info');  
+              Swal.fire('Atencion!', 'Ya ha asignado las horas de Preparación de formación correspondientes.', 'info');
               limitPlan = true;
-            } 
+            }
           } else limitPlan = false;
           if (form.Ambiente || ambienteUp) {
             shedule.push({ pos, color: colorSelector, Ambiente: form.Ambiente || ambienteUp });
@@ -200,7 +200,7 @@ function ManagementShedule() {
       resume.style.display = 'grid';
       document.querySelector('.btn_add_ficha').style.display = 'flex';
       document.querySelector('.form_complem').style.display = 'none';
-      
+
       if (!shedule.some(({ color }) => color === colorSelector)) {
         resume.removeChild(resume.lastElementChild);
         if (flagPlaneacion) flagPlaneacion = false;
@@ -222,7 +222,7 @@ function ManagementShedule() {
       setForm({});
       setEventActive(false);
       setAmbienteUp(false);
-    } 
+    }
   }
   const validateAmb = () => {
     let flag = false;
@@ -239,8 +239,8 @@ function ManagementShedule() {
                     + `\nPor favor elije otro Ambiente`,
                   showConfirmButton: false,
                   timer: 4000
-                });
-                setTimeout(() => { inputAmbiente.current.focus(); }, 4280);                
+                }); 
+                setTimeout(() => { inputAmbiente.current.focus(); }, 4280);
                 flag = true;
                 return true;
               }
@@ -249,7 +249,7 @@ function ManagementShedule() {
           }
         } else return false;
       });
-      if (flag) return false; 
+      if (flag) return false;
       else return true;
     } else return true;
   }
@@ -356,7 +356,7 @@ function ManagementShedule() {
           if (dataFicha.length) {
             dataDB[indexUser].Horario[sizeShed].Ficha.push(...dataFicha);
             dataFicha = [];
-          } 
+          }
           dataDB[indexUser].Horario[sizeShed].Complementaria = complement;
           dataDB[indexUser].Horario[sizeShed].Horas = shedule;
           document.querySelector('.btns_table').style.display = 'none';
@@ -391,7 +391,7 @@ function ManagementShedule() {
         confirmButtonText: 'Si, Guardar!'
       }).then((result) => {
         if (result.isConfirmed) {
-          Swal.fire( 'Guardado!', 'El horario ha sido almacenado.', 'success' );
+          Swal.fire('Guardado!', 'El horario ha sido almacenado.', 'success');
           saveData(true, true);
         }
       });
@@ -416,7 +416,7 @@ function ManagementShedule() {
 
     if (userSelected.Horario.length) {
       const user = JSON.parse(JSON.stringify(dataDB[indexUser].Horario[sizeShed]));
-      
+
       if (user.Horas.length < 42) {
         document.querySelector('.create_shedule').style.display = 'block';
         document.querySelector('.btn_add_ficha').style.display = 'flex';
@@ -425,7 +425,7 @@ function ManagementShedule() {
         date_start = user.FechaInicio;
         date_end = user.FechaFin;
         setCompleteFicha(true);
-        
+
         const valorNew = user.Horas.reduce((count, elem) => {
           if (count < elem.color) count = elem.color;
           return count;
@@ -500,7 +500,7 @@ function ManagementShedule() {
 
         <section className="body_shedule">
           <section className="header_body">
-            <article>
+            <article className='article_search'>
               <label htmlFor="search">Buscar</label>
               <input
                 type="text" name="search" id="search" autoComplete="off"
@@ -564,8 +564,8 @@ function ManagementShedule() {
             </article>
           </section>
 
-          { showCreateShedule && <ComponentForm btnsAction={btnsAction} form={form} setForm={setForm} setTableTitle={setTableTitle}
-            colorSelector={colorSelector} changeAmbiente={changeAmbiente} inputAmbiente={inputAmbiente}/> }
+          {showCreateShedule && <ComponentForm btnsAction={btnsAction} form={form} setForm={setForm} setTableTitle={setTableTitle}
+            colorSelector={colorSelector} changeAmbiente={changeAmbiente} inputAmbiente={inputAmbiente} clearTable={clearTable} />}
 
           <section className="form_complem">
             <form id="form_complementario" onSubmit={handleformComplem} onChange={e => textCompl = e.target.value}>
@@ -594,11 +594,11 @@ function ManagementShedule() {
             {showUpdateShedule && <ComponentUpdate dataDB={dataDB} setDataDB={setDataDB} index={indexUser} />}
             <section className='sec_resume_update'>
               {showUpdateShedule && <ComponentResume user={dataDB} index={indexUser} sizeShed={sizeShed} click={true}
-                setEventActive={setEventActive} setColorSelector={setColorSelector} setSaveUpdate={setSaveUpdate} setAmbienteUp={setAmbienteUp}/>}
+                setEventActive={setEventActive} setColorSelector={setColorSelector} setSaveUpdate={setSaveUpdate} setAmbienteUp={setAmbienteUp} />}
             </section>
           </section>
 
-          <main className="table_shedule">
+          <section className="table_shedule">
             <h2>{tableTitle}</h2>
             <section className="resume"></section>
             <table className="table">
@@ -620,8 +620,9 @@ function ManagementShedule() {
               <button className="save_data" onClick={btnContinue}>Continuar</button>
               <button className="save_data" onClick={saveData}>Guardar</button>
             </section>
-          </main>
+          </section>
         </section>
+
       </main>
     </section>
   )
