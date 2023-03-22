@@ -15,7 +15,7 @@
     --color-twelve: #5a6ac7;
     --color-thirteen: #b49459;
     --color-preparacion: #ffc89b;
-    --color-ocupation: #002c4b;
+    --color-ocupation: #ff000060;
 }
 .container { 
     width: 100%; 
@@ -342,14 +342,17 @@ section.table_shedule {
     overflow: auto;
 }
 section.table_shedule table {
+    border-collapse: collapse;
+    border: 1px solid #00000050;
     width: 96%;
     max-width: 1500px;
     margin: 0 auto;
 }
 section.table_shedule table thead { height: 35px; }
 section.table_shedule table th { 
+    border: 1px solid #00000050;
     background-color: var(--table-color);
-}
+}section.table_shedule table td { border: 1px solid #00000050; }
 section.table_shedule table thead th { min-width: 100px; }
 section.table_shedule table tr { height: 30px; }
 section.table_shedule .resume {
@@ -535,7 +538,10 @@ section.info_resum_update label {
 }
 .table_shedule tbody td:hover {
     cursor: pointer;
-    background-color: #24bd24;
+    background-color: #24bd2490;
+}
+.table_shedule tbody td.ocupation:hover {
+    background-color: #000000;
 }
 .color_none { background-color: rgb(167, 167, 167); }
 .color_one { background-color: var(--color-one); }
@@ -552,7 +558,12 @@ section.info_resum_update label {
 .color_twelve { background-color: var(--color-twelve); }
 .color_thirteen { background-color: var(--color-thirteen); }
 .color_preparacion { background-color: var(--color-preparacion); }
-.ocupation { background-color: var(--color-ocupation); }
+.ocupation { 
+    cursor: no-drop !important; 
+    border: 2px solid var(--color-ocupation) !important; 
+    border-radius: 3px; 
+    background-color: #000000 
+}
 
 /* Media Queries */
 

@@ -15,10 +15,25 @@ section.show_shedule.instructor_page { padding-right: 25px; }
 section.inst_container h2 { 
     margin: 10px 0 20px; 
     text-align: center; 
-}
+}   
 section.inst_container h3 { 
     text-align: center; 
     margin-bottom: 15px;
+}
+section.inst_container main.table_shedule table {
+    width: 100%;
+    max-width: 1600px;
+    min-width: 950px;
+    margin: 0 auto;
+    height: 600px;
+    padding: 15px;
+}
+section.inst_container main.table_shedule table thead {
+    background-color: #2ca12c;
+    height: 35px;
+}
+section.inst_container main.table_shedule table th {
+    width: 250px;
 }
 section.dates_instructor {
     font-size: 1.5rem;

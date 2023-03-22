@@ -1,19 +1,25 @@
-import { data, colors } from '../../components/data';
-import React, { useEffect, useRef, useState } from 'react';
+﻿import React, { useEffect, useRef, useState } from 'react';
+import { colors } from '../../components/data';
+import { confirmChanges } from './CompUpdateFicha';
 import senaLogo from '../../assets/Sena_logo.png';
 import logoSANF from '../../assets/logoSANF2.png';
 import CompShowShedule from './CompShowShedule';
 import ComponentUpdate from './ComponentUpdate';
 import ComponentResume from './ComponentResume';
-import Swal from 'sweetalert2'
-import './css/styleShedule.css';
 import ComponentForm from './ComponentForm';
-import { confirmChanges } from './CompUpdateFicha';
+import removeTypeName from 'remove-graphql-typename'; 
+import { useLazyQuery, useMutation, useQuery } from '@apollo/client';
+import { GetUsersRol } from '../../graphQL/users/queryUser';
+import { GetShedule } from '../../graphQL/shedules/queryShedule';
+import { CreateShedule } from '../../graphQL/shedules/mutationShedule';
+import { UpdateShedule } from '../../graphQL/shedules/mutationShedule';
+import './css/styleShedule.css';
+import Swal from 'sweetalert2';
 
 let countAsignacion = 1, cantHours = 0, cantPlaneacion = 0;
 let activeFicha = false, flagPlaneacion = false, planta = false;
 let limitPlan = false, limitInduc = false;
-let shedule = [], dataFicha = [], complement = [], aux = [];
+let shedule = [], dataFicha = [], complement = [];
 let userSelected, date_start, date_end, textCompl, indexUser;
 
 function ManagementShedule() {
@@ -38,26 +44,57 @@ function ManagementShedule() {
   const [titleCreateShed, setTitleCreateShed] = useState('');
   const [completeFicha, setCompleteFicha] = useState(false);
   const [ambienteUp, setAmbienteUp] = useState(false);
+
+  const { error, loading, data } = useQuery(GetUsersRol, { variables: { rol: 'INSTRUCTOR' } });
+  const [loadShedule, results] = useLazyQuery(GetShedule);
+  const [addShedule, resultsAddShedule] = useMutation(CreateShedule);
+  const [mutUpShedule, resultsUpShedule] = useMutation(UpdateShedule);
   const inputAmbiente = useRef();
 
   useEffect(() => {
-    setDataDB(data);
-    setDataTemp(data);
-    setTableTitle('⬅ Seleccione a un Instructor');
-    clearTable();
-  }, []);
+    if (data) {
+      setDataDB(data.allUsers);
+      setDataTemp(data.allUsers);
+      setTableTitle('⬅ Seleccione a un Instructor');
+      clearTable();
+    }
+  }, [data]);
+
+  useEffect(() => {
+    if (results.data) {
+      setSizeShed(results.data.getOneShedule.Horario.length - 1);
+      userSelected = JSON.parse(JSON.stringify(results.data.getOneShedule));
+      userSelected.Horario = userSelected.Horario.map(e => {
+        const outTypeName = removeTypeName(e);
+        return outTypeName;
+      });
+    }
+    if (results.error) {
+      setSizeShed(0);
+      userSelected = { Horario: [], Instructor: { ...dataTemp[0] }  };
+    } 
+  }, [results]);
+
+  useEffect(() => {
+    if (resultsAddShedule.error) console.log(resultsAddShedule);
+    if (resultsUpShedule.error) console.log(resultsUpShedule);
+    if (resultsUpShedule.data) {
+      console.log('main: ', resultsUpShedule.data);   // Validacion de cambio
+    } 
+  }, [resultsAddShedule, resultsUpShedule]);
 
   const handlerinputSearch = e => {
     const expReg = new RegExp(e.target.value, 'i');
     const filter = dataDB.filter(e =>
-      expReg.test(e.Identificacion) || expReg.test(`${e.Nombre} ${e.Apellido}`
-      ));
+      expReg.test(e.Num_Documento) || expReg.test(`${e.Nombre} ${e.Apellido}`
+    ));
     setDataTemp(filter);
-  };
+  }
   const selectInstructor = id => {
-    indexUser = dataDB.findIndex(e => e.Identificacion === id);
-    userSelected = JSON.parse(JSON.stringify(dataDB[indexUser]));
-    setDataTemp(new Array(userSelected));
+    loadShedule({ variables: { instructor: id } });
+    indexUser = dataDB.findIndex(e => e._id === id);
+    userSelected = dataDB[indexUser];
+    setDataTemp(new Array(userSelected));  // le quite el stringify
 
     document.forms['form_complementario'].reset();
     shedule = [];
@@ -68,15 +105,12 @@ function ManagementShedule() {
     clearTable();
     setColorSelector(0);
     setSaveUpdate(false);
-    setSizeShed(userSelected.Horario.length - 1);
     setShowCompShedule(false);
     setShowUpdateShedule(false);
     setCompleteFicha(false);
     setShowCreateShedule(false);
     setAmbienteUp(false);
-
-    const { Nombre, Apellido } = userSelected;
-    setNameUser(`${Nombre} ${Apellido}`);
+    setNameUser(`${userSelected.Nombre} ${userSelected.Apellido}`);
 
     document.querySelector('.btns_table').firstElementChild.style.display = 'block';
     document.querySelector('.name_instructor').style.display = 'block';
@@ -89,6 +123,7 @@ function ManagementShedule() {
     document.querySelector('.create_shedule').style.display = 'none';
     document.querySelector('.form_complem').style.display = 'none';
     document.querySelector('.table_shedule').style.display = 'none';
+    document.querySelectorAll('td').forEach(e => e.classList.remove(`ocupation`));
   }
   const handleClickTable = e => {
     if (eventActive) {
@@ -111,26 +146,21 @@ function ManagementShedule() {
               limitPlan = true;
             }
           } else limitPlan = false;
-          if (form.Ambiente || ambienteUp) {
-            shedule.push({ pos, color: colorSelector, Ambiente: form.Ambiente || ambienteUp });
-            aux.push(pos);
-          } else { shedule.push({ pos, color: colorSelector }); }
-          e.target.classList.toggle(`color_${colors[colorSelector]}`);
-        } else if (shedule[posNum].color === colorSelector) {
+          if (!e.target.classList.contains('ocupation')) {
+            if (form.Ambiente || ambienteUp) {              
+              shedule.push({ pos, color: String(colorSelector), Ambiente: form.Ambiente || ambienteUp });
+            } else { shedule.push({ pos, color: String(colorSelector) }); }
+            e.target.classList.add(`color_${colors[colorSelector]}`);
+          }
+        } else if (shedule[posNum].color === String(colorSelector)) {
           shedule.splice(posNum, 1);
-          const posAux = aux.findIndex(e => e === pos);
-          aux.splice(posAux, 1);
-          e.target.classList.toggle(`color_${colors[colorSelector]}`);
+          e.target.classList.remove(`color_${colors[colorSelector]}`);
         }
         updateHours();
       }
     }
   }
-  const changeAmbiente = ambNew => {
-    let ambBefore = form.Ambiente;
-    if (aux.length) shedule.forEach(e => { if (e.Ambiente === ambBefore) e.Ambiente = ambNew; });
-    setForm(prev => ({ ...prev, ['Ambiente']: ambNew }));
-  }
+  const changeAmbiente = ambNew => setForm(prev => ({ ...prev, ['Ambiente']: ambNew }));  
   const updateHours = () => {
     setTotalHours(cantHours);
     setPlanHours(cantPlaneacion);
@@ -194,64 +224,30 @@ function ManagementShedule() {
     options[countAsignacion]();
   }
   const btnContinue = () => {
-    if (validateAmb()) {
-      const resume = document.querySelector('.resume');
-      setTableTitle('Horario Asignado :');
-      resume.style.display = 'grid';
-      document.querySelector('.btn_add_ficha').style.display = 'flex';
-      document.querySelector('.form_complem').style.display = 'none';
-
-      if (!shedule.some(({ color }) => color === colorSelector)) {
-        resume.removeChild(resume.lastElementChild);
-        if (flagPlaneacion) flagPlaneacion = false;
-        textCompl = '';
-        activeFicha = false;
-        setColorSelector(colorSelector - 1);
-      }
-      if (Object.values(form).length) {
-        if (activeFicha && !dataFicha.some(({ Num_Ficha }) => Num_Ficha === form.Num_Ficha)) {
-          dataFicha.push({ ...form, ['Color']: colorSelector });
-        }
-      }
-      if (textCompl) {
-        complement.push(textCompl);
-        textCompl = '';
-      }
-      aux = [];
-      setShowCreateShedule(false);
-      setForm({});
-      setEventActive(false);
-      setAmbienteUp(false);
+    const resume = document.querySelector('.resume');
+    setTableTitle('Horario Asignado :');
+    resume.style.display = 'grid';
+    document.querySelector('.btn_add_ficha').style.display = 'flex';
+    document.querySelector('.form_complem').style.display = 'none';
+    
+    if (!shedule.some(({ color }) => color === String(colorSelector))) {
+      resume.removeChild(resume.lastElementChild);
+      if (flagPlaneacion) flagPlaneacion = false;
+      textCompl = '';
+      activeFicha = false;
+      setColorSelector(colorSelector - 1);
     }
-  }
-  const validateAmb = () => {
-    let flag = false;
-    if (aux.length) {
-      dataDB.some(ins => {
-        if (ins.Horario.length) {
-          const shedIns = ins.Horario[ins.Horario.length - 1];
-          if (shedIns.FechaInicio === date_start.value) {
-            const find = aux.some(posCom => {
-              if (shedIns.Horas.some(e => e.pos === posCom && e.Ambiente === form.Ambiente)) {
-                Swal.fire({
-                  icon: 'warning',
-                  title: `El instructor ${ins.Nombre} ${ins.Apellido} Ya tiene asignado el Ambiente ${form.Ambiente}`
-                    + `\nPor favor elije otro Ambiente`,
-                  showConfirmButton: false,
-                  timer: 4000
-                }); bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-                setTimeout(() => { inputAmbiente.current.focus(); }, 4280);
-                flag = true;
-                return true;
-              }
-            });
-            if (find) return true;
-          }
-        } else return false;
-      });
-      if (flag) return false;
-      else return true;
-    } else return true;
+    if (Object.values(form).length && activeFicha) dataFicha.push({ ...form, ['Color']: colorSelector });    
+    if (textCompl) {
+      complement.push(textCompl);
+      textCompl = '';
+    }
+    setShowCreateShedule(false);
+    setForm({});
+    setEventActive(false);
+    setAmbienteUp(false);
+    activeFicha = false;
+    document.querySelectorAll('td').forEach(e => e.classList.remove(`ocupation`));
   }
   const handleformComplem = e => {
     e.preventDefault();
@@ -267,7 +263,7 @@ function ManagementShedule() {
   const changeSelectorColor = () => {
     if (colorSelector === 'p' || Number.isNaN(colorSelector)) {
       const valorNew = shedule.reduce((count, elem) => {
-        if (count < elem.color) count = elem.color;
+        if (count < Number(elem.color)) count = Number(elem.color);
         return count;
       }, 0);
       setColorSelector(valorNew + 1);
@@ -332,10 +328,10 @@ function ManagementShedule() {
     date_start = document.getElementById('date_start');
     date_end = document.getElementById('date_end');
 
-    if (dataDB[indexUser].Horario.length) {
-      if (dataDB[indexUser].Horario.some(({ FechaInicio }) => FechaInicio === date_start.value)) {
+    if (userSelected.Horario.length) {
+      if (userSelected.Horario.some(({ FechaInicio }) => FechaInicio === date_start.value)) {
         date_start.focus();
-        return alert(`El Instructor ${userSelected.Apellido} Ya tiene asignado un horario para esa fecha`);
+        return alert(`El Instructor ${userSelected.Instructor.Apellido} Ya tiene asignado un horario para esa fecha`);
       }
     }
     if (!date_start.value) {
@@ -352,19 +348,23 @@ function ManagementShedule() {
     if (complete === true) {
       btnContinue();
       if (saveUpdate) {
-        if (await confirmChanges()) {
+        if (await confirmChanges('guardar los cambios realizados hor', 'Guardarlo')) {
           if (dataFicha.length) {
-            dataDB[indexUser].Horario[sizeShed].Ficha.push(...dataFicha);
+            userSelected.Horario[sizeShed].Ficha.push(...dataFicha);
             dataFicha = [];
           }
-          dataDB[indexUser].Horario[sizeShed].Complementaria = complement;
-          dataDB[indexUser].Horario[sizeShed].Horas = shedule;
+          userSelected.Horario[sizeShed].Complementaria = complement;
+          userSelected.Horario[sizeShed].Horas = shedule;
+          mutUpShedule({ variables: {
+            id: userSelected._id,
+            horario: [...userSelected.Horario]
+          }});
           document.querySelector('.btns_table').style.display = 'none';
           Swal.fire('Almacenado!', 'Horario Actalizado Correctamente!!.', 'success');
-          if (!(cantHours - shedule.length) || confirm) selectInstructor(userSelected.Identificacion);
+          if (!(cantHours - shedule.length) || confirm) selectInstructor(userSelected.Instructor._id);
         }
       } else {
-        if (await confirmChanges()) {
+        if (await confirmChanges('guardar los cambios realizados', 'Guardar')) {
           let objectData = {
             FechaInicio: date_start.value,
             FechaFin: date_end.value,
@@ -372,11 +372,21 @@ function ManagementShedule() {
             Complementaria: complement,
             Planta: planta,
             Horas: shedule
+          } 
+          if (userSelected.Horario.length) {
+            if (userSelected.Horario.length === 10) userSelected.Horario.shift();
+            mutUpShedule({ variables: {
+              id: userSelected._id,
+              horario: [...userSelected.Horario, objectData]
+            }});
+          } else {
+            addShedule({ variables: { 
+              instructor: userSelected.Instructor._id,
+              horario: [objectData]
+            }});
           }
-          dataDB[indexUser].Estado_Horario = true;
-          dataDB[indexUser].Horario.push(objectData);
           Swal.fire('Almacenado!', 'Horario Guardado Correctamente!!.', 'success');
-          selectInstructor(userSelected.Identificacion);
+          selectInstructor(userSelected.Instructor._id);
         }
       }
     } else {
@@ -398,15 +408,13 @@ function ManagementShedule() {
     }
   }
   const viewShedule = () => {
-    const dataShedule = userSelected.Horario;
     document.querySelector('section.show_shedule').style.display = 'flex';
     document.querySelector('.btns_table').style.display = 'none';
     document.querySelector('.btns_options').style.display = 'none';
     setShowCompShedule(true);
-    if (dataShedule.length) document.querySelector('.table_shedule').style.display = 'grid';
+    if (userSelected.Horario.length) document.querySelector('.table_shedule').style.display = 'grid';
   }
   const updateShedule = () => {
-    userSelected = JSON.parse(JSON.stringify(dataDB[indexUser]));
     document.querySelector('.btns_table').style.display = 'none';
     document.querySelector('.btns_options').style.display = 'none';
     document.querySelector('section.update_info').style.display = 'grid';
@@ -415,7 +423,7 @@ function ManagementShedule() {
     setSaveUpdate(true);
 
     if (userSelected.Horario.length) {
-      const user = JSON.parse(JSON.stringify(dataDB[indexUser].Horario[sizeShed]));
+      const user = JSON.parse(JSON.stringify(userSelected.Horario[sizeShed]));
 
       if (user.Horas.length < 42) {
         document.querySelector('.create_shedule').style.display = 'block';
@@ -469,22 +477,22 @@ function ManagementShedule() {
         <section className="side_left">
           <section className="div_instructors">
             <p>INSTRUCTORES</p>
-            {
+            {loading ? (<h2>Loading . . .</h2>) : (
               dataTemp.length ? dataTemp.map(e => {
-                const { Identificacion, Nombre, Apellido, Estado_Horario } = e;
+                const { Num_Documento, Nombre, Apellido, Active, _id } = e;
                 return (
-                  <section key={Identificacion} className="info_instructor"
-                    onClick={() => selectInstructor(Identificacion)}>
+                  <section key={Num_Documento} className="info_instructor"
+                    onClick={() => selectInstructor(_id)}>
                     <article><i className="bi bi-person-circle icons"></i></article>
                     <section>
                       <article className="name">{Nombre} {Apellido}</article>
-                      <article className="identification">{Identificacion.toLocaleString()}</article>
-                      <span id="state">{Estado_Horario ? 'Asignado' : 'No Asignado'}</span>
+                      <article className="identification">{new Intl.NumberFormat('CO').format(Num_Documento)}</article>
+                      <span id="state">{Active ? 'Activado' : 'Sin Activar'}</span>
                     </section>
                   </section>
                 )
-              }) : <p>No se encontraron coincidencias</p>
-            }
+              }) : error ? (<p>No Hay Instructores Registrados</p>) : <p>No se encontraron coincidencias</p>
+            )}
           </section>
           <aside className="show_hours">
             <p>Total Horas</p>
@@ -565,7 +573,7 @@ function ManagementShedule() {
           </section>
 
           {showCreateShedule && <ComponentForm btnsAction={btnsAction} form={form} setForm={setForm} setTableTitle={setTableTitle}
-            colorSelector={colorSelector} changeAmbiente={changeAmbiente} inputAmbiente={inputAmbiente} clearTable={clearTable} />}
+            colorSelector={colorSelector} changeAmbiente={changeAmbiente} inputAmbiente={inputAmbiente} />}
 
           <section className="form_complem">
             <form id="form_complementario" onSubmit={handleformComplem} onChange={e => textCompl = e.target.value}>
@@ -591,10 +599,14 @@ function ManagementShedule() {
           </section>
 
           <section className="update_info">
-            {showUpdateShedule && <ComponentUpdate dataDB={dataDB} setDataDB={setDataDB} index={indexUser} />}
+            {/* {showUpdateShedule && <ComponentUpdate dataDB={dataDB} setDataDB={setDataDB} index={indexUser} />} */}
+            {showUpdateShedule && <ComponentUpdate instructor={userSelected} sizeShed={sizeShed} click={true} setEventActive={setEventActive} 
+                setColorSelector={setColorSelector} setSaveUpdate={setSaveUpdate} setAmbienteUp={setAmbienteUp} />}
             <section className='sec_resume_update'>
-              {showUpdateShedule && <ComponentResume user={dataDB} index={indexUser} sizeShed={sizeShed} click={true}
-                setEventActive={setEventActive} setColorSelector={setColorSelector} setSaveUpdate={setSaveUpdate} setAmbienteUp={setAmbienteUp} />}
+              {/* {showUpdateShedule && <ComponentResume user={dataDB} index={indexUser} sizeShed={sizeShed} click={true}
+                setEventActive={setEventActive} setColorSelector={setColorSelector} setSaveUpdate={setSaveUpdate} setAmbienteUp={setAmbienteUp} />} */}
+              {/* {showUpdateShedule && <ComponentResume user={userSelected} sizeShed={sizeShed} click={true} setEventActive={setEventActive} 
+                setColorSelector={setColorSelector} setSaveUpdate={setSaveUpdate} setAmbienteUp={setAmbienteUp} />} */}
             </section>
           </section>
 
@@ -622,7 +634,6 @@ function ManagementShedule() {
             </section>
           </section>
         </section>
-
       </main>
     </section>
   )
