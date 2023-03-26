@@ -1,0 +1,112 @@
+:root {
+    --background-foot: #39a900;
+    --text-color-foot: #FFF;
+}
+main.contenedor-foot {
+    width: 100%;
+    min-width: 250px;
+    background-color: var(--background-foot);
+    color: var(--text-color-foot);
+    position: absolute;
+    bottom: calc(0);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+/* Estilos Logo y Titulo */
+
+section.text_logo .logo { 
+    width: 140px; 
+    align-self: center;
+}
+main.contenedor-foot section.text_logo {
+    min-width: 415px;
+    display: flex;
+    justify-content: center;
+    padding: 0 15px;
+}
+section.text_logo .span_div {
+    height: 105px;
+    border-left: 2px solid var(--text-color-foot);
+    margin: 18px 10px 0px 2px;
+}
+section.text_logo .text {
+    margin-top: 15px;
+    font-size: 20px;
+    text-align: left;
+}
+
+/* Estilos Redes Sociales */
+
+main.contenedor-foot section.social_media {
+    min-width: 240px;
+    font-size: 1.6rem;
+    text-align: center;
+    letter-spacing: 2px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-flow: row wrap;
+}
+section.social_media a {
+    letter-spacing: 5px;
+    font-size: 25px;
+    text-decoration: none;
+    color: var(--text-color-foot);
+    transition: color .4s;
+}
+div.icons a { margin: 0 3px; }
+section.social_media a:hover { color: black; }
+section.social_media .slogan h4 { margin-bottom: 12px; }
+section.social_media .slogan { margin-bottom: 10px; }
+div.logo_sanf { 
+    min-width: 240px; 
+    margin-bottom: 8px;
+}
+div.logo_sanf img { 
+    margin-right: 12px;
+    width: 52px; 
+    height: 45px;
+    vertical-align: middle; 
+}
+div.logo_sanf span {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 660px) {
+    main.contenedor-foot { grid-template-columns: 1fr; }
+}
+@media screen and (max-width: 415px) {
+    section.text_logo .logo { width: 90px; }
+    section.text_logo .text { font-size: 15px; }
+    main.contenedor-foot section.text_logo { 
+        padding: 0; 
+        min-width: initial;
+        height: 110px;
+    }
+    section.social_media { font-size: 14px; }
+    section.social_media a { font-size: 18px; }
+    .text_logo .span_div { height: 80px; }
+    section.social_media .slogan h4 { font-size: 18px; }
+    div.logo_sanf img {
+        width: 50px; 
+        height: 40px;
+    }
+    div.logo_sanf span { font-size: 1.1rem; }
+}
+@media screen and (max-width: 300px) {
+    main.contenedor-foot section.text_logo { height: 95px; }
+    section.text_logo .logo { width: 70px; }
+    section.text_logo .text { font-size: 12.5px; }
+    section.text_logo .span_div { height: 62px; }
+    section.social_media a { font-size: 15px; }
+    div.logo_sanf img {
+        width: 40px; 
+        height: 35px;
+    }
+    div.logo_sanf span { font-size: 1rem; }
+}

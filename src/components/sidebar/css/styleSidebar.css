@@ -1,0 +1,211 @@
+.transparent {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #00000090;    
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Variables globales */
+
+:root {
+    --body-color: #18191A;
+    --sidebar-color: #242526;
+    --primary-color: #3A3B3C;
+    --primary-color-light: #3A3B3C;
+    --toggle-color: #FFF;
+    --text-color: #CCC;
+}
+
+/* Estilos al Cerrar el Sidebar */
+
+.sidebar.close { width: 88px; }
+.sidebar.close .img_text .image img { 
+    width: 60px; 
+    margin: 30px 0px 50px;
+}
+.sidebar.close .btns_active .list {
+    position: initial;  
+}
+.sidebar.close .btns_active {
+    transform: rotate(180deg); 
+}
+.sidebar.close .text,
+.sidebar.close .date,
+.sidebar.close .foot_content .footer_text { 
+    display: none; 
+}
+.sidebar.close #main:hover .hover_span,
+.sidebar.close #hours:hover .hover_span,
+.sidebar.close #users:hover .hover_span,
+.sidebar.close .leave:hover .hover_span,
+.sidebar.close .middle:hover .hover_span,
+.sidebar.close .perfil:hover .hover_span {
+    display: flex;
+}
+
+/* Estilos Sidebar */
+
+.sidebar {
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    width: 270px;
+    color: var(--text-color);
+    background: url('../../../assets/Fondo.jpg');
+    background-size: cover;
+    background-position: right;    
+    transition: all .8s;
+}
+.btns_active { transition: transform .8s ease-out; }
+.img_text .btns_active { 
+    position: relative; 
+    height: 50px; 
+    text-align: center; 
+    font-size: 30px;
+}
+.btns_active .list {
+    padding: 1px 6px;
+    cursor: pointer;
+    border-radius: 5px;
+    position: absolute;
+    right: -10px;
+}
+.btns_active .list:hover { 
+    background: var(--toggle-color); 
+    color: var(--sidebar-color);
+}
+.sidebar .text,
+.middle .nav_link .date,
+.foot_content .perfil .footer_text {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--text-color);
+    white-space: nowrap;
+    opacity: 1;
+}
+.sidebar header .image {
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sidebar .nav_link {
+    height: 50px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+.sidebar .nav_link .icon {    
+    min-width: 60px;
+    font-size: 23px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sidebar .nav_link .icon,
+.sidebar .nav_link .text,
+.middle .nav_link .date,
+.foot_content .perfil .footer_text {
+    color: var(--text-color);
+    transition: all .2s;
+}
+.header_text { 
+    white-space: nowrap; 
+    margin-top: 15px;
+}
+.header_text .name { 
+    font-size: 12px;
+    font-weight: 600; 
+}
+.header_text .logo { 
+    width: 60px; 
+    padding: 0 10px;
+    vertical-align: middle; 
+}
+.img_text .image img { 
+    width: 180px; 
+    margin: 10px 0 35px;
+    transition: width 1.2s;
+}
+.sidebar .nav_link a,
+.middle .nav_link,
+.foot_content .perfil {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all .2s;
+}
+.sidebar .nav_link a:hover,
+.middle .nav_link:hover,
+.foot_content .perfil:hover { 
+    background: var(--toggle-color); 
+}
+.sidebar .nav_link a:hover .icon,
+.sidebar .nav_link a:hover .text,
+.middle .nav_link:hover .hour,
+.middle .nav_link:hover .date,
+.foot_content .perfil:hover .icon,
+.foot_content .perfil:hover .footer_text { 
+    color: var(--sidebar-color); 
+}
+
+.menu_links .nav_link { margin-top: 5px; }
+.middle .date, .foot_content .name_user { 
+    min-width: 190px; 
+}
+.middle .date { padding-left: 10px; }
+.foot_content .perfil .footer_text {
+    display: flex;
+    flex-direction: column; 
+}
+.middle .nav_link .date,
+.foot_content .perfil .footer_text {
+    white-space: initial;
+}
+.middle .nav_link, .foot_content .perfil {
+    height: auto;
+    min-height: 50px;
+}
+.sidebar .nav_link .hour { font-size: 18px; }
+.footer_text .rol { font-size: 12px; }
+.foot_content .leave { margin-top: 5px; }
+.middle .date { line-height: 19px; }
+.foot_content .perfil { cursor: pointer; }
+.middle .nav_link { cursor: context-menu; }
+.selected {
+    background-color: rgb(12, 134, 28);
+    color: var(--body-color);
+    border-radius: 6px;
+}
+span.hover_span { 
+    font-size: 16px;
+    font-weight: 700;
+    min-width: 145px;
+    padding: 5px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 15px;
+    margin-left: 20px;
+    border-radius: 6px;
+    display: none;
+    cursor: context-menu;
+    text-align: center;
+    background-color: var(--toggle-color);
+    color: #18191A;
+    box-shadow: 0px 0px 10px 2px black;
+}
+#main:hover .text, #hours:hover .text,
+#users:hover .text, .leave:hover .text {
+    padding-left: 20px;
+    transition: padding-left .5s;
+}
