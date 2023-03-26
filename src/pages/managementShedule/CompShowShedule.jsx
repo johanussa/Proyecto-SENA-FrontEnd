@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { colors } from '../../components/data';
+import nextId from 'react-id-generator';
 
 function CompShowShedule({ userSelected, sizeShed, setSizeShed, setTableTitle, clearTable }) {
   if (userSelected.Horario.length) {
@@ -11,8 +12,11 @@ function CompShowShedule({ userSelected, sizeShed, setSizeShed, setTableTitle, c
       setTableTitle(`Horario Asignado : ${dataShedule.Horas.length} Horas`);
       dataShedule.Ficha.map(({ Competencias, Resultados }, pos) => {
         changeAreaCompt(Competencias, pos);
-        changeAreaResults(Resultados, pos);
+        changeAreaResults(Resultados, pos); 
       });  
+      clearTable();
+      let td = document.querySelectorAll('td');
+      dataShedule.Horas.forEach(e => td[e.pos].classList.add(`color_${colors[e.color]}`));
     }, [sizeShed]);
 
     const formatDate = date => {
@@ -31,19 +35,18 @@ function CompShowShedule({ userSelected, sizeShed, setSizeShed, setTableTitle, c
     }
     const changeAreaCompt = (compt, pos) => {
       const textComp = document.getElementsByName('compets_show');
-      textComp[pos].innerHTML = '';
-      compt.map(e => textComp[pos].innerHTML += `- ${e} \n`);
+      setTimeout(() => {
+        textComp[pos].innerHTML = '';
+        compt.map(e => textComp[pos].innerHTML += `- ${e} \n`);
+      }, 5);
     }
     const changeAreaResults = (results, pos) => {
       const textAreaRes = document.getElementsByName('results_show');
-      textAreaRes[pos].innerHTML = '';
-      results.map(e => textAreaRes[pos].innerHTML += `- ${e} \n`);
+      setTimeout(() => {
+        textAreaRes[pos].innerHTML = '';
+        results.map(e => textAreaRes[pos].innerHTML += `- ${e} \n`);
+      }, 5);
     }
-    clearTable();
-    setTimeout(() => {
-      let td = document.querySelectorAll('td');
-      dataShedule.Horas.forEach(e => td[e.pos].classList.add(`color_${colors[e.color]}`));
-    }, 1);
     if (dataShedule) {
       color = dataShedule.Horas.reduce((acum, elm) => {
         if (!elm?.Ambiente && !acum[elm.color] && Number(elm.color)) { 
@@ -66,7 +69,7 @@ function CompShowShedule({ userSelected, sizeShed, setSizeShed, setTableTitle, c
           dataShedule.Ficha.length ? (
             dataShedule.Ficha.map((e, pos) => {
               return (
-                <form className={'color_' + [colors[e.Color]]} key={pos + 5}>
+                <form className={'color_' + [colors[e.Color]]} key={nextId()}>
                   <section>
                     <label>Número de Ficha :</label><input type="text" placeholder={e.Num_Ficha} disabled />
                   </section>
@@ -106,12 +109,12 @@ function CompShowShedule({ userSelected, sizeShed, setSizeShed, setTableTitle, c
         }
         {
           dataShedule.Complementaria.length ? (
-            dataShedule.Complementaria.map((e, pos) => {
+            dataShedule.Complementaria.map((com, pos) => {
               return (
-                <form className={'form_update_descrip color_' + [colors[color[pos]]]} key={pos + 15}>
+                <form className={'form_update_descrip color_' + [colors[color[pos]]]} key={nextId()}>
                   <section>
                     <label htmlFor="update_comple">Descripción Formación Complementaria :</label>
-                    <textarea disabled defaultValue={e}></textarea>
+                    <textarea disabled defaultValue={com}></textarea>
                   </section>
                 </form>
               )
@@ -120,7 +123,10 @@ function CompShowShedule({ userSelected, sizeShed, setSizeShed, setTableTitle, c
         }
       </>
     )
-  } else return <h3>El Instructor {userSelected.Apellido} Aun No tiene Horarios Asignados </h3>
+  } else {
+    const nameInst = `${userSelected.Instructor.Nombre} ${userSelected.Instructor.Apellido}`;
+    return <h3>El Instructor {nameInst} Aun No tiene Horarios Asignados </h3>
+  } 
 }
 
 export default React.memo(CompShowShedule)

@@ -3,7 +3,7 @@ import { programas, aulas, competencias, resultados, colors, data } from '../../
 
 let compSelected = [], resultsSelected = [];
 
-function ComponentForm({ btnsAction, form, setForm, setTableTitle, colorSelector, changeAmbiente, inputAmbiente, clearTable }) {
+function ComponentForm({ btnsAction, form, setForm, setTableTitle, colorSelector, changeAmbiente, inputAmbiente }) {
 
   const [selectComp, setSelectComp] = useState({});
   const [selectResults, setSelectResults] = useState({});
@@ -55,10 +55,9 @@ function ComponentForm({ btnsAction, form, setForm, setTableTitle, colorSelector
           }
           return acum;
         }, []);
-        console.log(ambientesShedule);
-        clearTable();
         let td = document.querySelectorAll('td');
-        ambientesShedule.forEach(e => td[e.pos].classList.toggle(`ocupation`));
+        td.forEach(e => e.classList.remove(`ocupation`));
+        ambientesShedule.forEach(e => td[e.pos].classList.add(`ocupation`));
         if (form?.Ambiente) changeAmbiente(e.target.value);
         else setForm(prev => ({ ...prev, [e.target.id]: e.target.value }));
       }

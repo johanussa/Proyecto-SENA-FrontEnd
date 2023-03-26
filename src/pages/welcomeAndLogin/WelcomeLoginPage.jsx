@@ -1,12 +1,39 @@
-﻿import React from 'react';
-import './css/styleWelcome.css';
+﻿import React, { useState, useEffect } from 'react';
 import logoSANF2 from '../../assets/logoSANF2.png';
 import senaLogo from '../../assets/Sena_logo.png';
+import { GetUser } from '../../graphQL/login/queryLogin';
+import { useLazyQuery } from '@apollo/client';
 import { Link } from 'react-router-dom';
+import bcrypt from 'bcryptjs-react';
+import Swal from 'sweetalert2';
+import './css/styleWelcome.css';
+
+const states = { numDoc: false, pass: false, numDocRec: false };
 
 function WelcomeLoginPage() {
 
-  const states = { numDoc: false, pass: false, numDocRec: false };
+  const [loadUser, results] = useLazyQuery(GetUser);
+  const [formUser, setFormUser] = useState({ tipoDocumento: 'CEDULA_DE_CIUDADANIA' });
+
+  useEffect(() => {
+    const validateInfo = async () => {
+      let valid = false;
+      const { Num_Documento, Tipo_Documento, Password } = results.data.getOneUser;
+      if (Tipo_Documento === formUser.tipoDocumento && Num_Documento === formUser.numDocumento) {
+        valid = await bcrypt.compare(formUser.password, Password);    
+      } 
+      if (valid) Swal.fire('Autorizado!', `Bienvenido`, 'success');
+      else Swal.fire('Error!', `La información Ingresada No es Valida`, 'error'); 
+    }
+    if (results.data) validateInfo();    
+    if (results.error) {
+      if (results.error.message === 'User Is Not Active') {
+        Swal.fire('Atencion!', 
+          `Lo sentimos, su Usuario se encuentra Inactivo, por favor comuniquese con el Administrador`, 'warning');
+      } else Swal.fire('Error!', `Lo sentimos, los Datos ingresados No son validos, Verifiquelos, o Registrese`, 'error');
+    }
+  }, [results]);
+  
   const expresiones = {
     numDoc: /^[a-zA-Z0-9]{8,16}$/,
     numDocRec: /^[a-zA-Z0-9]{8,16}$/,
@@ -28,9 +55,18 @@ function WelcomeLoginPage() {
       return document.querySelector(`#${id} i`).style.color = 'white';
     }
   }
+  const addData = (name, value) => {
+    const options = {
+      tipo: () => setFormUser(prev => ({ ...prev, ['tipoDocumento']: value })),
+      numDoc: () => setFormUser(prev => ({ ...prev, ['numDocumento']: value })),
+      pass: () => setFormUser(prev => ({ ...prev, ['password']: value }))
+    }
+    if (options[name]) { options[name](); }
+  }
   const handleInput = e => {
     let name = e.target.name;
     let valor = e.target.value;
+    addData(name, valor);
 
     const options = {
       numDoc: () => validarData(name, valor),
@@ -40,7 +76,10 @@ function WelcomeLoginPage() {
     if (options[name]) { options[name](); }
   }
   const handleSubmitForm = e => {
-    if (states.numDoc && states.pass) { alert('Bienvenido'); }
+    e.preventDefault();
+    if (states.numDoc && states.pass) { 
+      loadUser({ variables: { numDocumento: formUser.numDocumento } });
+    }
     else if (e.target.id === 'form_get_pass') {
       e.preventDefault();
       if (states.numDocRec) { 
@@ -121,7 +160,7 @@ function WelcomeLoginPage() {
           <p>
             Desde el grupo <b>SENA-SANF</b> le damos una calurosa bienvenida a nuestra aplicacion web
             en donde podra de una manera eficaz, ordenada y sensilla, organizar, ver, editar y administrar
-            el manejo de horarios. <br /><br /> Esta aplicacion va dirigida a instructores, funcionarios y aprendices
+            el manejo de horarios. <br /><br /> Esta aplicacion va dirigida a instructores, funcionarios y aprendices 
             <b>SENA</b> del Centro de Materiales y Ensayos del Complejo Sur situado en Bogotá.
           </p>
         </div>
@@ -163,67 +202,68 @@ function WelcomeLoginPage() {
             <img src={senaLogo} alt="Logo-Sena" className="logoLogin" />
             <h2>Inicio de Sesion</h2>
           </div>
+          { results.called && results.loading ? (<h2>Loading ...</h2>) : (
+            <form id="formulario" onInput={handleInput} onFocus={handleFocusIn} 
+              onBlur={handleFocusOut} onSubmit={handleSubmitForm}>
+              <section className="form_group">
+                <label htmlFor="tipo" className="form_label_login">Tipo de Documento</label>
+                <div className="form_input" id="divSelect">
+                  <i className="bi bi-person-vcard-fill iconsLogin"></i>
+                  <select name="tipo" id="tipo" defaultValue={'CC'} required>
+                    <option value="CEDULA_DE_CIUDADANIA">Cédula de Ciudadania</option>
+                    <option value="TARJETA_DE_IDENTIDAD">Tarjeta de Identidad</option>
+                    <option value="CEDULA_DE_EXTRANJERIA">Cédula de Extranjeria</option>
+                    <option value="PEP">PEP</option>
+                    <option value="PERMISO_DE_PROTECCION_TEMPORAL">Permiso Protección Temporal</option>
+                  </select>
+                </div>
+              </section>
 
-          <form id="formulario" onInput={handleInput} onFocus={handleFocusIn} 
-            onBlur={handleFocusOut} onSubmit={handleSubmitForm}>
-            <section className="form_group">
-              <label htmlFor="tipo" className="form_label_login">Tipo de Documento</label>
-              <div className="form_input" id="divSelect">
-                <i className="bi bi-person-vcard-fill iconsLogin"></i>
-                <select name="tipo" id="tipo" defaultValue={'CC'} required>
-                  <option value="CC">Cédula de Ciudadania</option>
-                  <option value="TI">Tarjeta de Identidad</option>
-                  <option value="CE">Cédula de Extranjeria</option>
-                  <option value="PEP">PEP</option>
-                  <option value="PPT">Permiso Protección Temporal</option>
-                </select>
-              </div>
-            </section>
+              <section className="form_group" id="group_numDoc">
+                <label htmlFor="numDoc" className="form_label_login">Número de Documento</label>
+                <div className="form_input" id="divNum">
+                  <i className="bi bi-person-circle iconsLogin"></i>
+                  <input
+                    type="text" id="numDoc" name="numDoc" autoComplete="off"
+                    placeholder="Ingrese El Número de Documento" required
+                  />
+                </div>
+                <p className="message_error">
+                  El Número No puede contener espacios ni caracteres especiales y debe contener minimo 8 caracteres
+                </p>
+              </section>
 
-            <section className="form_group" id="group_numDoc">
-              <label htmlFor="numDoc" className="form_label_login">Número de Documento</label>
-              <div className="form_input" id="divNum">
-                <i className="bi bi-person-circle iconsLogin"></i>
-                <input
-                  type="text" id="numDoc" name="numDoc" autoComplete="off"
-                  placeholder="Ingrese El Número de Documento" required
-                />
-              </div>
-              <p className="message_error">
-                El Número No puede contener espacios ni caracteres especiales y debe contener minimo 8 caracteres
-              </p>
-            </section>
+              <section className="form_group" id="group_pass">
+                <label htmlFor="pass" className="form_label_login">Contraseña</label>
+                <div className="form_input" id="divPass">
+                  <i className="bi bi-lock-fill iconsLogin"></i>
+                  <input type="password" name="pass" id="pass" placeholder="Ingrese la Contraseña" required />
+                  <i className="bi bi-eye-fill iconEye" id="viewPass" 
+                    onMouseUp={viewPassEventUp} onMouseDown={viewPassEventDown}></i>
+                </div>
+                <p className="message_error">La Contraseña debe tener minimo 8 caracteres</p>
+              </section>
 
-            <section className="form_group" id="group_pass">
-              <label htmlFor="pass" className="form_label_login">Contraseña</label>
-              <div className="form_input" id="divPass">
-                <i className="bi bi-lock-fill iconsLogin"></i>
-                <input type="password" name="pass" id="pass" placeholder="Ingrese la Contraseña" required />
-                <i className="bi bi-eye-fill iconEye" id="viewPass" 
-                  onMouseUp={viewPassEventUp} onMouseDown={viewPassEventDown}></i>
-              </div>
-              <p className="message_error">La Contraseña debe tener minimo 8 caracteres</p>
-            </section>
+              <section className="message_error" id="form_error">
+                <p>
+                  <i className="bi bi-exclamation-diamond-fill iconsLogin"></i>
+                  <b>Error: </b> Información de Usuario Invalida
+                </p>
+              </section>
 
-            <section className="message_error" id="form_error">
-              <p>
-                <i className="bi bi-exclamation-diamond-fill iconsLogin"></i>
-                <b>Error: </b> Información de Usuario Invalida
-              </p>
-            </section>
+              <section className="forget_pass">
+                <button type='button' onClick={() => document.querySelector('.modal').classList.add('modal_show')}>
+                  <i className="bi bi-key-fill"></i> Olvidé mi Contraseña
+                </button>
+              </section>
 
-            <section className="forget_pass">
-              <button onClick={() => document.querySelector('.modal').classList.add('modal_show')}>
-                <i className="bi bi-key-fill"></i> Olvidé mi Contraseña
-              </button>
-            </section>
-
-            <section className="form_btn">
-              <button type="submit" className="btn_submit">
-                Ingresar !! <i className="bi bi-caret-right-fill"></i>
-              </button>
-            </section>
-          </form>
+              <section className="form_btn">
+                <button type="submit" className="btn_submit">
+                  Ingresar !! <i className="bi bi-caret-right-fill"></i>
+                </button>
+              </section>
+            </form>
+          ) }
         </div>
       </section>
 

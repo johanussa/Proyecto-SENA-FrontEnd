@@ -2,14 +2,13 @@ import React, { useEffect, useState } from 'react';
 import nextId from 'react-id-generator';
 import { colors } from '../../components/data';
 
-function ComponentResume({ user, index, sizeShed, click = false, setEventActive, setColorSelector, setSaveUpdate, setAmbienteUp }) {
+function ComponentResume({ user, sizeShed, click = false, setEventActive, setColorSelector, setSaveUpdate, setAmbienteUp }) {
   
   const [dataUser, setDataUser] = useState();
   
   useEffect(() => {
-    if (click) setDataUser(user[index].Horario[sizeShed]);
-    else setDataUser(user.Horario[sizeShed]);
-  }, [sizeShed])
+    setDataUser(user);
+  }, [sizeShed]);
   
   const changeShedule = (color, Ambiente = false) => {
     document.querySelector('.btns_table').firstElementChild.style.display = 'none';
@@ -20,7 +19,6 @@ function ComponentResume({ user, index, sizeShed, click = false, setEventActive,
     Ambiente ? setAmbienteUp(Ambiente) : setAmbienteUp(false);
   }
   
-  if (user?.Horario && !user.Horario.length) return;
   return (
     <>
       {

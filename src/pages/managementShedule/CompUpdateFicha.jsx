@@ -1,34 +1,47 @@
-import Swal from 'sweetalert2';
 import React, { useEffect, useState } from 'react';
 import { colors, programas, competencias, aulas, resultados as resultDB } from '../../components/data';
+import { UpdateShedule } from '../../graphQL/shedules/mutationShedule';
+import { useMutation } from '@apollo/client';
+import Swal from 'sweetalert2';
+import removeTypeName from 'remove-graphql-typename'; 
 
-export const confirmChanges = async () => {
+export const confirmChanges = async (text, confirm) => {
   return await Swal.fire({
     title: 'Estas Seguro?',
-    text: "Desea guardar los cambios realizados?",
+    text: `Desea ${text}?`,
     icon: 'warning',
     showCancelButton: true,
     confirmButtonColor: '#3085d6',
     cancelButtonColor: '#d33',
-    confirmButtonText: 'Si, Guardarlo!'
+    confirmButtonText: `Si, ${confirm}!`,
   }).then((result) => result.isConfirmed );
 }
 
-function CompUpdateFicha({ user, setUser, dataDB, setDataDB, index, posShedule }) {
-
+function CompUpdateFicha({ user, setUser, instructor, posShedule }) {
+  
   let color = 0;
 
   const [formUp, setFormUp] = useState({});
-  const [textComplem, setTextComplem] = useState('');
+  const [textComplem, setTextComplem] = useState(''); 
+  const [mutUpShedule, resultsUpShedule] = useMutation(UpdateShedule);
 
   useEffect(() => {
     user?.Ficha && user.Ficha.map(({ Programa, Competencias, Resultados }, pos) => {
       changeComp(Programa, pos);
       changeTextArea(Competencias, pos);
-      changeAreaResults(Resultados, pos);
       changeResults(Resultados, pos, true);
+      changeAreaResults(Resultados, pos);
     });
-  }, [user, dataDB]);
+  }, [user]);
+
+  useEffect(() => {
+    if (resultsUpShedule.error) console.log(resultsUpShedule); // Manejo de Errores
+    if (resultsUpShedule.data) {
+      console.log(resultsUpShedule.data.updateShedule.Horario[posShedule]);
+      setUser(removeTypeName(resultsUpShedule.data.updateShedule.Horario[posShedule]));    // Pendiente !!!
+    }
+  }, [resultsUpShedule]);
+
   if (user?.Horas) {
     color = user.Horas.reduce((acum, elm) => {
       if (!elm?.Ambiente && !acum[elm.color] && Number(elm.color)) {
@@ -57,7 +70,7 @@ function CompUpdateFicha({ user, setUser, dataDB, setDataDB, index, posShedule }
   const changeResults = (comp, pos, load = false) => {
     let progra = '';
     let showResults;
-    if (formUp?.Programa) progra = formUp.Programa;
+    if (formUp?.Programa) progra = formUp.Programa.split(' ')[0];
     else progra = user.Ficha[pos].Programa.split(' ')[0];
 
     if (load) showResults = comp;
@@ -108,27 +121,27 @@ function CompUpdateFicha({ user, setUser, dataDB, setDataDB, index, posShedule }
     else setFormUp(prev => ({ ...prev, [e.target.id]: e.target.value }));
   }
   const saveDataFicha = async pos => {
-    if (await confirmChanges()) {
-      setDataDB(prev => {
-        formUp.Ambiente && prev[index].Horario[posShedule].Horas.forEach(e => {
-          if (e.color === user.Ficha[pos].Color) e.Ambiente = formUp.Ambiente;
-        });
-        prev[index].Horario[posShedule].Ficha[pos] = { ...user.Ficha[pos], ...formUp };
-        return [...prev];
+    if (await confirmChanges('guardar los cambios realizados', 'Guardarlo')) {
+      formUp.Ambiente && instructor.Horario[posShedule].Horas.forEach(e => {
+        if (e.color === String(user.Ficha[pos].Color)) e.Ambiente = formUp.Ambiente;
       });
-      setUser(JSON.parse(JSON.stringify(dataDB[index].Horario[posShedule])));
+      instructor.Horario[posShedule].Ficha[pos] = { ...user.Ficha[pos], ...formUp };
+      mutUpShedule({ variables: {
+        id: instructor._id,
+        horario: [...instructor.Horario]
+      }});
       setFormUp({});
       Swal.fire('Almacenado!', 'Los cambios en la Ficha han sido guardados.', 'success');
     }
   }
   const saveComplem = async pos => {
-    if (await confirmChanges()) {
+    if (await confirmChanges('guardar los cambios realizados', 'Guardarlo')) {
       if (textComplem) {
-        setDataDB(prev => {
-          prev[index].Horario[posShedule].Complementaria[pos] = textComplem;
-          return [...prev];
-        });
-        setUser(JSON.parse(JSON.stringify(dataDB[index].Horario[posShedule])));
+        instructor.Horario[posShedule].Complementaria[pos] = textComplem;
+        mutUpShedule({ variables: {
+          id: instructor._id,
+          horario: [...instructor.Horario]
+        }});
         setTextComplem('');
         Swal.fire('Almacenado!', 'Los cambios en Formación Complementaria han sido guardados.', 'success');
       }
@@ -143,7 +156,7 @@ function CompUpdateFicha({ user, setUser, dataDB, setDataDB, index, posShedule }
       {
         user.Ficha.map((e, pos) => {
           return (
-            <form className={'color_' + [colors[e.Color]]} key={e.Num_Ficha} >
+            <form className={'color_' + [colors[e.Color]]} key={e.Num_Ficha + pos} >
               <section>
                 <label htmlFor="Num_Ficha">Número de Ficha:</label>
                 <input type="number" id="Num_Ficha" placeholder={e.Num_Ficha} onChange={changeData} />

@@ -1,11 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './css/styleUserRegister.css';
+import { useMutation } from '@apollo/client';
+import { CreateUser } from '../../graphQL/users/mutationUser';
+import { confirmChanges } from '../managementShedule/CompUpdateFicha';
 import senaLogo from '../../assets/Sena_logo.png';
 import logoSANF from '../../assets/logoSANF2.png';
+import './css/styleUserRegister.css';
+import Swal from 'sweetalert2';
+
+const states = {
+  name: false,
+  lastName: false,
+  numDoc: false,
+  email: false,
+  password: false,
+  password2: false
+}
 
 function UserRegisterPage() {
 
+  const [formRegister, setFormRegister] = useState({});
+  const [addUser] = useMutation(CreateUser);
+  
   const expresiones = {
     name: /^[a-zA-ZÁ-ÿ\s]{3,35}$/, 
     lastName: /^[a-zA-ZÁ-ÿ\s]{3,35}$/, 
@@ -13,17 +29,22 @@ function UserRegisterPage() {
     email: /^\w+@(misena|soy\.sena)\.edu\.co$/,
     password: /^.{8,20}$/     
   }
-  const states = {
-    name: false,
-    lastName: false,
-    numDoc: false,
-    email: false,
-    password: false,
-    password2: false
+  const addData = (name, valor) => {
+    const options = {
+      name: () => setFormRegister( prev => ({ ...prev, ['nombre']: valor }) ),
+      lastName: () => setFormRegister( prev => ({ ...prev, ['apellido']: valor }) ),
+      numDoc: () => setFormRegister( prev => ({ ...prev, ['numDocumento']: valor }) ),
+      typeDoc: () => setFormRegister( prev => ({ ...prev, ['tipoDocumento']: valor }) ),
+      password2: () => setFormRegister( prev => ({ ...prev, ['password']: valor }) ),
+      email: () => setFormRegister( prev => ({ ...prev, ['email']: valor }) ),
+      rol: () => setFormRegister( prev => ({ ...prev, ['rol']: valor }) )
+    }
+    if (options[name]) { options[name](); }
   }
   const inputForm = e => {
     let name = e.target.name;
     let valor = e.target.value;
+    addData(name, valor);
 
     const options = {
       name: () => validarData('name', valor),
@@ -38,7 +59,7 @@ function UserRegisterPage() {
     }
     if (options[name]) { options[name](); }
   };
-  const submitForm = e => {
+  const submitForm = async e => {
     e.preventDefault();
 
     if (Object.values(states).some(e => e === false)) {
@@ -51,15 +72,20 @@ function UserRegisterPage() {
         document.querySelector('#message_error').style.boxShadow = 'none';
       }, 500);
     } else {
-      document.querySelector('#message_error').style.display = 'none';
-      document.querySelector('#form_message_ok').style.display = 'block';
-      document.querySelectorAll('.form_correct').forEach(e => {
-        e.classList.remove('form_correct');
-      });
-      e.target.reset();
-      setTimeout(() => {
-        document.querySelector('#form_message_ok').style.display = 'none';
-      }, 4000);
+      if (await confirmChanges('Almacenar esta Informacón', 'Enviar')) {
+        addUser({ variables: { ...formRegister } });
+        Swal.fire('Almacenado!', 
+          `El Usuario ${formRegister.nombre} ${formRegister.apellido} Ha sido Creado`, 'success');
+        document.querySelector('#message_error').style.display = 'none';
+        document.querySelector('#form_message_ok').style.display = 'block';
+        document.querySelectorAll('.form_correct').forEach(e => {
+          e.classList.remove('form_correct');
+        });
+        e.target.reset();
+        setTimeout(() => {
+          document.querySelector('#form_message_ok').style.display = 'none';
+        }, 4000);
+      }
     }
   };
   const validarData = (name, valor) => {
@@ -127,7 +153,7 @@ function UserRegisterPage() {
             <img src={senaLogo} alt="SENA" id="logoMedia" />
             <h1>Formulario de Registro - Usuarios Nuevos</h1>
           </header>
-          <form id="form-register-user" onInput={inputForm} onSubmit={submitForm}>
+          <form id="form-register-user" onChange={inputForm} onSubmit={submitForm}>
             <section id="group_name">
               <label htmlFor="name" className="form_label">Nombre</label>
               <div className="group_input">
@@ -163,11 +189,11 @@ function UserRegisterPage() {
               <div className="group_input">
                 <select name="typeDoc" defaultValue={''} id="typeDoc" className="form_input" required>
                   <option value="" disabled>Seleccionar . . .</option>
-                  <option value="CC">Cédula de Ciudadania</option>
-                  <option value="TI">Tarjeta de Identidad</option>
-                  <option value="CE">Cédula de Extranjeria</option>
+                  <option value="CEDULA_DE_CIUDADANIA">Cédula de Ciudadania</option>
+                  <option value="TARJETA_DE_IDENTIDAD">Tarjeta de Identidad</option>
+                  <option value="CEDULA_DE_EXTRANJERIA">Cédula de Extranjeria</option>
                   <option value="PEP">PEP</option>
-                  <option value="PPT">Permiso Protección Temporal</option>
+                  <option value="PERMISO_DE_PROTECCION_TEMPORAL">Permiso Protección Temporal</option>
                 </select>
               </div>
             </section>
@@ -236,9 +262,9 @@ function UserRegisterPage() {
               <div className="group_input">
                 <select name="rol" id="rol" defaultValue={''} className="form_input" required>
                   <option value="" disabled>Seleccionar . . .</option>
-                  <option value="Administrador">Administrador</option>
-                  <option value="Instructor">Instructor</option>
-                  <option value="Funcionario">Funcionario</option>
+                  <option value="ADMINISTRADOR">Administrador</option>
+                  <option value="INSTRUCTOR">Instructor</option>
+                  <option value="FUNCIONARIO">Funcionario</option>
                 </select>
               </div>
             </section>

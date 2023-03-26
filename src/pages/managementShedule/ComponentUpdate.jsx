@@ -1,18 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import CompUpdateFicha from './CompUpdateFicha';
+import { useMutation } from '@apollo/client';
+import { UpdateShedule } from '../../graphQL/shedules/mutationShedule';
+import ComponentResume from './ComponentResume';
 
-function ComponentUpdate({ dataDB, setDataDB, index }) {
-
+function ComponentUpdate({ instructor, sizeShed, click = false, setEventActive, setColorSelector, setSaveUpdate, setAmbienteUp }) {
   const [user, setUser] = useState({});
   const [dateStart, setDateStart] = useState('');
   const [dateEnd, setDateEnd] = useState('');
 
-  let posShedule = dataDB[index].Horario.length - 1;
+  const [mutUpShedule, resultsUpShedule] = useMutation(UpdateShedule);
+
+  let posShedule = instructor.Horario.length - 1;
 
   useEffect(() => {
-    if (dataDB[index].Horario.length)
-      setUser(JSON.parse(JSON.stringify(dataDB[index].Horario[posShedule])));
+    if (instructor.Horario.length)
+      setUser(instructor.Horario[posShedule]);
   }, []);
+
+  useEffect(() => {
+    if (resultsUpShedule.error) console.log(resultsUpShedule) 
+    if (resultsUpShedule.data) {
+      setUser(resultsUpShedule.data.updateShedule.Horario[posShedule]); // Confirmar cambio de fecha
+    }  
+  }, [resultsUpShedule]);
 
   const formatDate = date => {
     if (!date) return;
@@ -21,26 +32,24 @@ function ComponentUpdate({ dataDB, setDataDB, index }) {
     return Intl.DateTimeFormat('CO', { dateStyle: 'full' }).format(date);
   }
   const updateDates = () => {
-    if (dateStart) {
-      setDataDB(prev => {
-        prev[index].Horario[posShedule].FechaInicio = dateStart;
-        return [...prev];
-      });
-      setDateStart('');
+    if (dateStart || dateEnd) {
+      if (dateStart) {
+        instructor.Horario[posShedule].FechaInicio = dateStart;
+        setDateStart('');
+      }
+      if (dateEnd) {
+        instructor.Horario[posShedule].FechaFin = dateEnd;
+        setDateEnd('');
+      }
+      mutUpShedule({ variables: {
+        id: instructor._id,
+        horario: [...instructor.Horario]
+      }});
     }
-    if (dateEnd) {
-      dataDB[index].Horario[posShedule].FechaFin = dateEnd;
-      setDataDB(prev => {
-        prev[index].Horario[posShedule].FechaFin = dateEnd;
-        return [...prev];
-      });
-      setDateEnd('');
-    }
-    setUser(dataDB[index].Horario[posShedule]);
   }
 
-  if (!dataDB[index].Horario.length) {
-    const nameUser = `${dataDB[index].Nombre} ${dataDB[index].Apellido}`
+  if (!instructor.Horario.length) {
+    const nameUser = `${instructor.Instructor.Nombre} ${instructor.Instructor.Apellido}`
     return <h3>El Instructor {nameUser} Aun No tiene Horarios Asignados </h3>
   }
   return (
@@ -62,7 +71,12 @@ function ComponentUpdate({ dataDB, setDataDB, index }) {
           <button className='btn_update_date' onClick={updateDates}>Actualizar Fecha</button>
         </section>
       </section>
-      <CompUpdateFicha user={user} setUser={setUser} dataDB={dataDB} setDataDB={setDataDB} index={index} posShedule={posShedule} />
+      {/* <CompUpdateFicha user={user} setUser={setUser} dataDB={dataDB} setDataDB={setDataDB} index={index} posShedule={posShedule} /> */}
+      {user?.Horas && <CompUpdateFicha user={user} setUser={setUser} instructor={instructor} posShedule={posShedule} />}
+      <section className='sec_resume_update'>
+        { user?.Horas && <ComponentResume user={user} sizeShed={sizeShed} click={true} setEventActive={setEventActive} 
+          setColorSelector={setColorSelector} setSaveUpdate={setSaveUpdate} setAmbienteUp={setAmbienteUp} /> }
+      </section>
     </>
   )
 }
